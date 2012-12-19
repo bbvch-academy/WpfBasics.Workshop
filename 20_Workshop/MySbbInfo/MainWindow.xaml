@@ -1,0 +1,36 @@
+﻿<Window x:Class="MySbbInfo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+        </Grid.Resources>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label Content="Von" />
+        <Label Content="Nach" Grid.Row="1" />
+
+        <TextBox x:Name="txtFrom" Text="Bern" Grid.Column="1" />
+        <TextBox x:Name="txtTo" Text="Luzern" Grid.Row="1" Grid.Column="1" />
+
+        <Button Content="Verbindung suchen" Grid.Row="2" Grid.Column="1" Margin="0, 10" Height="30" Click="SearchConnectionsClick" />
+        
+        <ListView x:Name="resultList" Grid.Row="3" Grid.ColumnSpan="2" />
+    </Grid>
+</Window>
