@@ -2,8 +2,7 @@
 {
     public class Service
     {
-        public string Irregular { get; set; }
-
         public string Regular { get; set; }
+        public string Irregular { get; set; }
     }
 }

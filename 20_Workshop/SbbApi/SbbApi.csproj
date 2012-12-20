@@ -50,22 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiClasses\Checkpoint.cs" />
     <Compile Include="ApiClasses\Connection.cs" />
-    <Compile Include="ConnectionRequest.cs" />
-    <Compile Include="ConnectionResponse.cs" />
     <Compile Include="ApiClasses\Coordinate.cs" />
-    <Compile Include="ApiClasses\Location.cs" />
-    <Compile Include="LocationRequest.cs" />
-    <Compile Include="LocationResponse.cs" />
+    <Compile Include="ApiClasses\Journey.cs" />
     <Compile Include="ApiClasses\Prognosis.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ApiClasses\Section.cs" />
     <Compile Include="ApiClasses\Service.cs" />
+    <Compile Include="ApiClasses\Station.cs" />
+    <Compile Include="ApiClasses\Stationboard.cs" />
+    <Compile Include="ApiClasses\Stations.cs" />
+    <Compile Include="ApiClasses\StopBase.cs" />
+    <Compile Include="ApiClasses\Walk.cs" />
+    <Compile Include="ConnectionRequest.cs" />
+    <Compile Include="ConnectionResponse.cs" />
+    <Compile Include="LocationRequest.cs" />
+    <Compile Include="LocationResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationExtensions.cs" />
     <Compile Include="StationBoardRequest.cs" />
     <Compile Include="StationBoardResponse.cs" />
-    <Compile Include="ApiClasses\Stop.cs" />
     <Compile Include="TransportApi.cs" />
   </ItemGroup>
   <ItemGroup>

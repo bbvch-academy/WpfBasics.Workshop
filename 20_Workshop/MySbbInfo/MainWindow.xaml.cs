@@ -1,5 +1,8 @@
 ﻿namespace MySbbInfo
 {
+    using System.Text;
+    using System.Windows;
+
     using SbbApi;
 
     using System.Linq;
@@ -35,6 +38,27 @@
                     connection.Duration);
 
                 this.resultList.Items.Add(formatted);
+            }
+        }
+
+        private void LoadStationboardClick(object sender, RoutedEventArgs e)
+        {
+            var strb = new StringBuilder();
+
+            var stationboard = this.transportApi.GetStationBoard(this.txtStation.Text);
+            foreach (var stop in stationboard)
+            {
+                var part1 = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
+                strb.Append(part1);
+
+                if (!string.IsNullOrEmpty(stop.Stop.Delay))
+                {
+                    var part2 = string.Format(", Verspätung: {0}", stop.Stop.Delay);
+                    strb.Append(part2);
+                }
+
+                this.stationBoardResult.Items.Add(strb.ToString());
+                strb.Clear();
             }
         }
     }

@@ -6,6 +6,6 @@
 
     public class LocationResponse
     {
-        public List<Location> Stations { get; set; }
+        public List<Station> Stations { get; set; }
     }
 }

@@ -4,22 +4,14 @@
 
     public class Connection
     {
-        public int? Capacity1St { get; set; }
-
-        public int? Capacity2Nd { get; set; }
-
+        public StopDeparture From { get; set; }
+        public StopArrival To { get; set; }
         public TimeSpan? Duration { get; set; }
-
-        public Checkpoint From { get; set; }
-
-        public string[] Products { get; set; }
-
-        public Section[] Sections { get; set; }
-
+        public int? Transfers { get; set; }
         public Service Service { get; set; }
-
-        public Checkpoint To { get; set; }
-
-        public int Transfers { get; set; }
+        public string[] Products { get; set; }
+        public int? Capacity1st { get; set; }
+        public int? Capacity2nd { get; set; }
+        public Section[] Sections { get; set; }
     }
 }

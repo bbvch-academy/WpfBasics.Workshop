@@ -6,6 +6,6 @@
 
     public class StationBoardResponse
     {
-        public List<Stop> Stationboard { get; set; }
+        public List<Stationboard> Stationboard { get; set; }
     }
 }
