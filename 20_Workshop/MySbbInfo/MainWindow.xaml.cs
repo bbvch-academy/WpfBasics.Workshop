@@ -48,17 +48,27 @@
             var stationboard = this.transportApi.GetStationBoard(this.txtStation.Text);
             foreach (var stop in stationboard)
             {
-                var part1 = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
-                strb.Append(part1);
+                var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
+                strb.Append(part);
 
                 if (!string.IsNullOrEmpty(stop.Stop.Delay))
                 {
-                    var part2 = string.Format(", Verspätung: {0}", stop.Stop.Delay);
-                    strb.Append(part2);
+                    part = string.Format(", Verspätung: {0}", stop.Stop.Delay);
+                    strb.Append(part);
                 }
 
                 this.stationBoardResult.Items.Add(strb.ToString());
                 strb.Clear();
+            }
+        }
+
+        private void SearchStationClick(object sender, RoutedEventArgs e)
+        {
+            var locations = this.transportApi.GetLocations(this.txtStationQuery.Text);
+
+            foreach (var location in locations)
+            {
+                this.stationResult.Items.Add(location.Name);
             }
         }
     }

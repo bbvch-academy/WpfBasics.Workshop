@@ -65,5 +65,34 @@
                 <ListView x:Name="stationBoardResult" Grid.Row="2" Grid.ColumnSpan="2" />
             </Grid>
         </TabItem>
+        <TabItem Header="Stations-Namen">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Suche" />
+
+                <TextBox x:Name="txtStationQuery" Text="Bern" Grid.Column="1" />
+                <Button Content="Station suchen" Grid.Row="1" Grid.Column="1" Margin="0, 10" Height="30" Click="SearchStationClick" />
+
+                <ListView x:Name="stationResult" Grid.Row="2" Grid.ColumnSpan="2" />
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>
