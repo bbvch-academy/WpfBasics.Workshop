@@ -63,6 +63,7 @@
     <Compile Include="ApiClasses\Walk.cs" />
     <Compile Include="ConnectionRequest.cs" />
     <Compile Include="ConnectionResponse.cs" />
+    <Compile Include="ITransportApi.cs" />
     <Compile Include="LocationRequest.cs" />
     <Compile Include="LocationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
