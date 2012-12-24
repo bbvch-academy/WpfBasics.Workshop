@@ -29,21 +29,21 @@ namespace MySbbInfo
     /// </summary>
     public partial class TimeTableControl : UserControl
     {
-        private ITransportApi transportApi;
+        private ITransportService transportService;
 
         public TimeTableControl()
         {
             this.InitializeComponent();
         }
 
-        public void Initialize(ITransportApi transportApi)
+        public void Initialize(ITransportService transportService)
         {
-            this.transportApi = transportApi;
+            this.transportService = transportService;
         }
 
         private void SearchConnectionsClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            IEnumerable<Connection> connections = this.transportApi.GetConnections(this.txtFrom.Text, this.txtTo.Text);
+            IEnumerable<Connection> connections = this.transportService.GetConnections(this.txtFrom.Text, this.txtTo.Text);
 
             ConnectionsGrid.ItemsSource = connections;
         }

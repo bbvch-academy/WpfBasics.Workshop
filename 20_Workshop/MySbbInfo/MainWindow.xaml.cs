@@ -32,11 +32,11 @@ namespace MySbbInfo
 
         private void Window_Loaded_1(object sender, System.Windows.RoutedEventArgs e)
         {
-            var transportApi = new TransportApi();
+            var transportService = new TransportService();
 
-            this.TimeTable.Initialize(transportApi);
-            this.Station.Initialize(transportApi);
-            this.SearchStation.Initialize(transportApi);
+            this.TimeTable.Initialize(transportService);
+            this.Station.Initialize(transportService);
+            this.SearchStation.Initialize(transportService);
         }
     }
 }

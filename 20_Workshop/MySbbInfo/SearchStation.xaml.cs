@@ -30,21 +30,21 @@ namespace MySbbInfo
     /// </summary>
     public partial class SearchStation : UserControl
     {
-        private ITransportApi transportApi;
+        private ITransportService transportService;
 
         public SearchStation()
         {
             this.InitializeComponent();
         }
 
-        public void Initialize(ITransportApi transportApi)
+        public void Initialize(ITransportService transportService)
         {
-            this.transportApi = transportApi;
+            this.transportService = transportService;
         }
 
         private void SearchStationClick(object sender, RoutedEventArgs e)
         {
-            IEnumerable<Station> locations = this.transportApi.GetLocations(this.txtStationQuery.Text);
+            IEnumerable<Station> locations = this.transportService.GetLocations(this.txtStationQuery.Text);
 
             this.stationResult.Items.Clear();
 

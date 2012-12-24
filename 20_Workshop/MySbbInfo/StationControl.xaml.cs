@@ -31,16 +31,16 @@ namespace MySbbInfo
     /// </summary>
     public partial class StationControl : UserControl
     {
-        private ITransportApi transportApi;
+        private ITransportService transportService;
 
         public StationControl()
         {
             this.InitializeComponent();
         }
 
-        public void Initialize(ITransportApi transportApi)
+        public void Initialize(ITransportService transportService)
         {
-            this.transportApi = transportApi;
+            this.transportService = transportService;
         }
 
         private void LoadStationboardClick(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace MySbbInfo
 
             this.stationBoardResult.Items.Clear();
 
-            IEnumerable<Stationboard> stationboard = this.transportApi.GetStationBoard(this.txtStation.Text);
+            IEnumerable<Stationboard> stationboard = this.transportService.GetStationBoard(this.txtStation.Text);
             foreach (var stop in stationboard)
             {
                 var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);

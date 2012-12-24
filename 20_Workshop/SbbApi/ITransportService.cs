@@ -22,7 +22,7 @@ namespace SbbApi
 
     using SbbApi.ApiClasses;
 
-    public interface ITransportApi
+    public interface ITransportService
     {
         IEnumerable<Connection> GetConnections(string from, string to);
 

@@ -63,14 +63,14 @@
     <Compile Include="ApiClasses\Walk.cs" />
     <Compile Include="ConnectionRequest.cs" />
     <Compile Include="ConnectionResponse.cs" />
-    <Compile Include="ITransportApi.cs" />
+    <Compile Include="ITransportService.cs" />
     <Compile Include="LocationRequest.cs" />
     <Compile Include="LocationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationExtensions.cs" />
     <Compile Include="StationBoardRequest.cs" />
     <Compile Include="StationBoardResponse.cs" />
-    <Compile Include="TransportApi.cs" />
+    <Compile Include="TransportService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

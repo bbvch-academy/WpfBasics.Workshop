@@ -22,11 +22,11 @@ namespace SbbApi
     using SbbApi.ApiClasses;
     using ServiceStack.ServiceClient.Web;
 
-    public class TransportApi : ITransportApi
+    public class TransportService : ITransportService
     {
         private readonly JsonServiceClient serviceClient;
 
-        public TransportApi()
+        public TransportService()
         {
             SerializationExtensions.RegisterAdditionalSerializers();
 
@@ -35,7 +35,7 @@ namespace SbbApi
 
         public IEnumerable<Connection> GetConnections(string from, string to)
         {
-            var connectionResponse = this.serviceClient.Get(new ConnectionRequest { From = @from, To = to, Limit = 2 });
+            var connectionResponse = this.serviceClient.Get(new ConnectionRequest { From = @from, To = to, Limit = 5 });
             return connectionResponse.Connections;
         }
 
