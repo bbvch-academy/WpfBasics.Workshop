@@ -10,47 +10,7 @@
             <local:TimeTableControl x:Name="TimeTable" />
         </TabItem>
         <TabItem Header="Station">
-            <Grid>
-                <Grid.Resources>
-                    <Style TargetType="{x:Type Label}">
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="FontSize" Value="12" />
-                    </Style>
-                </Grid.Resources>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="26*" />
-                    <ColumnDefinition Width="56*" />
-                    <ColumnDefinition Width="11*" />
-                    <ColumnDefinition Width="363*" />
-                </Grid.ColumnDefinitions>
-
-                <Label Content="Station" />
-
-                <TextBox x:Name="txtStation"
-                         Grid.Column="1"
-                         Grid.ColumnSpan="4"
-                         Text="Bern" />
-                <Button Grid.Row="1"
-                        Grid.Column="1"
-                        Grid.ColumnSpan="4"
-                        Height="30"
-                        Margin="0, 10"
-                        Click="LoadStationboardClick"
-                        Content="Stations-Fahrplan laden" />
-
-                <ListView x:Name="stationBoardResult"
-                          Grid.Row="2"
-                          Grid.ColumnSpan="5" />
-            </Grid>
+            <local:StationControl x:Name="Station" />
         </TabItem>
         <TabItem Margin="-2,-2,-2,-1" Header="Stations-Namen">
             <Grid>

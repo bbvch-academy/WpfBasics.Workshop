@@ -37,28 +37,9 @@ namespace MySbbInfo
             InitializeComponent();
 
             this.transportApi = new TransportApi();
+
             this.TimeTable.Initialize(this.transportApi);
-        }
-
-        private void LoadStationboardClick(object sender, RoutedEventArgs e)
-        {
-            var strb = new StringBuilder();
-
-            IEnumerable<Stationboard> stationboard = this.transportApi.GetStationBoard(this.txtStation.Text);
-            foreach (var stop in stationboard)
-            {
-                var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
-                strb.Append(part);
-
-                if (!string.IsNullOrEmpty(stop.Stop.Delay))
-                {
-                    part = string.Format(", Verspätung: {0}", stop.Stop.Delay);
-                    strb.Append(part);
-                }
-
-                this.stationBoardResult.Items.Add(strb.ToString());
-                strb.Clear();
-            }
+            this.Station.Initialize(this.transportApi);
         }
 
         private void SearchStationClick(object sender, RoutedEventArgs e)
