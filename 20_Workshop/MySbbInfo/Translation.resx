@@ -153,6 +153,9 @@
   <data name="Station" xml:space="preserve">
     <value>Station</value>
   </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
   <data name="TimeTable" xml:space="preserve">
     <value>Time Table</value>
   </data>

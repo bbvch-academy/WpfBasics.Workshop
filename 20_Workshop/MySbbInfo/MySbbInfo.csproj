@@ -51,8 +51,14 @@
     <Reference Include="WPFLocalizeExtension">
       <HintPath>..\packages\WpfLocalizeExtension.2.1.2\lib\net35\WPFLocalizeExtension.dll</HintPath>
     </Reference>
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="XAMLMarkupExtensions">
       <HintPath>..\packages\XAMLMarkupExtensions.1.1.5\lib\net40\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -18,13 +18,14 @@
 
 namespace SbbApi
 {
+    using System;
     using System.Collections.Generic;
 
     using SbbApi.ApiClasses;
 
     public interface ITransportService
     {
-        IEnumerable<Connection> GetConnections(string from, string to);
+        IEnumerable<Connection> GetConnections(string from, string to, DateTime departureTime);
 
         IEnumerable<Stationboard> GetStationBoard(string station);
 

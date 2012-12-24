@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:MySbbInfo"
         Title="MainWindow"
         Width="535"
-        Height="350"
+        Height="360"
         Loaded="Window_Loaded_1"
         lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
         lex:ResxLocalizationProvider.DefaultDictionary="Translation">

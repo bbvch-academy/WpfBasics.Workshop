@@ -18,6 +18,7 @@
 
 namespace SbbApi
 {
+    using System;
     using System.Collections.Generic;
     using SbbApi.ApiClasses;
     using ServiceStack.ServiceClient.Web;
@@ -33,9 +34,11 @@ namespace SbbApi
             this.serviceClient = new JsonServiceClient("http://transport.opendata.ch/v1/");
         }
 
-        public IEnumerable<Connection> GetConnections(string from, string to)
+        public IEnumerable<Connection> GetConnections(string from, string to, DateTime departureTime)
         {
-            var connectionResponse = this.serviceClient.Get(new ConnectionRequest { From = @from, To = to, Limit = 5 });
+            var connectionRequest = new ConnectionRequest { From = @from, To = to, Limit = 5, DateTime = departureTime };
+            var connectionResponse = this.serviceClient.Get(connectionRequest);
+            
             return connectionResponse.Connections;
         }
 
