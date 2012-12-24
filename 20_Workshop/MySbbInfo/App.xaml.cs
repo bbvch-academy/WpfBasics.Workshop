@@ -18,12 +18,25 @@
 
 namespace MySbbInfo
 {
+    using System.Globalization;
+    using System.Threading;
     using System.Windows;
+
+    using WPFLocalizeExtension.Engine;
 
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            var defaultCulture = new CultureInfo(ChangeUiLanguageCommand.SwissGermanLcid);
+
+            Thread.CurrentThread.CurrentUICulture = defaultCulture;
+            Thread.CurrentThread.CurrentCulture = defaultCulture;
+
+            LocalizeDictionary.Instance.Culture = defaultCulture;
+        }
     }
 }

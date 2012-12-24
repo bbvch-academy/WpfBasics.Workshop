@@ -1,6 +1,23 @@
-﻿using System.Reflection;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="bbv Software Services AG">
+//   Copyright (c) 2012
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//   http://www.apache.org/licenses/LICENSE-2.0
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+// </copyright>
+// <summary>
+//   AssemblyInfo.cs
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+using System.Reflection;
 using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -12,7 +29,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MySbbInfo")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © bbv Software Services AG 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,15 +38,13 @@ using System.Windows;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-//In order to begin building localizable applications, set 
-//<UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file
-//inside a <PropertyGroup>.  For example, if you are using US english
-//in your source files, set the <UICulture> to en-US.  Then uncomment
-//the NeutralResourceLanguage attribute below.  Update the "en-US" in
-//the line below to match the UICulture setting in the project file.
-
-//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
-
+// In order to begin building localizable applications, set 
+// <UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file
+// inside a <PropertyGroup>.  For example, if you are using US english
+// in your source files, set the <UICulture> to en-US.  Then uncomment
+// the NeutralResourceLanguage attribute below.  Update the "en-US" in
+// the line below to match the UICulture setting in the project file.
+// [assembly: NeutralResourcesLanguage("de-CH", UltimateResourceFallbackLocation.Satellite)]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
