@@ -18,10 +18,11 @@
 
 namespace MySbbInfo
 {
-    using System.Linq;
+    using System.Collections.Generic;
     using System.Windows.Controls;
 
     using SbbApi;
+    using SbbApi.ApiClasses;
 
     /// <summary>
     /// Interaction logic for TimeTableControl.xaml
@@ -32,7 +33,7 @@ namespace MySbbInfo
 
         public TimeTableControl()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public void Initialize(ITransportApi transportApi)
@@ -42,23 +43,9 @@ namespace MySbbInfo
 
         private void SearchConnectionsClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            var connections = this.transportApi.GetConnections(this.txtFrom.Text, this.txtTo.Text);
+            IEnumerable<Connection> connections = this.transportApi.GetConnections(this.txtFrom.Text, this.txtTo.Text);
 
-            foreach (var connection in connections)
-            {
-                var from = connection.Sections.First();
-                var to = connection.Sections.Last();
-
-                var formatted = string.Format(
-                    "Abfahrt: {0:HH:mm} Gleis: {1}, Ankunft: {2:HH:mm} auf: Gleis {3}, Dauer: {4:d'.'hh':'mm':'ss}",
-                    from.Departure.Departure,
-                    from.Departure.Platform,
-                    to.Arrival.Arrival,
-                    to.Arrival.Platform,
-                    connection.Duration);
-
-                this.resultList.Items.Add(formatted);
-            }
+            ConnectionsGrid.ItemsSource = connections;
         }
     }
 }

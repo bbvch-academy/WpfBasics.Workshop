@@ -45,8 +45,19 @@
                 Click="SearchConnectionsClick"
                 Content="Verbindung suchen" />
 
-        <ListView x:Name="resultList"
+        <DataGrid x:Name="ConnectionsGrid"
                   Grid.Row="3"
-                  Grid.ColumnSpan="2" />
+                  Grid.ColumnSpan="2"
+                  Margin="0,2,0,-2"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=From.Station.Name}" Header="Start" />
+                <DataGridTextColumn Binding="{Binding Path=From.Departure, StringFormat=dd.MM.yy HH:mm}" />
+                <DataGridTextColumn Binding="{Binding Path=To.Station.Name}" Header="Ziel" />
+                <DataGridTextColumn Binding="{Binding Path=To.Arrival, StringFormat=dd.MM.yy HH:mm}" />
+                <DataGridTextColumn Binding="{Binding Path=Duration, StringFormat=hh\\:mm}" Header="Dauer" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

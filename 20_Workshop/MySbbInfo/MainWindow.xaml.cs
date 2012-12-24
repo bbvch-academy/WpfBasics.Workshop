@@ -18,10 +18,12 @@
 
 namespace MySbbInfo
 {
+    using System.Collections.Generic;
     using System.Text;
     using System.Windows;
 
     using SbbApi;
+    using SbbApi.ApiClasses;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -42,7 +44,7 @@ namespace MySbbInfo
         {
             var strb = new StringBuilder();
 
-            var stationboard = this.transportApi.GetStationBoard(this.txtStation.Text);
+            IEnumerable<Stationboard> stationboard = this.transportApi.GetStationBoard(this.txtStation.Text);
             foreach (var stop in stationboard)
             {
                 var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
@@ -61,7 +63,7 @@ namespace MySbbInfo
 
         private void SearchStationClick(object sender, RoutedEventArgs e)
         {
-            var locations = this.transportApi.GetLocations(this.txtStationQuery.Text);
+            IEnumerable<Station> locations = this.transportApi.GetLocations(this.txtStationQuery.Text);
 
             foreach (var location in locations)
             {
