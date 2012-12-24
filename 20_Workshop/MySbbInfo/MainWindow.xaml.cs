@@ -33,7 +33,9 @@ namespace MySbbInfo
         public MainWindow()
         {
             InitializeComponent();
+
             this.transportApi = new TransportApi();
+            this.TimeTable.Initialize(this.transportApi);
         }
 
         private void LoadStationboardClick(object sender, RoutedEventArgs e)

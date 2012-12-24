@@ -7,7 +7,7 @@
         Height="350">
     <TabControl>
         <TabItem Header="Fahrplan">
-            <local:TimeTableControl />
+            <local:TimeTableControl x:Name="TimeTable" />
         </TabItem>
         <TabItem Header="Station">
             <Grid>
