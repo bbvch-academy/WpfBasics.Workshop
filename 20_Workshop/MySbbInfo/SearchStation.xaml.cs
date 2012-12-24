@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="bbv Software Services AG">
+// <copyright file="SearchStation.xaml.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,31 +12,46 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for MainWindow.xaml
+//   Interaction logic for SearchStation.xaml
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo
 {
+    using System.Collections.Generic;
+    using System.Windows;
+    using System.Windows.Controls;
+
     using SbbApi;
+    using SbbApi.ApiClasses;
 
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SearchStation.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class SearchStation : UserControl
     {
-        public MainWindow()
+        private ITransportApi transportApi;
+
+        public SearchStation()
         {
             this.InitializeComponent();
         }
 
-        private void Window_Loaded_1(object sender, System.Windows.RoutedEventArgs e)
+        public void Initialize(ITransportApi transportApi)
         {
-            var transportApi = new TransportApi();
+            this.transportApi = transportApi;
+        }
 
-            this.TimeTable.Initialize(transportApi);
-            this.Station.Initialize(transportApi);
-            this.SearchStation.Initialize(transportApi);
+        private void SearchStationClick(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Station> locations = this.transportApi.GetLocations(this.txtStationQuery.Text);
+
+            this.stationResult.Items.Clear();
+
+            foreach (var location in locations)
+            {
+                this.stationResult.Items.Add(location.Name);
+            }
         }
     }
 }

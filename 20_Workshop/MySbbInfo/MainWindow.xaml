@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:MySbbInfo"
         Title="MainWindow"
         Width="525"
-        Height="350">
+        Height="350" Loaded="Window_Loaded_1">
     <TabControl>
         <TabItem Header="Fahrplan">
             <local:TimeTableControl x:Name="TimeTable" />
@@ -12,43 +12,8 @@
         <TabItem Header="Station">
             <local:StationControl x:Name="Station" />
         </TabItem>
-        <TabItem Margin="-2,-2,-2,-1" Header="Stations-Namen">
-            <Grid>
-                <Grid.Resources>
-                    <Style TargetType="{x:Type Label}">
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="FontSize" Value="12" />
-                    </Style>
-                </Grid.Resources>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Label Content="Suche" />
-
-                <TextBox x:Name="txtStationQuery"
-                         Grid.Column="1"
-                         Text="Bern" />
-                <Button Grid.Row="1"
-                        Grid.Column="1"
-                        Height="30"
-                        Margin="0, 10"
-                        Click="SearchStationClick"
-                        Content="Station suchen" />
-
-                <ListView x:Name="stationResult"
-                          Grid.Row="2"
-                          Grid.ColumnSpan="2" />
-            </Grid>
+        <TabItem Header="Station suchen">
+            <local:SearchStation x:Name="SearchStation" />
         </TabItem>
     </TabControl>
 </Window>

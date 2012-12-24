@@ -50,6 +50,7 @@
                   Grid.ColumnSpan="2"
                   Margin="0,2,0,-2"
                   AutoGenerateColumns="False"
+                  CanUserReorderColumns="False"
                   IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=From.Station.Name}" Header="Start" />
