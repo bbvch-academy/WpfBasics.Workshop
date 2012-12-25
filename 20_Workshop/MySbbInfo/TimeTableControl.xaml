@@ -77,7 +77,7 @@
                 <DataGridTemplateColumn Header="{lex:Loc MySbbInfo:Translation:Occupancy}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=Capacity1st, Converter={StaticResource OccupancyConverter}}" />
+                            <Image Source="{Binding Path=Capacity2nd, Converter={StaticResource OccupancyConverter}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
