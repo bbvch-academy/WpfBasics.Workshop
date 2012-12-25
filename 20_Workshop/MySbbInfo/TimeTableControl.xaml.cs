@@ -89,11 +89,11 @@ namespace MySbbInfo
 
             var selectedConnection = (Connection)selected.Item;
 
-            this.temp.Items.Clear();
+            this.connections.Items.Clear();
 
             foreach (Section section in selectedConnection.Sections)
             {
-                this.temp.Items.Add(section);
+                this.connections.Items.Add(section);
             }
         }
 
