@@ -6,8 +6,8 @@
         Title="MainWindow"
         Width="570"
         Height="600"
-        Loaded="Window_Loaded_1"
         Icon="img/train.ico"
+        Loaded="Window_Loaded_1"
         lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
         lex:ResxLocalizationProvider.DefaultDictionary="Translation">
     <DockPanel>

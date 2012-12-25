@@ -20,6 +20,7 @@ namespace MySbbInfo
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -56,11 +57,25 @@ namespace MySbbInfo
 
         private void SearchConnectionsClick(object sender, RoutedEventArgs e)
         {
-            DateTime departureTime = this.SelectedDate.SelectedDate.Value.Date.Add(this.SelectedTime.Value.Value.TimeOfDay);
+            DateTime startTime = this.SelectedDate.SelectedDate.Value.Date.Add(this.SelectedTime.Value.Value.TimeOfDay);
 
-            IEnumerable<Connection> connections = this.transportService.GetConnections(this.txtFrom.Text, this.txtTo.Text, departureTime);
+            // see: http://elegantcode.com/2011/10/07/extended-wpf-toolkitusing-the-busyindicator/
+            var worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += (o, ea) => this.BusySearch.IsBusy = false;
+            
+            worker.DoWork += (o, ea) =>
+            {
+                var args = (BackgroundWorkerArgs)ea.Argument;
 
-            ConnectionsGrid.ItemsSource = connections;
+                ITransportService service = args.TransportService;
+
+                IEnumerable<Connection> connections = service.GetConnections(args.From, args.To, args.StartTime);
+
+                Dispatcher.Invoke(() => ConnectionsGrid.ItemsSource = connections);
+            };
+
+            this.BusySearch.IsBusy = true;
+            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, startTime, this.txtFrom.Text, this.txtTo.Text));
         }
 
         private void ConnectionsGrid_OnSelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
@@ -80,6 +95,25 @@ namespace MySbbInfo
             {
                 this.temp.Items.Add(section);
             }
+        }
+
+        private class BackgroundWorkerArgs
+        {
+            public BackgroundWorkerArgs(ITransportService transportService, DateTime startTime, string from, string to)
+            {
+                this.TransportService = transportService;
+                this.StartTime = startTime;
+                this.From = @from;
+                this.To = to;
+            }
+
+            public ITransportService TransportService { get; private set; }
+
+            public DateTime StartTime { get; private set; }
+
+            public string From { get; private set; }
+
+            public string To { get; private set; }
         }
     }
 }

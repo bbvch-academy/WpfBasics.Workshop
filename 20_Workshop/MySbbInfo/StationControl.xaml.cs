@@ -19,6 +19,7 @@
 namespace MySbbInfo
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Text;
     using System.Windows;
     using System.Windows.Controls;
@@ -47,22 +48,53 @@ namespace MySbbInfo
         {
             this.stationBoardResult.Items.Clear();
 
-            IEnumerable<Stationboard> stationboard = this.transportService.GetStationBoard(this.txtStation.Text);
-            foreach (var stop in stationboard)
+            // see: http://elegantcode.com/2011/10/07/extended-wpf-toolkitusing-the-busyindicator/
+            var worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += (o, ea) => this.BusySearch.IsBusy = false;
+
+            worker.DoWork += (o, ea) =>
             {
-                var stationboardOutputBuilder = new StringBuilder();
+                var args = (BackgroundWorkerArgs)ea.Argument;
 
-                var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
-                stationboardOutputBuilder.Append(part);
+                ITransportService service = args.TransportService;
 
-                if (!string.IsNullOrEmpty(stop.Stop.Delay))
+                IEnumerable<Stationboard> stationboard = service.GetStationBoard(args.Station);
+
+                Dispatcher.Invoke(() =>
                 {
-                    part = string.Format(", Verspätung: {0}", stop.Stop.Delay);
-                    stationboardOutputBuilder.Append(part);
-                }
+                    foreach (var stop in stationboard)
+                    {
+                        var stationboardOutputBuilder = new StringBuilder();
 
-                this.stationBoardResult.Items.Add(stationboardOutputBuilder.ToString());
+                        var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
+                        stationboardOutputBuilder.Append(part);
+
+                        if (!string.IsNullOrEmpty(stop.Stop.Delay))
+                        {
+                            part = string.Format(", Verspätung: {0}", stop.Stop.Delay);
+                            stationboardOutputBuilder.Append(part);
+                        }
+
+                        this.stationBoardResult.Items.Add(stationboardOutputBuilder.ToString());
+                    }
+                });
+            };
+
+            this.BusySearch.IsBusy = true;
+            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, this.txtStation.Text));
+        }
+
+        private class BackgroundWorkerArgs
+        {
+            public BackgroundWorkerArgs(ITransportService transportService, string station)
+            {
+                this.TransportService = transportService;
+                this.Station = station;
             }
+
+            public ITransportService TransportService { get; private set; }
+
+            public string Station { get; private set; }
         }
     }
 }

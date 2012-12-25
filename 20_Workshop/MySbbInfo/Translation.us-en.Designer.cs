@@ -115,6 +115,15 @@ namespace MySbbInfo {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Retrieving time table....
+        /// </summary>
+        public static string RetrievingTimeTable {
+            get {
+                return ResourceManager.GetString("RetrievingTimeTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search {
@@ -129,6 +138,24 @@ namespace MySbbInfo {
         public static string SearchForConnection {
             get {
                 return ResourceManager.GetString("SearchForConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching connections....
+        /// </summary>
+        public static string SearchingConnections {
+            get {
+                return ResourceManager.GetString("SearchingConnections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching station....
+        /// </summary>
+        public static string SearchingStation {
+            get {
+                return ResourceManager.GetString("SearchingStation", resourceCulture);
             }
         }
         

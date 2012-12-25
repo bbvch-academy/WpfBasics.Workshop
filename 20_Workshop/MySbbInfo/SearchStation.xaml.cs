@@ -19,6 +19,7 @@
 namespace MySbbInfo
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -44,14 +45,47 @@ namespace MySbbInfo
 
         private void SearchStationClick(object sender, RoutedEventArgs e)
         {
-            IEnumerable<Station> locations = this.transportService.GetLocations(this.txtStationQuery.Text);
+            
+
 
             this.stationResult.Items.Clear();
 
-            foreach (var location in locations)
+            // see: http://elegantcode.com/2011/10/07/extended-wpf-toolkitusing-the-busyindicator/
+            var worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += (o, ea) => this.BusySearch.IsBusy = false;
+
+            worker.DoWork += (o, ea) =>
             {
-                this.stationResult.Items.Add(location.Name);
+                var args = (BackgroundWorkerArgs)ea.Argument;
+
+                ITransportService service = args.TransportService;
+
+                IEnumerable<Station> locations = service.GetLocations(args.StationQuery);
+
+                Dispatcher.Invoke(() =>
+                {
+                    foreach (var location in locations)
+                    {
+                        this.stationResult.Items.Add(location.Name);
+                    }
+                });
+            };
+
+            this.BusySearch.IsBusy = true;
+            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, this.txtStationQuery.Text));
+        }
+
+        private class BackgroundWorkerArgs
+        {
+            public BackgroundWorkerArgs(ITransportService transportService, string stationQuery)
+            {
+                this.TransportService = transportService;
+                this.StationQuery = stationQuery;
             }
+
+            public ITransportService TransportService { get; private set; }
+
+            public string StationQuery { get; private set; }
         }
     }
 }

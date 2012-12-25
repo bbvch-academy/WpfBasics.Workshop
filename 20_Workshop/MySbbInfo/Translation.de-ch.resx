@@ -135,11 +135,20 @@
   <data name="Occupancy" xml:space="preserve">
     <value>Belegung 2 Kl.</value>
   </data>
+  <data name="RetrievingTimeTable" xml:space="preserve">
+    <value>Lade STations-Fahrplan...</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Suche</value>
   </data>
   <data name="SearchForConnection" xml:space="preserve">
     <value>Verbindung suchen</value>
+  </data>
+  <data name="SearchingConnections" xml:space="preserve">
+    <value>Suche Verbindung...</value>
+  </data>
+  <data name="SearchingStation" xml:space="preserve">
+    <value>Suche Station...</value>
   </data>
   <data name="SearchStation" xml:space="preserve">
     <value>Station suchen</value>
