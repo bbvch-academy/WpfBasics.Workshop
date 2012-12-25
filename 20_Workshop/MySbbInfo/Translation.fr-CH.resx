@@ -118,57 +118,57 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="Destination" xml:space="preserve">
-    <value>Ziel</value>
-  </data>
+		<value>Destination</value>
+	</data>
 	<data name="Duration" xml:space="preserve">
-    <value>Dauer</value>
-  </data>
+		<value>Durée</value>
+	</data>
 	<data name="From" xml:space="preserve">
-    <value>Von</value>
-  </data>
+		<value>De</value>
+	</data>
 	<data name="LanguageItem" xml:space="preserve">
-    <value>_Sprache</value>
-  </data>
+		<value>_Langue</value>
+	</data>
 	<data name="LoadStationTimeTable" xml:space="preserve">
-    <value>Stations-Fahrplan laden</value>
-  </data>
+		<value>Charge horaire</value>
+	</data>
 	<data name="Occupancy" xml:space="preserve">
-    <value>Belegung 2 Kl.</value>
-  </data>
+		<value>Revêtement 2 cat.</value>
+	</data>
 	<data name="RetrievingTimeTable" xml:space="preserve">
-    <value>Lade Stations-Fahrplan...</value>
-  </data>
+		<value>Charge horaire...</value>
+	</data>
 	<data name="Search" xml:space="preserve">
-    <value>Suche</value>
-  </data>
+		<value>Recherche</value>
+	</data>
 	<data name="SearchForConnection" xml:space="preserve">
-    <value>Verbindung suchen</value>
-  </data>
+		<value>Chercher correspondances</value>
+	</data>
 	<data name="SearchingConnections" xml:space="preserve">
-    <value>Suche Verbindung...</value>
-  </data>
+		<value>Chercher correspondances...</value>
+	</data>
 	<data name="SearchingStation" xml:space="preserve">
-    <value>Suche Station...</value>
-  </data>
+		<value>Chercher gare...</value>
+	</data>
 	<data name="SearchStation" xml:space="preserve">
-    <value>Station suchen</value>
-  </data>
+		<value>Chercher gare</value>
+	</data>
 	<data name="SettingsItem" xml:space="preserve">
-    <value>_Einstellungen</value>
-  </data>
+		<value>_Paramètres</value>
+	</data>
 	<data name="Start" xml:space="preserve">
-    <value>Start</value>
-  </data>
+		<value>Départ</value>
+	</data>
 	<data name="Station" xml:space="preserve">
-    <value>Station</value>
-  </data>
+		<value>Gare</value>
+	</data>
 	<data name="Time" xml:space="preserve">
-    <value>Zeit</value>
-  </data>
+		<value>Heure</value>
+	</data>
 	<data name="TimeTable" xml:space="preserve">
-    <value>Fahrplan</value>
-  </data>
+		<value>Horaire</value>
+	</data>
 	<data name="To" xml:space="preserve">
-    <value>Nach</value>
-  </data>
+		<value>À</value>
+	</data>
 </root>

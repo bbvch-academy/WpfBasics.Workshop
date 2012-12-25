@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project>
+  <configuration createBackupFiles="False" hideEmptyRows="False" hideTranslatedRows="False" useSpellChecker="True" neutralLanguageCode="en-US" languagesToDisplay="">
+    <globalSetting name="Filter-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
+  &lt;property name="#LayoutVersion" /&gt;
+  &lt;property name="ActiveFilterString" /&gt;
+&lt;/XtraSerializer&gt;</globalSetting>
+    <globalSetting name="Sort-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
+  &lt;property name="#LayoutVersion" /&gt;
+  &lt;property name="SortInfo"&gt;~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuOC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAAAAAAJAwAAAAAAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAQAAAAYJAAAACGNvbGZyLUNICw==&lt;/property&gt;
+&lt;/XtraSerializer&gt;</globalSetting>
+    <globalSetting name="CreateNewFilesForm.prefixTextBox.Text">####</globalSetting>
+    <globalSetting name="CreateNewFilesForm.prefixCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFilesForm.referenceLanguageComboBox.SelectedIndex">-1</globalSetting>
+    <globalSetting name="CreateNewFilesForm.destinationLanguagesListBox">0;89</globalSetting>
+    <globalSetting name="CreateNewFilesForm.copyTextsCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFilesForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFileForm.prefixTextBox.Text">####</globalSetting>
+    <globalSetting name="CreateNewFileForm.prefixCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFileForm.referenceLanguageComboBox.SelectedIndex">0</globalSetting>
+    <globalSetting name="CreateNewFileForm.newLanguageComboBox.SelectedIndex">90</globalSetting>
+    <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
+    <globalSetting name="autoTranslateForm.prefixTextBox.Text">####</globalSetting>
+    <globalSetting name="autoTranslateForm.prefixCheckBox.Checked">False</globalSetting>
+    <globalSetting name="autoTranslateForm.referenceLanguageComboBoxEdit.SelectedIndex">-1</globalSetting>
+    <globalSetting name="autoTranslateForm.languagesToTranslateCheckListBox">
+    </globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="4727668687" /&gt;&lt;/items&gt;</globalSetting>
+    <userSetting name="Marko@Markiko.filesInitialDir">C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo</userSetting>
+    <userSetting name="Marko@Markiko.FindText">
+    </userSetting>
+    <userSetting name="Marko@Markiko.RecentFiles">C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.resx;C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.de-ch.resx;C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.fr-CH.resx;C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.us-en.resx</userSetting>
+    <description>
+    </description>
+  </configuration>
+  <fileGroups>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="7e5d6f84-0f5c-43c0-bb43-ada5b3cd5dd5">
+      <file filePath="Translation.resx" absoluteFilePath="C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.resx" uniqueID="c60f372c-cf31-4742-93e3-b2a97fdf06cd" />
+      <file filePath="Translation.de-ch.resx" absoluteFilePath="C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.de-ch.resx" uniqueID="4f0d2366-601d-4ac7-95ff-d4749ff8f087" />
+      <file filePath="Translation.fr-CH.resx" absoluteFilePath="C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.fr-CH.resx" uniqueID="807caa14-4855-4468-81a3-fc35f61295e3" />
+      <file filePath="Translation.us-en.resx" absoluteFilePath="C:\Projects\bbv\WpfBasics\20_Workshop\MySbbInfo\Translation.us-en.resx" uniqueID="7f888fbf-c0e1-41ff-a84f-ce87abe659bc" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+  </fileGroups>
+  <projectFolders />
+</project>
