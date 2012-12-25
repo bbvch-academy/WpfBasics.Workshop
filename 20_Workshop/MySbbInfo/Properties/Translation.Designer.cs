@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MySbbInfo {
+namespace MySbbInfo.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace MySbbInfo {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Translation_us_en {
+    public class Translation {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Translation_us_en() {
+        internal Translation() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MySbbInfo {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.Translation.us-en", typeof(Translation_us_en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.Properties.Translation", typeof(Translation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -97,7 +97,7 @@ namespace MySbbInfo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load station time schedule.
+        ///   Looks up a localized string similar to load station time table.
         /// </summary>
         public static string LoadStationTimeTable {
             get {
@@ -133,7 +133,7 @@ namespace MySbbInfo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search connection.
+        ///   Looks up a localized string similar to Search for Connection.
         /// </summary>
         public static string SearchForConnection {
             get {
@@ -151,7 +151,7 @@ namespace MySbbInfo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Searching station....
+        ///   Looks up a localized string similar to Searching Station....
         /// </summary>
         public static string SearchingStation {
             get {
@@ -178,7 +178,7 @@ namespace MySbbInfo {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Departure.
+        ///   Looks up a localized string similar to Start.
         /// </summary>
         public static string Start {
             get {

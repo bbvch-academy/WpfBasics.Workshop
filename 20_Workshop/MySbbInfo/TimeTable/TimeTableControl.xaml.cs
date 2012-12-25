@@ -16,7 +16,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.TimeTable
 {
     using System;
     using System.Collections.Generic;
@@ -71,7 +71,7 @@ namespace MySbbInfo
 
                 IEnumerable<Connection> connections = service.GetConnections(args.From, args.To, args.StartTime);
 
-                Dispatcher.Invoke(() => ConnectionsGrid.ItemsSource = connections);
+                this.Dispatcher.Invoke(() => this.ConnectionsGrid.ItemsSource = connections);
             };
 
             this.BusySearch.IsBusy = true;

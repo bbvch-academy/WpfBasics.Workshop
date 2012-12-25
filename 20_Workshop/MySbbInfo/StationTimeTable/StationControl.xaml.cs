@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SearchStation.xaml.cs" company="bbv Software Services AG">
+// <copyright file="StationControl.xaml.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,14 +12,15 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for SearchStation.xaml
+//   Interaction logic for StationControl.xaml
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.StationTimeTable
 {
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Text;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -27,13 +28,13 @@ namespace MySbbInfo
     using SbbApi.ApiClasses;
 
     /// <summary>
-    /// Interaction logic for SearchStation.xaml
+    /// Interaction logic for StationControl.xaml
     /// </summary>
-    public partial class SearchStation : UserControl
+    public partial class StationControl : UserControl
     {
         private ITransportService transportService;
 
-        public SearchStation()
+        public StationControl()
         {
             this.InitializeComponent();
         }
@@ -43,12 +44,9 @@ namespace MySbbInfo
             this.transportService = transportService;
         }
 
-        private void SearchStationClick(object sender, RoutedEventArgs e)
+        private void LoadStationboardClick(object sender, RoutedEventArgs e)
         {
-            
-
-
-            this.stationResult.Items.Clear();
+            this.stationBoardResult.Items.Clear();
 
             // see: http://elegantcode.com/2011/10/07/extended-wpf-toolkitusing-the-busyindicator/
             var worker = new BackgroundWorker();
@@ -60,32 +58,43 @@ namespace MySbbInfo
 
                 ITransportService service = args.TransportService;
 
-                IEnumerable<Station> locations = service.GetLocations(args.StationQuery);
+                IEnumerable<Stationboard> stationboard = service.GetStationBoard(args.Station);
 
-                Dispatcher.Invoke(() =>
+                this.Dispatcher.Invoke(() =>
                 {
-                    foreach (var location in locations)
+                    foreach (var stop in stationboard)
                     {
-                        this.stationResult.Items.Add(location.Name);
+                        var stationboardOutputBuilder = new StringBuilder();
+
+                        var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
+                        stationboardOutputBuilder.Append(part);
+
+                        if (!string.IsNullOrEmpty(stop.Stop.Delay))
+                        {
+                            part = string.Format(", Verspätung: {0}", stop.Stop.Delay);
+                            stationboardOutputBuilder.Append(part);
+                        }
+
+                        this.stationBoardResult.Items.Add(stationboardOutputBuilder.ToString());
                     }
                 });
             };
 
             this.BusySearch.IsBusy = true;
-            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, this.txtStationQuery.Text));
+            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, this.txtStation.Text));
         }
 
         private class BackgroundWorkerArgs
         {
-            public BackgroundWorkerArgs(ITransportService transportService, string stationQuery)
+            public BackgroundWorkerArgs(ITransportService transportService, string station)
             {
                 this.TransportService = transportService;
-                this.StationQuery = stationQuery;
+                this.Station = station;
             }
 
             public ITransportService TransportService { get; private set; }
 
-            public string StationQuery { get; private set; }
+            public string Station { get; private set; }
         }
     }
 }

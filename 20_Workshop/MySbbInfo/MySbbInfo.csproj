@@ -72,23 +72,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ChangeUILanguageCommand.cs" />
-    <Compile Include="TransportMedium.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransportMedium.resx</DependentUpon>
-    </Compile>
-    <Compile Include="TransportMediumToBitmapImageConverter.cs" />
-    <Compile Include="Translation.de-ch.Designer.cs">
-      <DependentUpon>Translation.de-ch.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Occupancy.Designer.cs">
+    <Compile Include="TimeTable\Occupancy.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Occupancy.resx</DependentUpon>
     </Compile>
-    <Compile Include="Translation.us-en.Designer.cs">
+    <Compile Include="TimeTable\TransportMedium.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransportMedium.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTable\TransportMediumToBitmapImageConverter.cs" />
+    <Compile Include="Properties\Translation.de-ch.Designer.cs">
+      <DependentUpon>Translation.de-ch.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Translation.us-en.Designer.cs">
       <DependentUpon>Translation.us-en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,17 +96,17 @@
     <Compile Include="MenuControl.xaml.cs">
       <DependentUpon>MenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OccupancyToBitmapImageConverter.cs" />
-    <Compile Include="SearchStation.xaml.cs">
+    <Compile Include="TimeTable\OccupancyToBitmapImageConverter.cs" />
+    <Compile Include="SearchStation\SearchStation.xaml.cs">
       <DependentUpon>SearchStation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StationControl.xaml.cs">
+    <Compile Include="StationTimeTable\StationControl.xaml.cs">
       <DependentUpon>StationControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimeTableControl.xaml.cs">
+    <Compile Include="TimeTable\TimeTableControl.xaml.cs">
       <DependentUpon>TimeTableControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Translation.Designer.cs">
+    <Compile Include="Properties\Translation.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Translation.resx</DependentUpon>
@@ -127,11 +127,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SearchStation.xaml">
+    <Page Include="SearchStation\SearchStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StationControl.xaml">
+    <Page Include="StationTimeTable\StationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,7 +143,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TimeTableControl.xaml">
+    <Page Include="TimeTable\TimeTableControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,16 +162,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Translation.de-ch.resx">
+    <EmbeddedResource Include="Properties\Translation.de-ch.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.de-ch.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translation.fr-CH.resx" />
-    <EmbeddedResource Include="Translation.us-en.resx">
+    <EmbeddedResource Include="Properties\Translation.fr-CH.resx" />
+    <EmbeddedResource Include="Properties\Translation.us-en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.us-en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Occupancy.resx">
+    <EmbeddedResource Include="TimeTable\Occupancy.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Occupancy.Designer.cs</LastGenOutput>
@@ -180,12 +180,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translation.resx">
+    <EmbeddedResource Include="Properties\Translation.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransportMedium.resx">
+    <EmbeddedResource Include="TimeTable\TransportMedium.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>TransportMedium.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="img\Occupancy.xcf" />

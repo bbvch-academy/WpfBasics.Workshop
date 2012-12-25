@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="MySbbInfo.TimeTableControl"
+﻿<UserControl x:Class="MySbbInfo.TimeTable.TimeTableControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:mySbbInfo="clr-namespace:MySbbInfo"
+             xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              d:DesignHeight="600"
              d:DesignWidth="300"
@@ -12,8 +12,8 @@
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <mySbbInfo:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
-        <mySbbInfo:TransportMediumToBitmapImageConverter x:Key="TransportMediumConverter" />
+        <timeTable:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
+        <timeTable:TransportMediumToBitmapImageConverter x:Key="TransportMediumConverter" />
     </UserControl.Resources>
 
     <xctk:BusyIndicator x:Name="BusySearch" BusyContent="{lex:Loc SearchingConnections}">
@@ -55,7 +55,7 @@
                     Height="30"
                     Margin="0, 10"
                     Click="SearchConnectionsClick"
-                    Content="{lex:Loc SearchForConnection}" />
+                    Content="{lex:Loc Translation:SearchForConnection}" />
 
             <DataGrid x:Name="ConnectionsGrid"
                       Grid.Row="4"
