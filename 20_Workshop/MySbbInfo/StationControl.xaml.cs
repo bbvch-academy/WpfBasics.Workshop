@@ -45,13 +45,13 @@ namespace MySbbInfo
 
         private void LoadStationboardClick(object sender, RoutedEventArgs e)
         {
-            var stationboardOutputBuilder = new StringBuilder();
-
             this.stationBoardResult.Items.Clear();
 
             IEnumerable<Stationboard> stationboard = this.transportService.GetStationBoard(this.txtStation.Text);
             foreach (var stop in stationboard)
             {
+                var stationboardOutputBuilder = new StringBuilder();
+
                 var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
                 stationboardOutputBuilder.Append(part);
 
@@ -62,7 +62,6 @@ namespace MySbbInfo
                 }
 
                 this.stationBoardResult.Items.Add(stationboardOutputBuilder.ToString());
-                stationboardOutputBuilder.Clear();
             }
         }
     }

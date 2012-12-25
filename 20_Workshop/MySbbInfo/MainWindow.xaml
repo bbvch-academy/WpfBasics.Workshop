@@ -4,8 +4,8 @@
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         xmlns:local="clr-namespace:MySbbInfo"
         Title="MainWindow"
-        Width="535"
-        Height="360"
+        Width="570"
+        Height="440"
         Loaded="Window_Loaded_1"
         lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
         lex:ResxLocalizationProvider.DefaultDictionary="Translation">
