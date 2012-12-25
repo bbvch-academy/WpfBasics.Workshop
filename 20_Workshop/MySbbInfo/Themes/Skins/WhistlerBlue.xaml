@@ -3724,6 +3724,7 @@
                             <Rectangle x:Name="BackgroundGradientSelected" Fill="{StaticResource BtnOverFill}" Stroke="{StaticResource selectedStroke}" RadiusX="2" RadiusY="2" Opacity="0"/>
                             <Rectangle x:Name="BackgroundHighlight" Margin="1" Stroke="#A0FFFFFF" RadiusX="1" RadiusY="1"/>
                             <GridViewRowPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="0,2,0,2" VerticalAlignment="Stretch" />
+                            <ContentPresenter />
                         </Grid>
 
                     </Border>
