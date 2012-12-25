@@ -17,13 +17,6 @@
 
     <xctk:BusyIndicator x:Name="BusySearch" BusyContent="{lex:Loc SearchingConnections}">
         <Grid>
-            <Grid.Resources>
-                <Style TargetType="Label">
-                    <Setter Property="FontWeight" Value="Bold" />
-                    <Setter Property="FontSize" Value="12" />
-                </Style>
-            </Grid.Resources>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -88,15 +81,13 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <ListView x:Name="connections"
+            <ListView x:Name="Connections"
                       Grid.Row="5"
                       Grid.ColumnSpan="2"
                       VerticalAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <ItemContainerTemplate>
-                        <Border BorderBrush="SkyBlue"
-                                BorderThickness="0,0,0,1"
-                                Padding="1">
+                        <Border Style="{StaticResource ConnectionsBorder}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="180" />
@@ -124,10 +115,10 @@
                                            Text="{Binding Path=Arrival.Platform}" />
                                 <TextBlock Grid.Column="4" Text="{Binding Path=Journey.Name}" />
                                 <TextBlock Grid.Column="5"
-                                           Foreground="Red"
+                                           Style="{StaticResource DelayMessage}"
                                            Text="{Binding Path=Departure.Delay}" />
                                 <TextBlock Grid.Column="5"
-                                           Foreground="Red"
+                                           Style="{StaticResource DelayMessage}"
                                            Text="{Binding Path=Arrival.Delay}" />
                             </Grid>
                         </Border>
