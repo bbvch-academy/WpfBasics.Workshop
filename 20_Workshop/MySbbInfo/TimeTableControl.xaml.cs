@@ -26,6 +26,8 @@ namespace MySbbInfo
     using SbbApi;
     using SbbApi.ApiClasses;
 
+    using System.Linq;
+
     /// <summary>
     /// Interaction logic for TimeTableControl.xaml
     /// </summary>
@@ -59,6 +61,25 @@ namespace MySbbInfo
             IEnumerable<Connection> connections = this.transportService.GetConnections(this.txtFrom.Text, this.txtTo.Text, departureTime);
 
             ConnectionsGrid.ItemsSource = connections;
+        }
+
+        private void ConnectionsGrid_OnSelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            DataGridCellInfo selected = e.AddedCells.FirstOrDefault();
+
+            if (!(selected.Item is Connection))
+            {
+                return;
+            }
+
+            var selectedConnection = (Connection)selected.Item;
+
+            this.temp.Items.Clear();
+
+            foreach (Section section in selectedConnection.Sections)
+            {
+                this.temp.Items.Add(section);
+            }
         }
     }
 }
