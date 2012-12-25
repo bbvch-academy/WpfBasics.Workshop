@@ -72,6 +72,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ChangeUILanguageCommand.cs" />
+    <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
+    <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />
+    <Compile Include="SearchStation\SearchStationViewModel.cs" />
     <Compile Include="TimeTable\Occupancy.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,8 +100,8 @@
       <DependentUpon>MenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="TimeTable\OccupancyToBitmapImageConverter.cs" />
-    <Compile Include="SearchStation\SearchStation.xaml.cs">
-      <DependentUpon>SearchStation.xaml</DependentUpon>
+    <Compile Include="SearchStation\SearchStationView.xaml.cs">
+      <DependentUpon>SearchStationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="StationTimeTable\StationControl.xaml.cs">
       <DependentUpon>StationControl.xaml</DependentUpon>
@@ -127,7 +130,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SearchStation\SearchStation.xaml">
+    <Page Include="SearchStation\SearchStationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
