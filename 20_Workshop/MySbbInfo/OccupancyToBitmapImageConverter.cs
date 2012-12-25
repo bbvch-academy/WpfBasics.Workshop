@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="OccupancyToImageSourceConverter.cs" company="bbv Software Services AG">
+// <copyright file="OccupancyToBitmapImageConverter.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ namespace MySbbInfo
     using System.Windows.Data;
     using System.Windows.Media.Imaging;
 
-    public class OccupancyToImageSourceConverter : IValueConverter
+    public class OccupancyToBitmapImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

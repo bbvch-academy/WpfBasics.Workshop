@@ -12,7 +12,8 @@
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <mySbbInfo:OccupancyToImageSourceConverter x:Key="OccupancyConverter" />
+        <mySbbInfo:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
+        <mySbbInfo:TransportMediumToBitmapImageConverter x:Key="TransportMediumConverter" />
     </UserControl.Resources>
 
     <xctk:BusyIndicator x:Name="BusySearch" BusyContent="{lex:Loc SearchingConnections}">
@@ -93,7 +94,8 @@
                                     <ColumnDefinition Width="180" />
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="50" />
-                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
                                     <ColumnDefinition Width="70" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
@@ -110,14 +112,20 @@
                                            Text="{Binding Path=Arrival.Arrival,
                                                           StringFormat=HH:mm}" />
                                 <TextBlock Grid.Column="3" Text="{Binding Path=Departure.Platform}" />
+                                <Image Grid.RowSpan="2"
+                                       Grid.Column="4"
+                                       Width="32"
+                                       Height="32"
+                                       Source="{Binding Path=Journey.Name,
+                                                        Converter={StaticResource TransportMediumConverter}}" />
                                 <TextBlock Grid.Row="1"
-                                           Grid.Column="3"
+                                           Grid.Column="5"
                                            Text="{Binding Path=Arrival.Platform}" />
-                                <TextBlock Grid.Column="4" Text="{Binding Path=Journey.Name}" />
-                                <TextBlock Grid.Column="5"
+                                <TextBlock Grid.Column="5" Text="{Binding Path=Journey.Name}" />
+                                <TextBlock Grid.Column="6"
                                            Style="{StaticResource DelayMessage}"
                                            Text="{Binding Path=Departure.Delay}" />
-                                <TextBlock Grid.Column="5"
+                                <TextBlock Grid.Column="6"
                                            Style="{StaticResource DelayMessage}"
                                            Text="{Binding Path=Arrival.Delay}" />
                             </Grid>
