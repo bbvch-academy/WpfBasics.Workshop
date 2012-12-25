@@ -160,6 +160,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.de-ch.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Translation.fr-CH.resx" />
     <EmbeddedResource Include="Translation.us-en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.us-en.Designer.cs</LastGenOutput>
