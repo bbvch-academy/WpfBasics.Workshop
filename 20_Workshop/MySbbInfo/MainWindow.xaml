@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:MySbbInfo"
         xmlns:searchStation="clr-namespace:MySbbInfo.SearchStation"
         xmlns:stationTimeTable="clr-namespace:MySbbInfo.StationTimeTable"
-        xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
+        xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable" xmlns:menu="clr-namespace:MySbbInfo.Menu"
         Title="My SBB Info"
         Width="570"
         Height="600"
@@ -14,7 +14,7 @@
         lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
         lex:ResxLocalizationProvider.DefaultDictionary="Translation">
     <DockPanel>
-        <local:MenuControl DockPanel.Dock="Top" />
+        <menu:MenuView DockPanel.Dock="Top" />
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="{lex:Loc TimeTable}">
                 <timeTable:TimeTableControl x:Name="TimeTable" />

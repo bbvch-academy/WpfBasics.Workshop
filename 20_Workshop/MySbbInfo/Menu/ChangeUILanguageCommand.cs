@@ -16,7 +16,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Menu
 {
     using System;
     using System.Globalization;
@@ -31,33 +31,32 @@ namespace MySbbInfo
         public const int UnitedStatesEnglishLcid = 1033;
         public const int SwissFrenchLcid = 4108;
 
-        public event EventHandler CanExecuteChanged = delegate { };
+        public event EventHandler CanExecuteChanged;
+
+        public event EventHandler UiLanguageChanged = (s, obj) => { };
+
+        private readonly int lcid;
+
+        public ChangeUiLanguageCommand(int lcid)
+        {
+            this.lcid = lcid;
+        }
 
         public bool CanExecute(object parameter)
         {
-            if (parameter is int)
-            {
-                var lcid = (int)parameter;
-                return lcid == SwissGermanLcid || lcid == UnitedStatesEnglishLcid || lcid == SwissFrenchLcid;
-            }
-
-            return false;
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            if (!this.CanExecute(parameter))
-            {
-                return;
-            }
+            var culture = new CultureInfo(this.lcid);
 
-            var lcid = (int)parameter;
-            var swissGermanCulture = new CultureInfo(lcid);
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
-            Thread.CurrentThread.CurrentCulture = swissGermanCulture;
-            Thread.CurrentThread.CurrentUICulture = swissGermanCulture;
+            LocalizeDictionary.Instance.Culture = culture;
 
-            LocalizeDictionary.Instance.Culture = swissGermanCulture;
+            this.UiLanguageChanged(this, new EventArgs());
         }
     }
 }

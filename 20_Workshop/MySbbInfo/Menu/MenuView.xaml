@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MySbbInfo.MenuControl"
+﻿<UserControl x:Class="MySbbInfo.Menu.MenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,18 +12,21 @@
     <Menu>
         <MenuItem Header="{lex:Loc SettingsItem}">
             <MenuItem Header="{lex:Loc LanguageItem}">
-                <MenuItem x:Name="ChangeToGermanItem"
-                          Click="ChangeToGermanItem_OnClick"
+                <MenuItem Command="{Binding ChangeToGermanCommand}"
                           Header="_Deutsch"
-                          IsCheckable="True" />
-                <MenuItem x:Name="ChangeToEnglishItem"
-                          Click="ChangeToEnglishItem_OnClick"
+                          IsCheckable="True"
+                          IsChecked="{Binding IsGermanSelected,
+                                              Mode=OneWay}" />
+                <MenuItem Command="{Binding ChangeToEnglishCommand}"
                           Header="_English"
-                          IsCheckable="True" />
-                <MenuItem x:Name="ChangeToFrenchItem"
-                          Click="ChangeToFrenchItem_OnClick"
+                          IsCheckable="True"
+                          IsChecked="{Binding IsEnglishSelected,
+                                              Mode=OneWay}" />
+                <MenuItem Command="{Binding ChangeToFrenchCommand}"
                           Header="_Française"
-                          IsCheckable="True" />
+                          IsCheckable="True"
+                          IsChecked="{Binding IsFrenchSelected,
+                                              Mode=OneWay}" />
             </MenuItem>
         </MenuItem>
     </Menu>

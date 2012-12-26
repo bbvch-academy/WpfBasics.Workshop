@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="App.xaml.cs" company="bbv Software Services AG">
+// <copyright file="MenuView.xaml.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,33 +12,24 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for App.xaml
+//   Interaction logic for MenuControl.xaml
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Menu
 {
-    using System.Globalization;
-    using System.Threading;
-    using System.Windows;
-
-    using MySbbInfo.Menu;
-
-    using WPFLocalizeExtension.Engine;
+    using System.Windows.Controls;
 
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interaction logic for MenuControl.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class MenuView : UserControl
     {
-        public App()
+        public MenuView()
         {
-            var defaultCulture = new CultureInfo(ChangeUiLanguageCommand.SwissGermanLcid);
+            this.InitializeComponent();
 
-            Thread.CurrentThread.CurrentUICulture = defaultCulture;
-            Thread.CurrentThread.CurrentCulture = defaultCulture;
-
-            LocalizeDictionary.Instance.Culture = defaultCulture;
+            this.DataContext = new MenuViewModel();
         }
     }
 }
