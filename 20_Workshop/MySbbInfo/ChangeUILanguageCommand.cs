@@ -52,12 +52,12 @@ namespace MySbbInfo
             }
 
             var lcid = (int)parameter;
-            var swissGermanCulture = new CultureInfo(lcid);
+            var culture = new CultureInfo(lcid);
 
-            Thread.CurrentThread.CurrentCulture = swissGermanCulture;
-            Thread.CurrentThread.CurrentUICulture = swissGermanCulture;
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
-            LocalizeDictionary.Instance.Culture = swissGermanCulture;
+            LocalizeDictionary.Instance.Culture = culture;
         }
     }
 }
