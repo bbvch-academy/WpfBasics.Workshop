@@ -34,7 +34,7 @@ namespace MySbbInfo.SearchStation
 
         public event EventHandler CanExecuteChanged;
 
-        public event EventHandler StationSearchBeginning = (sender, args) => { };
+        public event EventHandler BeginStationSearch = (sender, args) => { };
 
         public event SearchStationCompletedEventHandler StationSearchCompleted = (sender, args) => { };
 
@@ -55,7 +55,7 @@ namespace MySbbInfo.SearchStation
                 return;
             }
 
-            this.StationSearchBeginning(this, new EventArgs());
+            this.BeginStationSearch(this, new EventArgs());
 
             var worker = new BackgroundWorker();
             worker.RunWorkerCompleted += (o, ea) => this.StationSearchCompleted(this, new SearchStationCompletedEventArgs((IEnumerable<Station>)ea.Result));

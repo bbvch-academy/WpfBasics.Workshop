@@ -39,9 +39,25 @@
     <ApplicationIcon>img\train.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4, Version=4.0.23.37706, Culture=neutral, PublicKeyToken=1673db7d5906b0ad, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.23.0\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4, Version=4.0.23.37706, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.23.0\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.23.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.23.0\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -75,6 +91,7 @@
     <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
     <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />
     <Compile Include="SearchStation\SearchStationViewModel.cs" />
+    <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />
     <Compile Include="TimeTable\Occupancy.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,8 +120,8 @@
     <Compile Include="SearchStation\SearchStationView.xaml.cs">
       <DependentUpon>SearchStationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StationTimeTable\StationControl.xaml.cs">
-      <DependentUpon>StationControl.xaml</DependentUpon>
+    <Compile Include="StationTimeTable\StationTimeTableView.xaml.cs">
+      <DependentUpon>StationTimeTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TimeTable\TimeTableControl.xaml.cs">
       <DependentUpon>TimeTableControl.xaml</DependentUpon>
@@ -134,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StationTimeTable\StationControl.xaml">
+    <Page Include="StationTimeTable\StationTimeTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

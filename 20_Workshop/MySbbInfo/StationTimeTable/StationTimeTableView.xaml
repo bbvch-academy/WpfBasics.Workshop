@@ -11,7 +11,9 @@
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
 
-    <xctk:BusyIndicator x:Name="BusySearch" BusyContent="{lex:Loc RetrievingTimeTable}">
+    <xctk:BusyIndicator x:Name="BusySearch"
+                        BusyContent="{lex:Loc RetrievingTimeTable}"
+                        IsBusy="{Binding IsBusy}">
         <Grid>
             <Grid.Resources>
                 <Style TargetType="{x:Type Label}">
@@ -46,12 +48,14 @@
                     Grid.ColumnSpan="4"
                     Height="30"
                     Margin="0, 10"
-                    Click="LoadStationboardClick"
+                    Command="{Binding LoadStationBoardCommand}"
+                    CommandParameter="{Binding ElementName=txtStation,
+                                               Path=Text}"
                     Content="{lex:Loc LoadStationTimeTable}" />
 
-            <ListView x:Name="stationBoardResult"
-                      Grid.Row="2"
-                      Grid.ColumnSpan="5" />
+            <ListView Grid.Row="2"
+                      Grid.ColumnSpan="5"
+                      ItemsSource="{Binding StationBoard}" />
         </Grid>
     </xctk:BusyIndicator>
 </UserControl>

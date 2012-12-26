@@ -54,7 +54,7 @@ namespace MySbbInfo.SearchStation
 
         public ObservableCollection<string> Stations { get; set; }
 
-        public void StationSearchBeginningHandler(object sender, System.EventArgs e)
+        public void BeginStationSearchHandler(object sender, System.EventArgs e)
         {
             this.IsBusy = true;
         }
@@ -76,7 +76,7 @@ namespace MySbbInfo.SearchStation
             var searchStationCommand = new SearchStationAsyncCommand(transportService);
             
             searchStationCommand.StationSearchCompleted += this.StationSearchCompletedHandler;
-            searchStationCommand.StationSearchBeginning += this.StationSearchBeginningHandler;
+            searchStationCommand.BeginStationSearch += this.BeginStationSearchHandler;
 
             this.SearchStationCommand = searchStationCommand;
         }
