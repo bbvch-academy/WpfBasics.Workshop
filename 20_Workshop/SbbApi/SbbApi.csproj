@@ -66,6 +66,7 @@
     <Compile Include="ITransportService.cs" />
     <Compile Include="LocationRequest.cs" />
     <Compile Include="LocationResponse.cs" />
+    <Compile Include="OfflineTransportService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationExtensions.cs" />
     <Compile Include="StationBoardRequest.cs" />
