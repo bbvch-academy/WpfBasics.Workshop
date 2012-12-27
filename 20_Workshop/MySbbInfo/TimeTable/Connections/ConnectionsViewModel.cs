@@ -56,9 +56,13 @@ namespace MySbbInfo.TimeTable.Connections
             set
             {
                 this.selectedConnection = value;
+                Connection markedCollection = null;
 
-                Connection markedCollection =
-                    this.latestConnections.First(x => x.From.Station.Name == value.DepartingStationName && x.From.Departure == value.DepartureDateTime);
+                if (value != null)
+                {
+                    markedCollection = this.latestConnections.FirstOrDefault(
+                        x => x.From.Station.Name == value.DepartingStationName && x.From.Departure == value.DepartureDateTime);
+                }
 
                 this.Sections.DisplaySections(markedCollection);
                 this.OnPropertyChanged();

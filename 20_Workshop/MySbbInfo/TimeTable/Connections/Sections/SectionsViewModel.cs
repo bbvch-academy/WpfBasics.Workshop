@@ -21,6 +21,7 @@ namespace MySbbInfo.TimeTable.Connections.Sections
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using System.Runtime.CompilerServices;
 
     using SbbApi.ApiClasses;
@@ -47,25 +48,24 @@ namespace MySbbInfo.TimeTable.Connections.Sections
 
         public void DisplaySections(Connection connection)
         {
-            if (connection.Sections == null || connection.Sections.Length == 0)
-            {
-                return;
-            }
-
             var newSections = new Collection<SectionsModel>();
 
-            foreach (Section section in connection.Sections)
+            if (connection != null && connection.Sections != null && connection.Sections.Length != 0)
             {
-                newSections.Add(new SectionsModel(
-                    section.Departure.Station.Name,
-                    section.Departure.Platform,
-                    section.Departure.Departure,
-                    section.Arrival.Station.Name,
-                    section.Arrival.Platform,
-                    section.Arrival.Arrival,
-                    section.Journey != null ? section.Journey.Name : string.Empty,
-                    section.Departure.Delay,
-                    section.Arrival.Delay));
+                foreach (Section section in connection.Sections)
+                {
+                    newSections.Add(
+                        new SectionsModel(
+                            section.Departure.Station.Name,
+                            section.Departure.Platform,
+                            section.Departure.Departure,
+                            section.Arrival.Station.Name,
+                            section.Arrival.Platform,
+                            section.Arrival.Arrival,
+                            section.Journey != null ? section.Journey.Name : string.Empty,
+                            section.Departure.Delay,
+                            section.Arrival.Delay));
+                }
             }
 
             this.Sections = newSections;
