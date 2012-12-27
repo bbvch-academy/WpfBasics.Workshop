@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainViewModelTest.cs" company="bbv Software Services AG">
+// <copyright file="StationTimeTableViewModelTest.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,43 +12,49 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the MainViewModelTest type.
+//   Defines the StationTimeTableViewModelTest type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.StationTimeTable
 {
+    using FakeItEasy;
+
     using FluentAssertions;
 
     using NUnit.Framework;
 
+    using SbbApi;
+
     [TestFixture]
-    public class MainViewModelTest
+    public class StationTimeTableViewModelTest
     {
-        private MainViewModel testee;
+        private StationTimeTableViewModel testee;
+
+        private ITransportService transportService;
 
         [SetUp]
         public void SetUp()
         {
-            this.testee = new MainViewModel();
+            this.transportService = A.Fake<ITransportService>();
+
+            this.testee = new StationTimeTableViewModel(this.transportService);
+        }
+
+        [TestCase("", false)]
+        [TestCase("  ", false)]
+        [TestCase("Luzern", true)]
+        public void ShouldImplementCanExecuteCorrectly(string value, bool expectedResult)
+        {
+            this.testee.CanExecuteSearch(value).Should().Be(expectedResult);
         }
 
         [Test]
-        public void ShouldInitializeSearchStationFeature()
+        public void ShouldIndicateBeginOfExecution()
         {
-            this.testee.SearchStation.Should().NotBeNull();
-        }
+            this.testee.ExecuteSearch("some station");
 
-        [Test]
-        public void ShouldInitializeTimeTableFeature()
-        {
-            this.testee.TimeTable.Should().NotBeNull();
-        }
-
-        [Test]
-        public void ShouldInitializeStationTimeTableFeature()
-        {
-            this.testee.StationTimeTable.Should().NotBeNull();
+            this.testee.IsBusy.Should().BeTrue();
         }
     }
 }

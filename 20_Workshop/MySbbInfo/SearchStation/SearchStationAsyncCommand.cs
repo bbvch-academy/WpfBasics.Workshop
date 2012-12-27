@@ -77,7 +77,7 @@ namespace MySbbInfo.SearchStation
             ea.Result = locations;
         }
 
-        private class BackgroundWorkerArgs
+        public class BackgroundWorkerArgs
         {
             public BackgroundWorkerArgs(ITransportService transportService, string stationQuery)
             {

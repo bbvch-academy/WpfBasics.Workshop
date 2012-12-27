@@ -79,10 +79,16 @@ namespace MySbbInfo.StationTimeTable
             worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, stationQuery));
         }
 
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         private void RunSearch(DoWorkEventArgs ea)
         {
-            System.Threading.Thread.Sleep(1000);
-
             var args = (BackgroundWorkerArgs)ea.Argument;
 
             ITransportService service = args.TransportService;
@@ -111,14 +117,6 @@ namespace MySbbInfo.StationTimeTable
             }
 
             this.IsBusy = false;
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
 
         private class BackgroundWorkerArgs
