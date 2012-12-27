@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        xmlns:local="clr-namespace:MySbbInfo"
+        xmlns:menu="clr-namespace:MySbbInfo.Menu"
         xmlns:searchStation="clr-namespace:MySbbInfo.SearchStation"
         xmlns:stationTimeTable="clr-namespace:MySbbInfo.StationTimeTable"
-        xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable" xmlns:menu="clr-namespace:MySbbInfo.Menu"
+        xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
         Title="My SBB Info"
         Width="570"
         Height="600"
@@ -17,7 +17,7 @@
         <menu:MenuView DockPanel.Dock="Top" />
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="{lex:Loc TimeTable}">
-                <timeTable:TimeTableControl x:Name="TimeTable" />
+                <timeTable:TimeTableView x:Name="TimeTable" />
             </TabItem>
             <TabItem Header="{lex:Loc Station}">
                 <stationTimeTable:StationControl x:Name="Station" />

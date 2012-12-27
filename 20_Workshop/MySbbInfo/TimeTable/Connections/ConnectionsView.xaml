@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="MySbbInfo.TimeTable.Connections.ConnectionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sections="clr-namespace:MySbbInfo.TimeTable.Connections.Sections"
+             xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
+             d:DesignHeight="600"
+             d:DesignWidth="300"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
+             lex:ResxLocalizationProvider.DefaultDictionary="Translation"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <timeTable:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
+    </UserControl.Resources>
+
+    <DockPanel>
+
+        <DataGrid Height="140"
+                  Margin="0,2,0,-2"
+                  AutoGenerateColumns="False"
+                  CanUserReorderColumns="False"
+                  DockPanel.Dock="Top"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Connections}"
+                  SelectedItem="{Binding SelectedConnection}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=DepartingStationName}" Header="{lex:Loc MySbbInfo:Translation:Start}" />
+                <DataGridTextColumn Binding="{Binding Path=DepartureDateTime, StringFormat=dd.MM.yy HH:mm}" />
+                <DataGridTextColumn Binding="{Binding Path=ArrivingStationName}" Header="{lex:Loc MySbbInfo:Translation:Destination}" />
+                <DataGridTextColumn Binding="{Binding Path=ArrivalDateTime, StringFormat=dd.MM.yy HH:mm}" />
+                <DataGridTextColumn Binding="{Binding Path=JourneyDuration, StringFormat=hh\\:mm}" Header="{lex:Loc MySbbInfo:Translation:Duration}" />
+                <DataGridTemplateColumn Header="{lex:Loc MySbbInfo:Translation:Occupancy}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=Capacity2ndCompartment, Converter={StaticResource OccupancyConverter}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <sections:SectionsView DataContext="{Binding Sections}" DockPanel.Dock="Top" />
+
+    </DockPanel>
+</UserControl>

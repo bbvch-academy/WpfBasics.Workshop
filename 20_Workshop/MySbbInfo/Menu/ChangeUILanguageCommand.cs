@@ -31,9 +31,9 @@ namespace MySbbInfo.Menu
         public const int UnitedStatesEnglishLcid = 1033;
         public const int SwissFrenchLcid = 4108;
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
 
-        public event EventHandler UiLanguageChanged = (s, obj) => { };
+        public event EventHandler UiLanguageChanged = (sender, args) => { };
 
         private readonly int lcid;
 

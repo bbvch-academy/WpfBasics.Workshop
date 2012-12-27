@@ -27,8 +27,6 @@ namespace MySbbInfo.SearchStation
 
     public class SearchStationViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private bool isBusy;
 
         public SearchStationViewModel(ITransportService transportService)
@@ -36,6 +34,8 @@ namespace MySbbInfo.SearchStation
             this.InitializeSearchStationCommand(transportService);
             this.Stations = new ObservableCollection<string>();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand SearchStationCommand { get; private set; }
 
@@ -45,6 +45,7 @@ namespace MySbbInfo.SearchStation
             {
                 return this.isBusy;
             }
+
             set
             {
                 this.isBusy = value;

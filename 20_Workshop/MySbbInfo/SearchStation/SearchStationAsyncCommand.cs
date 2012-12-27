@@ -32,7 +32,7 @@ namespace MySbbInfo.SearchStation
     {
         private readonly ITransportService transportService;
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
 
         public event EventHandler BeginStationSearch = (sender, args) => { };
 
