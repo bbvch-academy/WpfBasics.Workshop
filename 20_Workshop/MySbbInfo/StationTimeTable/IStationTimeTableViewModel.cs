@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TimeTableView.cs" company="bbv Software Services AG">
+// <copyright file="IStationTimeTableViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,18 +12,26 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for TimeTableView
+//   Defines the IStationTimeTableViewModel type.
+// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.TimeTable
+namespace MySbbInfo.StationTimeTable
 {
-    using System.Windows.Controls;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.Windows.Input;
 
-    public partial class TimeTableView : UserControl
+    public interface IStationTimeTableViewModel : INotifyPropertyChanged
     {
-        public TimeTableView()
-        {
-            this.InitializeComponent();
-        }
+        ICommand LoadStationBoardCommand { get; }
+
+        ObservableCollection<string> StationBoard { get; set; }
+
+        bool IsBusy { get; set; }
+
+        bool CanExecuteSearch(string stationQuery);
+
+        void ExecuteSearch(string stationQuery);
     }
 }

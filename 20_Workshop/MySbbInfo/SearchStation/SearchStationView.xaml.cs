@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SearchStation.xaml.cs" company="bbv Software Services AG">
+// <copyright file="SearchStation.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for SearchStation.xaml
+//   Interaction logic for SearchStation
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -20,21 +20,11 @@ namespace MySbbInfo.SearchStation
 {
     using System.Windows.Controls;
 
-    using SbbApi;
-
-    /// <summary>
-    /// Interaction logic for SearchStation.xaml
-    /// </summary>
     public partial class SearchStation : UserControl
     {
         public SearchStation()
         {
             this.InitializeComponent();
-        }
-        
-        public void Initialize(ITransportService transportService)
-        {
-            this.DataContext = new SearchStationViewModel(transportService);
         }
     }
 }

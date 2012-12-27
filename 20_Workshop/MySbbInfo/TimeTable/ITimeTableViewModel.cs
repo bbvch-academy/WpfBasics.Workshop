@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="bbv Software Services AG">
+// <copyright file="ITimeTableViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,31 +12,19 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for MainWindow.xaml
+//   Defines the ITimeTableViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.TimeTable
 {
-    using SbbApi;
+    using MySbbInfo.TimeTable.Connections;
+    using MySbbInfo.TimeTable.Search;
 
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow
+    public interface ITimeTableViewModel
     {
-        public MainWindow()
-        {
-            this.InitializeComponent();
-        }
+        ITimeTableSearchViewModel TimeTableSearch { get; }
 
-        private void Window_Loaded_1(object sender, System.Windows.RoutedEventArgs e)
-        {
-            var transportService = new TransportService();
-
-            this.TimeTable.Initialize(transportService);
-            this.Station.Initialize(transportService);
-            this.SearchStation.Initialize(transportService);
-        }
+        IConnectionsViewModel FoundConnections { get; }
     }
 }

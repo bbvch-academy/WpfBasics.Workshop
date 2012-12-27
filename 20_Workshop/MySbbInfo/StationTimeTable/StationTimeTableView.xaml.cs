@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="StationControl.xaml.cs" company="bbv Software Services AG">
+// <copyright file="StationControl.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for StationControl.xaml
+//   Interaction logic for StationControl
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -20,21 +20,11 @@ namespace MySbbInfo.StationTimeTable
 {
     using System.Windows.Controls;
 
-    using SbbApi;
-
-    /// <summary>
-    /// Interaction logic for StationControl.xaml
-    /// </summary>
-    public partial class StationControl : UserControl
+    public partial class StationTimeTableView : UserControl
     {
-        public StationControl()
+        public StationTimeTableView()
         {
             this.InitializeComponent();
-        }
-
-        public void Initialize(ITransportService transportService)
-        {
-            this.DataContext = new StationTimeTableViewModel(transportService);
         }
     }
 }

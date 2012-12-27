@@ -29,21 +29,21 @@ namespace MySbbInfo.StationTimeTable
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    public class StationTimeTableViewModel : INotifyPropertyChanged
+    public class StationTimeTableViewModel : IStationTimeTableViewModel
     {
         private readonly ITransportService transportService;
 
         private bool isBusy;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public StationTimeTableViewModel(ITransportService transportService)
         {
             this.transportService = transportService;
 
             this.StationBoard = new ObservableCollection<string>();
-            this.LoadStationBoardCommand = new RelayCommand<string>(this.RunSearch, this.CanExecuteSearch);
+            this.LoadStationBoardCommand = new RelayCommand<string>(this.ExecuteSearch, this.CanExecuteSearch);
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand LoadStationBoardCommand { get; private set; }
 
@@ -55,6 +55,7 @@ namespace MySbbInfo.StationTimeTable
             {
                 return this.isBusy;
             }
+
             set
             {
                 this.isBusy = value;
@@ -67,18 +68,18 @@ namespace MySbbInfo.StationTimeTable
             return !string.IsNullOrWhiteSpace(stationQuery);
         }
 
-        public void RunSearch(string stationQuery)
+        public void ExecuteSearch(string stationQuery)
         {
             this.IsBusy = true;
 
             var worker = new BackgroundWorker();
             worker.RunWorkerCompleted += (o, ea) => this.SearchCompleted((IEnumerable<Stationboard>)ea.Result);
-            worker.DoWork += (o, ea) => this.ExecuteSearch(ea);
+            worker.DoWork += (o, ea) => this.RunSearch(ea);
 
             worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, stationQuery));
         }
 
-        private void ExecuteSearch(DoWorkEventArgs ea)
+        private void RunSearch(DoWorkEventArgs ea)
         {
             System.Threading.Thread.Sleep(1000);
 

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TimeTableView.cs" company="bbv Software Services AG">
+// <copyright file="MainView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,18 +12,18 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for TimeTableView
+//   Interaction logic for MainWindow.xaml
+// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.TimeTable
+namespace MySbbInfo
 {
-    using System.Windows.Controls;
-
-    public partial class TimeTableView : UserControl
+    public partial class MainView
     {
-        public TimeTableView()
+        public MainView()
         {
             this.InitializeComponent();
+            this.DataContext = new MainViewModel();
         }
     }
 }

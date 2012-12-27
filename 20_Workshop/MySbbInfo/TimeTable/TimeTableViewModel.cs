@@ -18,16 +18,12 @@
 
 namespace MySbbInfo.TimeTable
 {
-    using System.Linq;
-    using System.Windows.Controls;
-
     using MySbbInfo.TimeTable.Connections;
     using MySbbInfo.TimeTable.Search;
 
     using SbbApi;
-    using SbbApi.ApiClasses;
     
-    public class TimeTableViewModel
+    public class TimeTableViewModel : ITimeTableViewModel
     {
         public TimeTableViewModel(ITransportService transportService)
         {
@@ -40,24 +36,5 @@ namespace MySbbInfo.TimeTable
         public ITimeTableSearchViewModel TimeTableSearch { get; private set; }
 
         public IConnectionsViewModel FoundConnections { get; private set; }
-        
-        private void ConnectionsGrid_OnSelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            DataGridCellInfo selected = e.AddedCells.FirstOrDefault();
-
-            if (!(selected.Item is Connection))
-            {
-                return;
-            }
-
-            var selectedConnection = (Connection)selected.Item;
-
-            //this.Connections.Clear();
-
-            //foreach (Section section in selectedConnection.Sections)
-            //{
-            //    this.Connections.Add(section);
-            //}
-        }
     }
 }

@@ -36,7 +36,9 @@
 
             <Label Content="{lex:Loc Search}" />
 
-            <TextBox Grid.Column="1" Text="Bern" />
+            <TextBox x:Name="txtStationQuery"
+                     Grid.Column="1"
+                     Text="Bern" />
             <Button Grid.Row="1"
                     Grid.Column="1"
                     Height="30"
