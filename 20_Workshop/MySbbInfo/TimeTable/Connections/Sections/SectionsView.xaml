@@ -50,7 +50,7 @@
                                Source="{Binding Path=TransportMedium,
                                                 Converter={StaticResource TransportMediumConverter}}" />
                         <TextBlock Grid.Row="1"
-                                   Grid.Column="5"
+                                   Grid.Column="3"
                                    Text="{Binding Path=ArrivingPlatform}" />
                         <TextBlock Grid.Column="5" Text="{Binding Path=TransportMedium}" />
                         <TextBlock Grid.Column="6"
