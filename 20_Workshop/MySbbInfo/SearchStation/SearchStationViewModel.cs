@@ -25,7 +25,7 @@ namespace MySbbInfo.SearchStation
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    public class SearchStationViewModel : INotifyPropertyChanged
+    public class SearchStationViewModel : ISearchStationViewModel
     {
         private bool isBusy;
 
@@ -55,12 +55,20 @@ namespace MySbbInfo.SearchStation
 
         public ObservableCollection<string> Stations { get; set; }
 
-        public void BeginStationSearchHandler(object sender, System.EventArgs e)
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private void BeginStationSearchHandler(object sender, System.EventArgs e)
         {
             this.IsBusy = true;
         }
 
-        public void StationSearchCompletedHandler(object sender, SearchStationCompletedEventArgs args)
+        private void StationSearchCompletedHandler(object sender, SearchStationCompletedEventArgs args)
         {
             this.Stations.Clear();
 
@@ -80,14 +88,6 @@ namespace MySbbInfo.SearchStation
             searchStationCommand.BeginStationSearch += this.BeginStationSearchHandler;
 
             this.SearchStationCommand = searchStationCommand;
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

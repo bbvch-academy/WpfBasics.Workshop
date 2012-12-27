@@ -32,16 +32,16 @@ namespace MySbbInfo.SearchStation
     {
         private readonly ITransportService transportService;
 
+        public SearchStationAsyncCommand(ITransportService transportService)
+        {
+            this.transportService = transportService;
+        }
+
         public event EventHandler CanExecuteChanged = (sender, args) => { };
 
         public event EventHandler BeginStationSearch = (sender, args) => { };
 
         public event SearchStationCompletedEventHandler StationSearchCompleted = (sender, args) => { };
-
-        public SearchStationAsyncCommand(ITransportService transportService)
-        {
-            this.transportService = transportService;
-        }
 
         public bool CanExecute(object parameter)
         {
