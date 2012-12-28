@@ -61,5 +61,39 @@ namespace MySbbInfo.TimeTable.Connections.Sections
         public string DelayAtDeparture { get; set; }
 
         public string DelayAtArrival { get; set; }
+
+        public bool IsBusVisible
+        {
+            get
+            {
+                return this.TransportMedium.StartsWith("bus", StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
+        public bool IsPedestrianVisible
+        {
+            get
+            {
+                return string.IsNullOrWhiteSpace(this.TransportMedium);
+            }
+        }
+
+        public bool IsTrainVisible
+        {
+            get
+            {
+                return this.TransportMedium.StartsWith("i", StringComparison.OrdinalIgnoreCase)
+                       || this.TransportMedium.StartsWith("s", StringComparison.OrdinalIgnoreCase)
+                       || this.TransportMedium.StartsWith("r", StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
+        public bool IsTramVisible
+        {
+            get
+            {
+                return this.TransportMedium.StartsWith("tram", StringComparison.OrdinalIgnoreCase);
+            }
+        }
     }
 }

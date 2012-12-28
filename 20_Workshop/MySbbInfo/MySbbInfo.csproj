@@ -132,7 +132,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TransportMedium.resx</DependentUpon>
     </Compile>
-    <Compile Include="TimeTable\TransportMediumToBitmapImageConverter.cs" />
     <Compile Include="Properties\Translation.de-ch.Designer.cs">
       <DependentUpon>Translation.de-ch.resx</DependentUpon>
       <AutoGen>True</AutoGen>

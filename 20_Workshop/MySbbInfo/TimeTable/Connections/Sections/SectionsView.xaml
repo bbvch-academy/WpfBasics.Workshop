@@ -3,15 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:local="clr-namespace:MySbbInfo.TimeTable.Connections.Sections"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
-             d:DesignHeight="600"
-             d:DesignWidth="300"
+             DataContext="{x:Static local:SectionsView.SampleData}"
+             d:DesignHeight="300"
+             d:DesignWidth="600"
              lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
+
     <UserControl.Resources>
-        <timeTable:TransportMediumToBitmapImageConverter x:Key="TransportMediumConverter" />
+        <BooleanToVisibilityConverter x:Key="ShowImageConverter" />
     </UserControl.Resources>
 
     <ListView VerticalAlignment="Stretch"
@@ -47,8 +49,30 @@
                                Grid.Column="4"
                                Width="32"
                                Height="32"
-                               Source="{Binding Path=TransportMedium,
-                                                Converter={StaticResource TransportMediumConverter}}" />
+                               Source="../../../img/bus.png"
+                               Visibility="{Binding Path=IsBusVisible,
+                                                    Converter={StaticResource ShowImageConverter}}" />
+                        <Image Grid.RowSpan="2"
+                               Grid.Column="4"
+                               Width="32"
+                               Height="32"
+                               Source="../../../img/train.png"
+                               Visibility="{Binding Path=IsTrainVisible,
+                                                    Converter={StaticResource ShowImageConverter}}" />
+                        <Image Grid.RowSpan="2"
+                               Grid.Column="4"
+                               Width="32"
+                               Height="32"
+                               Source="../../../img/tram.png"
+                               Visibility="{Binding Path=IsTramVisible,
+                                                    Converter={StaticResource ShowImageConverter}}" />
+                        <Image Grid.RowSpan="2"
+                               Grid.Column="4"
+                               Width="32"
+                               Height="32"
+                               Source="../../../img/walk.png"
+                               Visibility="{Binding Path=IsPedestrianVisible,
+                                                    Converter={StaticResource ShowImageConverter}}" />
                         <TextBlock Grid.Row="1"
                                    Grid.Column="3"
                                    Text="{Binding Path=ArrivingPlatform}" />

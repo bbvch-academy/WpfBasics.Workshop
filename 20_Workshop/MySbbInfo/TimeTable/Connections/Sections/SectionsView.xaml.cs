@@ -18,13 +18,61 @@
 
 namespace MySbbInfo.TimeTable.Connections.Sections
 {
+    using System;
+    using System.Collections.Generic;
     using System.Windows.Controls;
+
+    using SbbApi.ApiClasses;
 
     public partial class SectionsView : UserControl
     {
         public SectionsView()
         {
             this.InitializeComponent();
+        }
+
+        public static object SampleData
+        {
+            get
+            {
+                var sections = new List<Section>
+                {
+                    new Section
+                    {
+                        Departure = new StopDeparture { Departure = new DateTime(2012, 12, 17, 18, 45, 0), Station = new Station { Name = "Littau" } },
+                        Arrival = new StopArrival { Arrival = new DateTime(2012, 12, 17, 18, 47, 0), Station = new Station { Name = "Littau, Bahnhof" } },
+                    },
+                    new Section
+                    {
+                        Departure = new StopDeparture { Departure = new DateTime(2012, 12, 17, 18, 47, 0), Station = new Station { Name = "Littau, Bahnhof" } },
+                        Arrival = new StopArrival { Arrival = new DateTime(2012, 12, 17, 19, 1, 0), Station = new Station { Name = "Emmenbrücke, Seetalplatz" } },
+                        Journey = new Journey { Name = "Bus 13" }
+                    },
+                    new Section
+                    {
+                        Departure = new StopDeparture { Departure = new DateTime(2012, 12, 17, 19, 1, 0), Station = new Station { Name = "Emmenbrücke, Seetalplatz" } },
+                        Arrival = new StopArrival { Arrival = new DateTime(2012, 12, 17, 19, 8, 0), Station = new Station { Name = "Emmenbrücke" } }
+                    },
+                    new Section
+                    {
+                        Departure = new StopDeparture { Departure = new DateTime(2012, 12, 17, 19, 9, 0), Station = new Station { Name = "Emmenbrücke"}, Platform = "1" },
+                        Arrival = new StopArrival { Arrival = new DateTime(2012, 12, 17, 19, 52, 0), Station = new Station { Name = "Olten" } },
+                        Journey = new Journey { Name = "RE 3588" }
+                    },
+                    new Section
+                    {
+                        Departure = new StopDeparture { Departure = new DateTime(2012, 12, 17, 19, 58, 0), Station = new Station { Name = "Olten" }, Platform = "8", Delay = "2 min"},
+                        Arrival = new StopArrival { Arrival = new DateTime(2012, 12, 17, 20, 25, 0), Station = new Station { Name = "Bern" } },
+                        Journey = new Journey { Name = "IR 1938" },
+                    }
+                };
+
+                var sectionsViewModel = new SectionsViewModel();
+
+                sectionsViewModel.DisplaySections(new Connection { Sections = sections.ToArray() });
+
+                return sectionsViewModel;
+            }
         }
     }
 }
