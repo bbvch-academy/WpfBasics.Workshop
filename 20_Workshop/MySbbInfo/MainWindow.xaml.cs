@@ -18,35 +18,14 @@
 
 namespace MySbbInfo
 {
-    using System.Collections.Generic;
-    using System.Windows;
-
-    using SbbApi;
-    using SbbApi.ApiClasses;
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
-        private readonly ITransportService transportService;
-
         public MainWindow()
         {
             this.InitializeComponent();
-            this.transportService = new TransportService();
-        }
-
-        private void SearchStationClick(object sender, RoutedEventArgs e)
-        {
-            this.stationResult.Items.Clear();
-
-            IEnumerable<Station> locations = this.transportService.GetLocations(this.txtStationQuery.Text);
-
-            foreach (var location in locations)
-            {
-                this.stationResult.Items.Add(location.Name);
-            }
         }
     }
 }
