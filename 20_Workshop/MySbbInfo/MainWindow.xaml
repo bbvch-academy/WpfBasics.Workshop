@@ -1,25 +1,21 @@
 ﻿<Window x:Class="MySbbInfo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:lex="http://wpflocalizeextension.codeplex.com"
         xmlns:local="clr-namespace:MySbbInfo"
         Title="My SBB Info"
         Width="570"
         Height="600"
         Icon="img/train.ico"
-        Loaded="Window_Loaded_1"
-        lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
-        lex:ResxLocalizationProvider.DefaultDictionary="Translation">
+        Loaded="Window_Loaded_1">
     <DockPanel>
-        <local:MenuControl DockPanel.Dock="Top" />
         <TabControl DockPanel.Dock="Top">
-            <TabItem Header="{lex:Loc TimeTable}">
+            <TabItem Header="Time Table">
                 <local:TimeTableControl x:Name="TimeTable" />
             </TabItem>
-            <TabItem Header="{lex:Loc Station}">
+            <TabItem Header="Station">
                 <local:StationControl x:Name="Station" />
             </TabItem>
-            <TabItem Header="{lex:Loc SearchStation}">
+            <TabItem Header="Search station">
                 <local:SearchStation x:Name="SearchStation" />
             </TabItem>
         </TabControl>
