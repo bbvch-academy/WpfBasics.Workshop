@@ -72,12 +72,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ChangeUILanguageCommand.cs" />
-    <Compile Include="TransportMedium.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransportMedium.resx</DependentUpon>
-    </Compile>
-    <Compile Include="TransportMediumToBitmapImageConverter.cs" />
     <Compile Include="Translation.de-ch.Designer.cs">
       <DependentUpon>Translation.de-ch.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -135,10 +129,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\MySbbInfoStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Skins\WhistlerBlue.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -184,10 +174,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransportMedium.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>TransportMedium.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="img\Occupancy.xcf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -216,17 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\train.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\bus.png" />
-    <Resource Include="img\train.png" />
-    <Resource Include="img\walk.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\empty_transportation.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\tram.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
