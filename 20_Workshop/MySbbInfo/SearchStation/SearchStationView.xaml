@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended"
              d:DesignHeight="300"
@@ -27,6 +28,7 @@
                 <RowDefinition Height="Auto" />
 
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -50,7 +52,23 @@
 
             <ListView Grid.Row="2"
                       Grid.ColumnSpan="2"
-                      ItemsSource="{Binding Stations}" />
+                      ItemsSource="{Binding Stations}"
+                      SelectedItem="{Binding SelectedStation}">
+                <ListView.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </ItemContainerTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <m:Map x:Name="map"
+                   Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   AnimationLevel="None"
+                   Center="{Binding StationPosition}"
+                   CredentialsProvider="Your key here!"
+                   Mode="AerialWithLabels"
+                   ZoomLevel="12.000" />
         </Grid>
     </xctk:BusyIndicator>
 </UserControl>

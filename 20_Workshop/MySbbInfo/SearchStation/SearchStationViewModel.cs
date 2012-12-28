@@ -22,22 +22,51 @@ namespace MySbbInfo.SearchStation
     using System.ComponentModel;
     using System.Windows.Input;
 
+    using Microsoft.Maps.MapControl.WPF;
+
     using SbbApi;
     using SbbApi.ApiClasses;
 
     public class SearchStationViewModel : ISearchStationViewModel
     {
+        private static readonly Location LocationBern = new Location(46.948429107666, 7.44046020507813);
+
         private bool isBusy;
+
+        private Location stationPosition;
+
+        private Station selectedStation;
 
         public SearchStationViewModel(ITransportService transportService)
         {
             this.InitializeSearchStationCommand(transportService);
-            this.Stations = new ObservableCollection<string>();
+            this.Stations = new ObservableCollection<Station>();
+
+            this.stationPosition = LocationBern;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand SearchStationCommand { get; private set; }
+
+        public Station SelectedStation
+        {
+            get
+            {
+                return this.selectedStation;
+            }
+
+            set
+            {
+                this.selectedStation = value;
+                this.OnPropertyChanged("SelectedStation");
+
+                if (value != null && value.Coordinate.X.HasValue && value.Coordinate.Y.HasValue)
+                {
+                    this.StationPosition = new Location(value.Coordinate.Y.Value, value.Coordinate.X.Value);
+                }
+            }
+        }
 
         public bool IsBusy
         {
@@ -53,7 +82,21 @@ namespace MySbbInfo.SearchStation
             }
         }
 
-        public ObservableCollection<string> Stations { get; set; }
+        public ObservableCollection<Station> Stations { get; set; }
+
+        public Location StationPosition
+        {
+            get
+            {
+                return this.stationPosition;
+            }
+
+            set
+            {
+                this.stationPosition = value;
+                this.OnPropertyChanged("StationPosition");
+            }
+        }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -74,7 +117,7 @@ namespace MySbbInfo.SearchStation
 
             foreach (Station station in args.StationsResult)
             {
-                this.Stations.Add(station.Name);
+                this.Stations.Add(station);
             }
 
             this.IsBusy = false;

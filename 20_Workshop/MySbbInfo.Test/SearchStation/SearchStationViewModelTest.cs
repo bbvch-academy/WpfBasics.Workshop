@@ -25,6 +25,7 @@ namespace MySbbInfo.SearchStation
     using NUnit.Framework;
 
     using SbbApi;
+    using SbbApi.ApiClasses;
 
     [TestFixture]
     public class SearchStationViewModelTest
@@ -69,7 +70,7 @@ namespace MySbbInfo.SearchStation
         {
             this.testee.Stations.MonitorEvents();
 
-            this.testee.Stations.Add("some station");
+            this.testee.Stations.Add(new Station { Name = "some station" });
 
             this.testee.Stations.ShouldRaise("CollectionChanged");
         }

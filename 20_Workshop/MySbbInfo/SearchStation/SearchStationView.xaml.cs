@@ -26,5 +26,22 @@ namespace MySbbInfo.SearchStation
         {
             this.InitializeComponent();
         }
+
+        protected override void OnRender(System.Windows.Media.DrawingContext drawingContext)
+        {
+            base.OnRender(drawingContext);
+
+            var searchStationViewModel = this.DataContext as ISearchStationViewModel;
+            if (searchStationViewModel != null)
+            {
+                searchStationViewModel.PropertyChanged += (sender, args) =>
+                {
+                    if (args.PropertyName == "StationPosition" && searchStationViewModel.StationPosition != null)
+                    {
+                        this.map.SetView(searchStationViewModel.StationPosition, this.map.ZoomLevel);
+                    }
+                };
+            }
+        }
     }
 }

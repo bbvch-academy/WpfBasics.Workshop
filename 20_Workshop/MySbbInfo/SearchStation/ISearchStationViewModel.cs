@@ -22,12 +22,18 @@ namespace MySbbInfo.SearchStation
     using System.ComponentModel;
     using System.Windows.Input;
 
+    using Microsoft.Maps.MapControl.WPF;
+
+    using SbbApi.ApiClasses;
+
     public interface ISearchStationViewModel : INotifyPropertyChanged
     {
         ICommand SearchStationCommand { get; }
 
         bool IsBusy { get; set; }
 
-        ObservableCollection<string> Stations { get; set; }
+        ObservableCollection<Station> Stations { get; set; }
+
+        Location StationPosition { get; set; }
     }
 }
