@@ -34,7 +34,6 @@ namespace MySbbInfo
         {
             var transportService = new TransportService();
 
-            this.TimeTable.Initialize(transportService);
             this.Station.Initialize(transportService);
             this.SearchStation.Initialize(transportService);
         }

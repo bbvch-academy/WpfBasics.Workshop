@@ -9,9 +9,6 @@
         Loaded="Window_Loaded_1">
     <DockPanel>
         <TabControl DockPanel.Dock="Top">
-            <TabItem Header="Time Table">
-                <local:TimeTableControl x:Name="TimeTable" />
-            </TabItem>
             <TabItem Header="Station">
                 <local:StationControl x:Name="Station" />
             </TabItem>
