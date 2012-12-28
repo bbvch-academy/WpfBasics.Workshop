@@ -20,7 +20,6 @@ namespace MySbbInfo
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -60,25 +59,6 @@ namespace MySbbInfo
             IEnumerable<Connection> connections = this.transportService.GetConnections(this.txtFrom.Text, this.txtTo.Text, startTime);
 
             ConnectionsGrid.ItemsSource = connections;
-        }
-
-        private void ConnectionsGrid_OnSelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            DataGridCellInfo selected = e.AddedCells.FirstOrDefault();
-
-            if (!(selected.Item is Connection))
-            {
-                return;
-            }
-
-            var selectedConnection = (Connection)selected.Item;
-
-            this.Connections.Items.Clear();
-
-            foreach (Section section in selectedConnection.Sections)
-            {
-                this.Connections.Items.Add(section);
-            }
         }
     }
 }

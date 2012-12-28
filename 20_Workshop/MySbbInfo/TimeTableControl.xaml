@@ -13,7 +13,6 @@
              mc:Ignorable="d">
     <UserControl.Resources>
         <mySbbInfo:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
-        <mySbbInfo:TransportMediumToBitmapImageConverter x:Key="TransportMediumConverter" />
     </UserControl.Resources>
 
     <Grid>
@@ -63,8 +62,7 @@
                   Margin="0,2,0,-2"
                   AutoGenerateColumns="False"
                   CanUserReorderColumns="False"
-                  IsReadOnly="True"
-                  SelectedCellsChanged="ConnectionsGrid_OnSelectedCellsChanged">
+                  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=From.Station.Name}" Header="{lex:Loc MySbbInfo:Translation:Start}" />
                 <DataGridTextColumn Binding="{Binding Path=From.Departure, StringFormat=dd.MM.yy HH:mm}" />
@@ -80,57 +78,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
-        <ListView x:Name="Connections"
-                  Grid.Row="5"
-                  Grid.ColumnSpan="2"
-                  VerticalAlignment="Stretch">
-            <ListView.ItemTemplate>
-                <ItemContainerTemplate>
-                    <Border Style="{StaticResource ConnectionsBorder}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="180" />
-                                <ColumnDefinition Width="50" />
-                                <ColumnDefinition Width="50" />
-                                <ColumnDefinition Width="35" />
-                                <ColumnDefinition Width="35" />
-                                <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding Path=Departure.Station.Name}" />
-                            <TextBlock Grid.Row="1" Text="{Binding Path=Arrival.Station.Name}" />
-                            <TextBlock Grid.Column="1" Text="{Binding Path=Departure.Departure, StringFormat=dd.MM.yy}" />
-                            <TextBlock Grid.Column="2" Text="{Binding Path=Departure.Departure, StringFormat=HH:mm}" />
-                            <TextBlock Grid.Row="1"
-                                       Grid.Column="2"
-                                       Text="{Binding Path=Arrival.Arrival,
-                                                      StringFormat=HH:mm}" />
-                            <TextBlock Grid.Column="3" Text="{Binding Path=Departure.Platform}" />
-                            <Image Grid.RowSpan="2"
-                                   Grid.Column="4"
-                                   Width="32"
-                                   Height="32"
-                                   Source="{Binding Path=Journey.Name,
-                                                    Converter={StaticResource TransportMediumConverter}}" />
-                            <TextBlock Grid.Row="1"
-                                       Grid.Column="3"
-                                       Text="{Binding Path=Arrival.Platform}" />
-                            <TextBlock Grid.Column="5" Text="{Binding Path=Journey.Name}" />
-                            <TextBlock Grid.Column="6"
-                                       Style="{StaticResource DelayMessage}"
-                                       Text="{Binding Path=Departure.Delay}" />
-                            <TextBlock Grid.Column="6"
-                                       Style="{StaticResource DelayMessage}"
-                                       Text="{Binding Path=Arrival.Delay}" />
-                        </Grid>
-                    </Border>
-                </ItemContainerTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
     </Grid>
 </UserControl>
