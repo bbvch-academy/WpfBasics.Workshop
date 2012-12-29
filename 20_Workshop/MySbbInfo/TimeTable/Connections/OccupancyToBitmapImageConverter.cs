@@ -16,7 +16,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.TimeTable
+namespace MySbbInfo.TimeTable.Connections
 {
     using System;
     using System.Drawing;

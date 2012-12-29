@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MySbbInfo.TimeTable {
+namespace MySbbInfo.TimeTable.Connections {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MySbbInfo.TimeTable {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.TimeTable.Occupancy", typeof(Occupancy).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.TimeTable.Connections.Occupancy", typeof(Occupancy).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

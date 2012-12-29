@@ -6,13 +6,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sections="clr-namespace:MySbbInfo.TimeTable.Connections.Sections"
              xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
+             xmlns:connections="clr-namespace:MySbbInfo.TimeTable.Connections"
              d:DesignHeight="600"
              d:DesignWidth="300"
              lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <timeTable:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
+        <connections:OccupancyToBitmapImageConverter x:Key="OccupancyConverter" />
     </UserControl.Resources>
 
     <DockPanel>

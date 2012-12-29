@@ -37,7 +37,11 @@ namespace MySbbInfo.SearchStation
             this.transportService = transportService;
         }
 
-        public event EventHandler CanExecuteChanged = (sender, args) => { };
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public event EventHandler BeginStationSearch = (sender, args) => { };
 
