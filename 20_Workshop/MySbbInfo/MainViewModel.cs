@@ -29,12 +29,12 @@ namespace MySbbInfo
         {
             ITransportService transportService = new TransportService();
 
-            this.StationTimeTable = new StationTimeTableViewModel(transportService);
+            // this.StationTimeTable = new StationTimeTableViewModel(transportService);
             this.SearchStation = new SearchStationViewModel(transportService);
             // this.TimeTable = new TimeTableViewModel(transportService);
         }
 
-        public IStationTimeTableViewModel StationTimeTable { get; private set; }
+        // public IStationTimeTableViewModel StationTimeTable { get; private set; }
 
         public ISearchStationViewModel SearchStation { get; private set; }
 

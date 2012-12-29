@@ -18,13 +18,45 @@
 
 namespace MySbbInfo.StationTimeTable
 {
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Windows;
     using System.Windows.Controls;
+
+    using SbbApi;
+    using SbbApi.ApiClasses;
 
     public partial class StationTimeTableView : UserControl
     {
+        private readonly ITransportService service;
+
         public StationTimeTableView()
         {
             this.InitializeComponent();
+            this.service = new TransportService();
+        }
+
+        private void LoadStationboardClick(object sender, RoutedEventArgs e)
+        {
+            this.stationBoardResult.Items.Clear();
+
+            IEnumerable<Stationboard> stationboard = service.GetStationBoard(this.txtStation.Text);
+
+            foreach (var stop in stationboard)
+            {
+                var stationboardOutputBuilder = new StringBuilder();
+
+                var part = string.Format("Ziel: {0}, Abfahrt: {1}, mittels: {2}", stop.To, stop.Stop.Departure, stop.Name);
+                stationboardOutputBuilder.Append(part);
+
+                if (!string.IsNullOrEmpty(stop.Stop.Delay))
+                {
+                    part = string.Format(", Verspätung: {0}", stop.Stop.Delay);
+                    stationboardOutputBuilder.Append(part);
+                }
+
+                this.stationBoardResult.Items.Add(stationboardOutputBuilder.ToString());
+            }
         }
     }
 }
