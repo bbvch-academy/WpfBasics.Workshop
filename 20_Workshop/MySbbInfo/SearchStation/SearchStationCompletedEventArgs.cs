@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="SearchStationCompletedEventArgs.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,32 +12,24 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the MainViewModel type.
+//   Defines the ChangeUiLanguageCommand type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.SearchStation
 {
-    using MySbbInfo.SearchStation;
-    using MySbbInfo.StationTimeTable;
+    using System;
+    using System.Collections.Generic;
 
-    using SbbApi;
+    using SbbApi.ApiClasses;
 
-    public class MainViewModel : IMainViewModel
+    public class SearchStationCompletedEventArgs : EventArgs
     {
-        public MainViewModel()
+        public IEnumerable<Station> StationsResult { get; private set; }
+
+        public SearchStationCompletedEventArgs(IEnumerable<Station> stationsResult)
         {
-            ITransportService transportService = new TransportService();
-
-            this.StationTimeTable = new StationTimeTableViewModel(transportService);
-            this.SearchStation = new SearchStationViewModel(transportService);
-            // this.TimeTable = new TimeTableViewModel(transportService);
+            this.StationsResult = stationsResult;
         }
-
-        public IStationTimeTableViewModel StationTimeTable { get; private set; }
-
-        public ISearchStationViewModel SearchStation { get; private set; }
-
-        // public ITimeTableViewModel TimeTable { get; private set; }
     }
 }

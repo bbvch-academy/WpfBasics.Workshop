@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="ISearchStationViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,32 +12,28 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the MainViewModel type.
+//   Defines the ISearchStationViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.SearchStation
 {
-    using MySbbInfo.SearchStation;
-    using MySbbInfo.StationTimeTable;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.Windows.Input;
 
-    using SbbApi;
+    using Microsoft.Maps.MapControl.WPF;
 
-    public class MainViewModel : IMainViewModel
+    using SbbApi.ApiClasses;
+
+    public interface ISearchStationViewModel : INotifyPropertyChanged
     {
-        public MainViewModel()
-        {
-            ITransportService transportService = new TransportService();
+        ICommand SearchStationCommand { get; }
 
-            this.StationTimeTable = new StationTimeTableViewModel(transportService);
-            this.SearchStation = new SearchStationViewModel(transportService);
-            // this.TimeTable = new TimeTableViewModel(transportService);
-        }
+        bool IsBusy { get; set; }
 
-        public IStationTimeTableViewModel StationTimeTable { get; private set; }
+        ObservableCollection<Station> Stations { get; set; }
 
-        public ISearchStationViewModel SearchStation { get; private set; }
-
-        // public ITimeTableViewModel TimeTable { get; private set; }
+        Location StationPosition { get; set; }
     }
 }
