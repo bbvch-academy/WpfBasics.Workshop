@@ -24,7 +24,7 @@ namespace MySbbInfo
 
     public interface IMainViewModel
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
+        // IStationTimeTableViewModel StationTimeTable { get; }
 
         ISearchStationViewModel SearchStation { get; }
 

@@ -98,8 +98,6 @@
     <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
     <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />
     <Compile Include="SearchStation\SearchStationViewModel.cs" />
-    <Compile Include="StationTimeTable\IStationTimeTableViewModel.cs" />
-    <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />
     <Compile Include="TimeTable\Occupancy.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
