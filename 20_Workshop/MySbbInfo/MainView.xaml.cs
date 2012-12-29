@@ -18,12 +18,16 @@
 
 namespace MySbbInfo
 {
+    using SbbApi;
+
     public partial class MainView
     {
         public MainView()
         {
             this.InitializeComponent();
             this.DataContext = new MainViewModel();
+
+            this.TimeTable.Initialize(new TransportService());
         }
     }
 }

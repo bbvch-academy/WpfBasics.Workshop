@@ -16,7 +16,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.TimeTable.Search
+namespace MySbbInfo.TimeTable
 {
     using System;
     using System.Windows;

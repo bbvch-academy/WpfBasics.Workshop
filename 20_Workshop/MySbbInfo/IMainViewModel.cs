@@ -28,6 +28,6 @@ namespace MySbbInfo
 
         ISearchStationViewModel SearchStation { get; }
 
-        ITimeTableViewModel TimeTable { get; }
+        // ITimeTableViewModel TimeTable { get; }
     }
 }

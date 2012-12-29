@@ -20,7 +20,6 @@ namespace MySbbInfo
 {
     using MySbbInfo.SearchStation;
     using MySbbInfo.StationTimeTable;
-    using MySbbInfo.TimeTable;
 
     using SbbApi;
 
@@ -32,13 +31,13 @@ namespace MySbbInfo
 
             this.StationTimeTable = new StationTimeTableViewModel(transportService);
             this.SearchStation = new SearchStationViewModel(transportService);
-            this.TimeTable = new TimeTableViewModel(transportService);
+            // this.TimeTable = new TimeTableViewModel(transportService);
         }
 
         public IStationTimeTableViewModel StationTimeTable { get; private set; }
 
         public ISearchStationViewModel SearchStation { get; private set; }
 
-        public ITimeTableViewModel TimeTable { get; private set; }
+        // public ITimeTableViewModel TimeTable { get; private set; }
     }
 }

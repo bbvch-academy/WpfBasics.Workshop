@@ -16,7 +16,7 @@
         <menu:MenuView DockPanel.Dock="Top" />
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="{lex:Loc TimeTable}">
-                <timeTable:TimeTableView x:Name="TimeTable" DataContext="{Binding TimeTable}" />
+                <timeTable:TimeTableView x:Name="TimeTable" />
             </TabItem>
             <TabItem Header="{lex:Loc Station}">
                 <stationTimeTable:StationTimeTableView x:Name="Station" DataContext="{Binding StationTimeTable}" />

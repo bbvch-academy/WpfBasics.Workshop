@@ -22,24 +22,24 @@ namespace MySbbInfo.TimeTable {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class TransportMedium {
+    internal class Occupancy {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TransportMedium() {
+        internal Occupancy() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.TimeTable.TransportMedium", typeof(TransportMedium).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.TimeTable.Occupancy", typeof(Occupancy).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace MySbbInfo.TimeTable {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,9 +63,9 @@ namespace MySbbInfo.TimeTable {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap bus {
+        internal static System.Drawing.Bitmap empty_occupancy {
             get {
-                object obj = ResourceManager.GetObject("bus", resourceCulture);
+                object obj = ResourceManager.GetObject("empty_occupancy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace MySbbInfo.TimeTable {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap empty_transportation {
+        internal static System.Drawing.Bitmap occupancy0 {
             get {
-                object obj = ResourceManager.GetObject("empty_transportation", resourceCulture);
+                object obj = ResourceManager.GetObject("occupancy0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace MySbbInfo.TimeTable {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap train {
+        internal static System.Drawing.Bitmap occupancy1 {
             get {
-                object obj = ResourceManager.GetObject("train", resourceCulture);
+                object obj = ResourceManager.GetObject("occupancy1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace MySbbInfo.TimeTable {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tram {
+        internal static System.Drawing.Bitmap occupancy2 {
             get {
-                object obj = ResourceManager.GetObject("tram", resourceCulture);
+                object obj = ResourceManager.GetObject("occupancy2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace MySbbInfo.TimeTable {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap walk {
+        internal static System.Drawing.Bitmap occupancy3 {
             get {
-                object obj = ResourceManager.GetObject("walk", resourceCulture);
+                object obj = ResourceManager.GetObject("occupancy3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

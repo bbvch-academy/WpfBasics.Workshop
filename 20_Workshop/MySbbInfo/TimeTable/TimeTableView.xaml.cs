@@ -17,13 +17,89 @@
 
 namespace MySbbInfo.TimeTable
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Windows;
     using System.Windows.Controls;
+
+    using SbbApi;
+    using SbbApi.ApiClasses;
 
     public partial class TimeTableView : UserControl
     {
+        private ITransportService transportService;
+
         public TimeTableView()
         {
             this.InitializeComponent();
+        }
+
+        public void Initialize(ITransportService transportService)
+        {
+            this.transportService = transportService;
+        }
+        
+        private void SearchConnectionsClick(object sender, RoutedEventArgs e)
+        {
+            DateTime startTime = this.DepartureTime.SelectedDateTime;
+
+            // see: http://elegantcode.com/2011/10/07/extended-wpf-toolkitusing-the-busyindicator/
+            var worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += (o, ea) => this.BusySearch.IsBusy = false;
+            
+            worker.DoWork += (o, ea) =>
+            {
+                var args = (BackgroundWorkerArgs)ea.Argument;
+
+                ITransportService service = args.TransportService;
+
+                IEnumerable<Connection> connections = service.GetConnections(args.From, args.To, args.StartTime);
+
+                Dispatcher.Invoke(() => ConnectionsGrid.ItemsSource = connections);
+            };
+
+            this.BusySearch.IsBusy = true;
+            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, startTime, this.txtFrom.Text, this.txtTo.Text));
+        }
+
+        private void ConnectionsGrid_OnSelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            DataGridCellInfo selected = e.AddedCells.FirstOrDefault();
+
+            if (!(selected.Item is Connection))
+            {
+                return;
+            }
+
+            var selectedConnection = (Connection)selected.Item;
+
+            this.Connections.Items.Clear();
+
+            foreach (Section section in selectedConnection.Sections)
+            {
+                this.Connections.Items.Add(section);
+            }
+        }
+
+        private class BackgroundWorkerArgs
+        {
+            public BackgroundWorkerArgs(ITransportService transportService, DateTime startTime, string from, string to)
+            {
+                this.TransportService = transportService;
+                this.StartTime = startTime;
+                this.From = @from;
+                this.To = to;
+            }
+
+            public ITransportService TransportService { get; private set; }
+
+            public DateTime StartTime { get; private set; }
+
+            public string From { get; private set; }
+
+            public string To { get; private set; }
         }
     }
 }
