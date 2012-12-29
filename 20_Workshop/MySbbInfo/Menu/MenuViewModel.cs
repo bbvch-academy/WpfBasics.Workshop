@@ -18,23 +18,16 @@
 
 namespace MySbbInfo.Menu
 {
-    using System.ComponentModel;
-    using System.Threading;
     using System.Windows.Input;
 
-    public class MenuViewModel : INotifyPropertyChanged
+    public class MenuViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public MenuViewModel()
         {
-            this.InitializeChangeToGermanCommand();
-            this.InitializeChangeToFrenchCommand();
-            this.InitializeChangeToEnglishCommand();
         }
 
         public ICommand ChangeToGermanCommand { get; private set; }
-        
+
         public ICommand ChangeToFrenchCommand { get; private set; }
 
         public ICommand ChangeToEnglishCommand { get; private set; }
@@ -43,7 +36,7 @@ namespace MySbbInfo.Menu
         {
             get
             {
-                return Thread.CurrentThread.CurrentUICulture.LCID == ChangeUiLanguageCommand.SwissGermanLcid;
+                return false;
             }
         }
 
@@ -51,7 +44,7 @@ namespace MySbbInfo.Menu
         {
             get
             {
-                return Thread.CurrentThread.CurrentUICulture.LCID == ChangeUiLanguageCommand.SwissFrenchLcid;
+                return false;
             }
         }
 
@@ -59,44 +52,8 @@ namespace MySbbInfo.Menu
         {
             get
             {
-                return Thread.CurrentThread.CurrentUICulture.LCID == ChangeUiLanguageCommand.UnitedStatesEnglishLcid;
+                return false;
             }
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        private void InitializeChangeToGermanCommand()
-        {
-            var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.SwissGermanLcid);
-            changeUiLanguageCommand.UiLanguageChanged += this.UiLanguageChanged;
-            this.ChangeToGermanCommand = changeUiLanguageCommand;
-        }
-
-        private void InitializeChangeToFrenchCommand()
-        {
-            var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.SwissFrenchLcid);
-            changeUiLanguageCommand.UiLanguageChanged += this.UiLanguageChanged;
-            this.ChangeToFrenchCommand = changeUiLanguageCommand;
-        }
-
-        private void InitializeChangeToEnglishCommand()
-        {
-            var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.UnitedStatesEnglishLcid);
-            changeUiLanguageCommand.UiLanguageChanged += this.UiLanguageChanged;
-            this.ChangeToEnglishCommand = changeUiLanguageCommand;
-        }
-
-        private void UiLanguageChanged(object sender, System.EventArgs e)
-        {
-            this.OnPropertyChanged("IsGermanSelected");
-            this.OnPropertyChanged("IsFrenchSelected");
-            this.OnPropertyChanged("IsEnglishSelected");
         }
     }
 }

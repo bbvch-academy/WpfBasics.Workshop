@@ -33,8 +33,6 @@ namespace MySbbInfo.Menu
 
         public event EventHandler CanExecuteChanged = (sender, args) => { };
 
-        public event EventHandler UiLanguageChanged = (sender, args) => { };
-
         private readonly int lcid;
 
         public ChangeUiLanguageCommand(int lcid)
@@ -55,8 +53,6 @@ namespace MySbbInfo.Menu
             Thread.CurrentThread.CurrentUICulture = culture;
 
             LocalizeDictionary.Instance.Culture = culture;
-
-            this.UiLanguageChanged(this, new EventArgs());
         }
     }
 }

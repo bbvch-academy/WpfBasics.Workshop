@@ -12,21 +12,18 @@
     <Menu>
         <MenuItem Header="{lex:Loc SettingsItem}">
             <MenuItem Header="{lex:Loc LanguageItem}">
-                <MenuItem Command="{Binding ChangeToGermanCommand}"
+                <MenuItem x:Name="ChangeToGermanItem"
+                          Click="ChangeToGermanItem_OnClick"
                           Header="_Deutsch"
-                          IsCheckable="True"
-                          IsChecked="{Binding IsGermanSelected,
-                                              Mode=OneWay}" />
-                <MenuItem Command="{Binding ChangeToEnglishCommand}"
+                          IsCheckable="True" />
+                <MenuItem x:Name="ChangeToEnglishItem"
+                          Click="ChangeToEnglishItem_OnClick"
                           Header="_English"
-                          IsCheckable="True"
-                          IsChecked="{Binding IsEnglishSelected,
-                                              Mode=OneWay}" />
-                <MenuItem Command="{Binding ChangeToFrenchCommand}"
+                          IsCheckable="True" />
+                <MenuItem x:Name="ChangeToFrenchItem"
+                          Click="ChangeToFrenchItem_OnClick"
                           Header="_Française"
-                          IsCheckable="True"
-                          IsChecked="{Binding IsFrenchSelected,
-                                              Mode=OneWay}" />
+                          IsCheckable="True" />
             </MenuItem>
         </MenuItem>
     </Menu>

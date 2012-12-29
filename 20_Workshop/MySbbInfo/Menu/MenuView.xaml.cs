@@ -18,6 +18,8 @@
 
 namespace MySbbInfo.Menu
 {
+    using System.Threading;
+    using System.Windows;
     using System.Windows.Controls;
 
     /// <summary>
@@ -28,8 +30,35 @@ namespace MySbbInfo.Menu
         public MenuView()
         {
             this.InitializeComponent();
+            this.VerifyLanguageItemChecking();
+        }
 
-            this.DataContext = new MenuViewModel();
+        private void ChangeToGermanItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.SwissGermanLcid);
+            changeUiLanguageCommand.Execute(null);
+            this.VerifyLanguageItemChecking();
+        }
+
+        private void ChangeToEnglishItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.UnitedStatesEnglishLcid);
+            changeUiLanguageCommand.Execute(null);
+            this.VerifyLanguageItemChecking();
+        }
+
+        private void ChangeToFrenchItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.SwissFrenchLcid);
+            changeUiLanguageCommand.Execute(null);
+            this.VerifyLanguageItemChecking();
+        }
+
+        private void VerifyLanguageItemChecking()
+        {
+            this.ChangeToFrenchItem.IsChecked = Thread.CurrentThread.CurrentUICulture.LCID == ChangeUiLanguageCommand.SwissFrenchLcid;
+            this.ChangeToGermanItem.IsChecked = Thread.CurrentThread.CurrentUICulture.LCID == ChangeUiLanguageCommand.SwissGermanLcid;
+            this.ChangeToEnglishItem.IsChecked = Thread.CurrentThread.CurrentUICulture.LCID == ChangeUiLanguageCommand.UnitedStatesEnglishLcid;
         }
     }
 }
