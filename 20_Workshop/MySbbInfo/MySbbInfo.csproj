@@ -93,11 +93,6 @@
     <Compile Include="IMainViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
-    <Compile Include="Menu\MenuViewModel.cs" />
-    <Compile Include="SearchStation\ISearchStationViewModel.cs" />
-    <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
-    <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />
-    <Compile Include="SearchStation\SearchStationViewModel.cs" />
     <Compile Include="TimeTable\Occupancy.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

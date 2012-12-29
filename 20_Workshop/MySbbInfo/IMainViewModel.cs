@@ -26,7 +26,7 @@ namespace MySbbInfo
     {
         // IStationTimeTableViewModel StationTimeTable { get; }
 
-        ISearchStationViewModel SearchStation { get; }
+        // ISearchStationViewModel SearchStation { get; }
 
         // ITimeTableViewModel TimeTable { get; }
     }
