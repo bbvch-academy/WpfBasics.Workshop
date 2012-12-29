@@ -18,29 +18,32 @@
 
 namespace MySbbInfo.SearchStation
 {
+    using System.Collections.Generic;
+    using System.Windows;
     using System.Windows.Controls;
+
+    using SbbApi;
+    using SbbApi.ApiClasses;
 
     public partial class SearchStation : UserControl
     {
+        private readonly ITransportService transportService;
+
         public SearchStation()
         {
             this.InitializeComponent();
+            this.transportService = new TransportService();
         }
 
-        protected override void OnRender(System.Windows.Media.DrawingContext drawingContext)
+        private void SearchStationClick(object sender, RoutedEventArgs e)
         {
-            base.OnRender(drawingContext);
+            this.stationResult.Items.Clear();
 
-            var searchStationViewModel = this.DataContext as ISearchStationViewModel;
-            if (searchStationViewModel != null)
+            IEnumerable<Station> locations = this.transportService.GetLocations(this.txtStationQuery.Text);
+
+            foreach (var location in locations)
             {
-                searchStationViewModel.PropertyChanged += (sender, args) =>
-                {
-                    if (args.PropertyName == "StationPosition" && searchStationViewModel.StationPosition != null)
-                    {
-                        this.map.SetView(searchStationViewModel.StationPosition, this.map.ZoomLevel);
-                    }
-                };
+                this.stationResult.Items.Add(location.Name);
             }
         }
     }

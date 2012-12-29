@@ -32,6 +32,7 @@ namespace MySbbInfo.SearchStation
     [TestFixture]
     public class SearchStationAsyncCommandTest
     {
+        /*
         private SearchStationAsyncCommand testee;
 
         private ITransportService transportService;
@@ -76,6 +77,6 @@ namespace MySbbInfo.SearchStation
             this.testee.Execute(doWorkEventArgs);
 
             doWorkEventArgs.Result.Should().Be(resultingStations);
-        }
+        }*/
     }
 }

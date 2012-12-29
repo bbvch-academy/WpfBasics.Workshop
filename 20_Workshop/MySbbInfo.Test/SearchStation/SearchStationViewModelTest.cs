@@ -30,6 +30,7 @@ namespace MySbbInfo.SearchStation
     [TestFixture]
     public class SearchStationViewModelTest
     {
+        /*
         private SearchStationViewModel testee;
 
         private ITransportService transportService;
@@ -74,5 +75,6 @@ namespace MySbbInfo.SearchStation
 
             this.testee.Stations.ShouldRaise("CollectionChanged");
         }
+         */
     }
 }
