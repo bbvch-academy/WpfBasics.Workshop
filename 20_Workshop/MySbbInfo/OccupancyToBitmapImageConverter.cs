@@ -73,6 +73,7 @@ namespace MySbbInfo
                 var bi = new BitmapImage();
                 bi.BeginInit();
                 bi.StreamSource = ms;
+                bi.CacheOption = BitmapCacheOption.OnLoad;
                 bi.EndInit();
 
                 return bi;
