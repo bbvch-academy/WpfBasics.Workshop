@@ -66,6 +66,9 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Prism.NinjectExtension">
+      <HintPath>..\packages\Prism.NinjectExtension.3.0.0.1\lib\net40\Prism.NinjectExtension.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -105,10 +108,14 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
+    <Compile Include="MySbbInfoBootstrapper.cs" />
     <Compile Include="SearchStation\ISearchStationViewModel.cs" />
     <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
     <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />
     <Compile Include="SearchStation\SearchStationViewModel.cs" />
+    <Compile Include="ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StationTimeTable\IStationTimeTableViewModel.cs" />
     <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />
     <Compile Include="TimeTable\Connections\ConnectionsModel.cs" />
@@ -191,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchStation\SearchStationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

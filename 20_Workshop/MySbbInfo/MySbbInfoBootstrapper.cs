@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="App.xaml.cs" company="bbv Software Services AG">
+// <copyright file="MySbbInfoBootstrapper.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,41 +12,25 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for App.xaml
+//   Defines the MainViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo
 {
-    using System.Globalization;
-    using System.Threading;
     using System.Windows;
 
-    using MySbbInfo.Menu;
+    using Prism.NinjectExtension;
 
-    using WPFLocalizeExtension.Engine;
-
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public class MySbbInfoBootstrapper : NinjectBootstrapper
     {
-        public App()
+        protected override DependencyObject CreateShell()
         {
-            var defaultCulture = new CultureInfo(ChangeUiLanguageCommand.SwissGermanLcid);
+            var shellView = new ShellView();
 
-            Thread.CurrentThread.CurrentUICulture = defaultCulture;
-            Thread.CurrentThread.CurrentCulture = defaultCulture;
+            shellView.Show();
 
-            LocalizeDictionary.Instance.Culture = defaultCulture;
-        }
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-
-            var bootstrapper = new MySbbInfoBootstrapper();
-            bootstrapper.Run();
+            return shellView;
         }
     }
 }
