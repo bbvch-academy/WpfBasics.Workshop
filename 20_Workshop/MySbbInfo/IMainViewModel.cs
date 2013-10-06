@@ -19,8 +19,8 @@
 namespace MySbbInfo
 {
     using MySbbInfo.Modules.SearchStationModule;
+    using MySbbInfo.Modules.StationTimeTableModule;
     using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.StationTimeTable;
 
     public interface IMainViewModel
     {

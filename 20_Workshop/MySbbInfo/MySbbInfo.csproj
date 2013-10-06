@@ -116,8 +116,6 @@
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
     <Compile Include="MySbbInfoBootstrapper.cs" />
-    <Compile Include="StationTimeTable\IStationTimeTableViewModel.cs" />
-    <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />
     <Compile Include="Properties\Translation.de-ch.Designer.cs">
       <DependentUpon>Translation.de-ch.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -130,9 +128,6 @@
     </Compile>
     <Compile Include="Menu\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StationTimeTable\StationTimeTableView.xaml.cs">
-      <DependentUpon>StationTimeTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Translation.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -152,10 +147,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu\MenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StationTimeTable\StationTimeTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,6 +205,10 @@
     <ProjectReference Include="..\MySbbInfo.Modules.SearchStationModule\MySbbInfo.Modules.SearchStationModule.csproj">
       <Project>{7c5613f0-f161-4caa-98c2-ddcf328f7fc5}</Project>
       <Name>MySbbInfo.Modules.SearchStationModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySbbInfo.Modules.StationTimeTableModule\MySbbInfo.Modules.StationTimeTableModule.csproj">
+      <Project>{65cbbcfe-ae56-4bb7-8250-137b39bb7639}</Project>
+      <Name>MySbbInfo.Modules.StationTimeTableModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySbbInfo.Modules.TimeTableModule\MySbbInfo.Modules.TimeTableModule.csproj">
       <Project>{ed893494-2774-4e5e-8a55-2e17d1382662}</Project>

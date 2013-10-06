@@ -16,7 +16,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.StationTimeTable
+namespace MySbbInfo.Modules.StationTimeTableModule
 {
     using System.Windows.Controls;
 

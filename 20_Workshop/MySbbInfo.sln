@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySbbInfo.Modules.TimeTable
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySbbInfo.Modules.SearchStationModule", "MySbbInfo.Modules.SearchStationModule\MySbbInfo.Modules.SearchStationModule.csproj", "{7C5613F0-F161-4CAA-98C2-DDCF328F7FC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySbbInfo.Modules.StationTimeTableModule", "MySbbInfo.Modules.StationTimeTableModule\MySbbInfo.Modules.StationTimeTableModule.csproj", "{65CBBCFE-AE56-4BB7-8250-137B39BB7639}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{7C5613F0-F161-4CAA-98C2-DDCF328F7FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5613F0-F161-4CAA-98C2-DDCF328F7FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5613F0-F161-4CAA-98C2-DDCF328F7FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{ED893494-2774-4E5E-8A55-2E17D1382662} = {ED61B41C-8284-4106-BF4D-F19603F43F23}
 		{7C5613F0-F161-4CAA-98C2-DDCF328F7FC5} = {ED61B41C-8284-4106-BF4D-F19603F43F23}
+		{65CBBCFE-AE56-4BB7-8250-137B39BB7639} = {ED61B41C-8284-4106-BF4D-F19603F43F23}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
