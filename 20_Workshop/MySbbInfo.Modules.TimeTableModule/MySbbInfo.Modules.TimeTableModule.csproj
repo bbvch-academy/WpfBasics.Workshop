@@ -59,6 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -73,12 +74,71 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFLocalizeExtension">
+      <HintPath>..\packages\WpfLocalizeExtension.2.1.2\lib\net35\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions">
+      <HintPath>..\packages\XAMLMarkupExtensions.1.1.6.3\lib\net40\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connections\ConnectionsModel.cs" />
+    <Compile Include="Connections\ConnectionsView.xaml.cs">
+      <DependentUpon>ConnectionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connections\ConnectionsViewModel.cs" />
+    <Compile Include="Connections\IConnectionsViewModel.cs" />
+    <Compile Include="Connections\Occupancy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Occupancy.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Connections\OccupancyToBitmapImageConverter.cs" />
+    <Compile Include="Connections\Sections\ISectionsViewModel.cs" />
+    <Compile Include="Connections\Sections\SectionsModel.cs" />
+    <Compile Include="Connections\Sections\SectionsView.xaml.cs">
+      <DependentUpon>SectionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connections\Sections\SectionsViewModel.cs" />
+    <Compile Include="ITimeTableViewModel.cs" />
+    <Compile Include="Search\ITimeTableSearchViewModel.cs" />
+    <Compile Include="Search\SearchConnectionAsyncCommand.cs" />
+    <Compile Include="Search\SearchConnectionCompletedEventArgs.cs" />
+    <Compile Include="Search\TimeSelectorControl.xaml.cs">
+      <DependentUpon>TimeSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search\TimeTableSearchModel.cs" />
+    <Compile Include="Search\TimeTableSearchView.xaml.cs">
+      <DependentUpon>TimeTableSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search\TimeTableSearchViewModel.cs" />
+    <Compile Include="TimeTableView.xaml.cs">
+      <DependentUpon>TimeTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTableViewModel.cs" />
+    <Compile Include="TransportMedium.Designer.cs">
+      <DependentUpon>TransportMedium.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Page Include="Connections\ConnectionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Connections\Sections\SectionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +151,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Search\TimeSelectorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Search\TimeTableSearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeTableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -106,10 +178,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Connections\Occupancy.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Occupancy.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransportMedium.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransportMedium.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="img\Occupancy.xcf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -119,6 +202,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SbbApi\SbbApi.csproj">
+      <Project>{0f0072cc-ee92-48ed-bd2d-fb7509cb73cf}</Project>
+      <Name>SbbApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\empty_occupancy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\empty_transportation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\occupancy0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\occupancy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\occupancy2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\occupancy3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\train.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\train.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\tram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\walk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="ConnectionsView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,22 +12,19 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the IMainViewModel type.
+//   Interaction logic for ConnectionsView.xaml
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.TimeTableModule.Connections
 {
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.SearchStation;
-    using MySbbInfo.StationTimeTable;
+    using System.Windows.Controls;
 
-    public interface IMainViewModel
+    public partial class ConnectionsView : UserControl
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
-
-        ISearchStationViewModel SearchStation { get; }
-
-        ITimeTableViewModel TimeTable { get; }
+        public ConnectionsView()
+        {
+            this.InitializeComponent();
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="TimeTableViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,33 +12,29 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the MainViewModel type.
+//   Interaction logic for TimeTableControl.xaml
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.TimeTableModule
 {
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.SearchStation;
-    using MySbbInfo.StationTimeTable;
+    using MySbbInfo.Modules.TimeTableModule.Connections;
+    using MySbbInfo.Modules.TimeTableModule.Search;
 
     using SbbApi;
 
-    public class MainViewModel : IMainViewModel
+    public class TimeTableViewModel : ITimeTableViewModel
     {
-        public MainViewModel()
+        public TimeTableViewModel(ITransportService transportService)
         {
-            ITransportService transportService = new TransportService();
+            this.TimeTableSearch = new TimeTableSearchViewModel(transportService);
+            this.FoundConnections = new ConnectionsViewModel();
 
-            this.StationTimeTable = new StationTimeTableViewModel(transportService);
-            this.SearchStation = new SearchStationViewModel(transportService);
-            this.TimeTable = new TimeTableViewModel(transportService);
+            this.TimeTableSearch.NewSearchConnectionResult += (sender, args) => this.FoundConnections.UpdateConnections(args.ConnectionsResult);
         }
 
-        public IStationTimeTableViewModel StationTimeTable { get; private set; }
+        public ITimeTableSearchViewModel TimeTableSearch { get; private set; }
 
-        public ISearchStationViewModel SearchStation { get; private set; }
-
-        public ITimeTableViewModel TimeTable { get; private set; }
+        public IConnectionsViewModel FoundConnections { get; private set; }
     }
 }

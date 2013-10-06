@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="IConnectionsViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,22 +12,25 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the IMainViewModel type.
+//   Defines the IConnectionsViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.TimeTableModule.Connections
 {
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.SearchStation;
-    using MySbbInfo.StationTimeTable;
+    using System.Collections.Generic;
+    using System.ComponentModel;
 
-    public interface IMainViewModel
+    using MySbbInfo.Modules.TimeTableModule.Connections.Sections;
+
+    using SbbApi.ApiClasses;
+
+    public interface IConnectionsViewModel : INotifyPropertyChanged
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
+        IEnumerable<ConnectionsModel> Connections { get; }
 
-        ISearchStationViewModel SearchStation { get; }
+        ISectionsViewModel Sections { get; set; }
 
-        ITimeTableViewModel TimeTable { get; }
+        void UpdateConnections(IEnumerable<Connection> updatedConnections);
     }
 }

@@ -120,41 +120,6 @@
     <Compile Include="SearchStation\SearchStationViewModel.cs" />
     <Compile Include="StationTimeTable\IStationTimeTableViewModel.cs" />
     <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />
-    <Compile Include="TimeTable\Connections\ConnectionsModel.cs" />
-    <Compile Include="TimeTable\Connections\ConnectionsView.xaml.cs">
-      <DependentUpon>ConnectionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TimeTable\Connections\ConnectionsViewModel.cs" />
-    <Compile Include="TimeTable\Connections\IConnectionsViewModel.cs" />
-    <Compile Include="TimeTable\Connections\Occupancy.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Occupancy.resx</DependentUpon>
-    </Compile>
-    <Compile Include="TimeTable\Connections\Sections\ISectionsViewModel.cs" />
-    <Compile Include="TimeTable\Connections\Sections\SectionsModel.cs" />
-    <Compile Include="TimeTable\Connections\Sections\SectionsView.xaml.cs">
-      <DependentUpon>SectionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TimeTable\Connections\Sections\SectionsViewModel.cs" />
-    <Compile Include="TimeTable\ITimeTableViewModel.cs" />
-    <Compile Include="TimeTable\Search\ITimeTableSearchViewModel.cs" />
-    <Compile Include="TimeTable\Search\SearchConnectionAsyncCommand.cs" />
-    <Compile Include="TimeTable\Search\SearchConnectionCompletedEventArgs.cs" />
-    <Compile Include="TimeTable\Search\TimeSelectorControl.xaml.cs">
-      <DependentUpon>TimeSelectorControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TimeTable\Search\TimeTableSearchModel.cs" />
-    <Compile Include="TimeTable\Search\TimeTableSearchViewModel.cs" />
-    <Compile Include="TimeTable\Search\TimeTableSearchView.xaml.cs">
-      <DependentUpon>TimeTableSearchView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TimeTable\TimeTableViewModel.cs" />
-    <Compile Include="TimeTable\TransportMedium.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransportMedium.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Translation.de-ch.Designer.cs">
       <DependentUpon>Translation.de-ch.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -168,15 +133,11 @@
     <Compile Include="Menu\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimeTable\Connections\OccupancyToBitmapImageConverter.cs" />
     <Compile Include="SearchStation\SearchStationView.xaml.cs">
       <DependentUpon>SearchStationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="StationTimeTable\StationTimeTableView.xaml.cs">
       <DependentUpon>StationTimeTableView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TimeTable\TimeTableView.xaml.cs">
-      <DependentUpon>TimeTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Translation.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -215,26 +176,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TimeTable\Connections\ConnectionsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TimeTable\Connections\Sections\SectionsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TimeTable\Search\TimeSelectorControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TimeTable\Search\TimeTableSearchView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TimeTable\TimeTableView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -259,11 +200,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.us-en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TimeTable\Connections\Occupancy.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Occupancy.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -271,11 +207,6 @@
     <EmbeddedResource Include="Properties\Translation.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TimeTable\TransportMedium.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>TransportMedium.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="img\Occupancy.xcf" />
     <None Include="packages.config" />
@@ -289,6 +220,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MySbbInfo.Modules.TimeTableModule\MySbbInfo.Modules.TimeTableModule.csproj">
+      <Project>{ed893494-2774-4e5e-8a55-2e17d1382662}</Project>
+      <Name>MySbbInfo.Modules.TimeTableModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SbbApi\SbbApi.csproj">
       <Project>{0f0072cc-ee92-48ed-bd2d-fb7509cb73cf}</Project>
       <Name>SbbApi</Name>

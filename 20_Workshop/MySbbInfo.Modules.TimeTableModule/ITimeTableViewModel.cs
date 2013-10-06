@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="ITimeTableViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,22 +12,19 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the IMainViewModel type.
+//   Defines the ITimeTableViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.TimeTableModule
 {
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.SearchStation;
-    using MySbbInfo.StationTimeTable;
+    using MySbbInfo.Modules.TimeTableModule.Connections;
+    using MySbbInfo.Modules.TimeTableModule.Search;
 
-    public interface IMainViewModel
+    public interface ITimeTableViewModel
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
+        ITimeTableSearchViewModel TimeTableSearch { get; }
 
-        ISearchStationViewModel SearchStation { get; }
-
-        ITimeTableViewModel TimeTable { get; }
+        IConnectionsViewModel FoundConnections { get; }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:menu="clr-namespace:MySbbInfo.Menu"
         xmlns:searchStation="clr-namespace:MySbbInfo.SearchStation"
         xmlns:stationTimeTable="clr-namespace:MySbbInfo.StationTimeTable"
-        xmlns:timeTable="clr-namespace:MySbbInfo.TimeTable"
+        xmlns:timeTableModule="clr-namespace:MySbbInfo.Modules.TimeTableModule;assembly=MySbbInfo.Modules.TimeTableModule"
         Title="My SBB Info"
         Width="570"
         Height="600"
@@ -16,7 +16,7 @@
         <menu:MenuView DockPanel.Dock="Top" />
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="{lex:Loc TimeTable}">
-                <timeTable:TimeTableView x:Name="TimeTable" DataContext="{Binding TimeTable}" />
+                <timeTableModule:TimeTableView x:Name="TimeTable" DataContext="{Binding TimeTable}" />
             </TabItem>
             <TabItem Header="{lex:Loc Station}">
                 <stationTimeTable:StationTimeTableView x:Name="Station" DataContext="{Binding StationTimeTable}" />
