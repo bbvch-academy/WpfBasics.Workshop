@@ -24,6 +24,8 @@ namespace MySbbInfo.SearchStation
 
     using FluentAssertions;
 
+    using MySbbInfo.Modules.SearchStationModule;
+
     using NUnit.Framework;
 
     using SbbApi;

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ISearchStationViewModel.cs" company="bbv Software Services AG">
+// <copyright file="SearchStationCompletedEventArgs.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,28 +12,24 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the ISearchStationViewModel type.
+//   Defines the ChangeUiLanguageCommand type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.SearchStation
+namespace MySbbInfo.Modules.SearchStationModule
 {
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Windows.Input;
-
-    using Microsoft.Maps.MapControl.WPF;
+    using System;
+    using System.Collections.Generic;
 
     using SbbApi.ApiClasses;
 
-    public interface ISearchStationViewModel : INotifyPropertyChanged
+    public class SearchStationCompletedEventArgs : EventArgs
     {
-        ICommand SearchStationCommand { get; }
+        public IEnumerable<Station> StationsResult { get; private set; }
 
-        bool IsBusy { get; set; }
-
-        ObservableCollection<Station> Stations { get; set; }
-
-        Location StationPosition { get; set; }
+        public SearchStationCompletedEventArgs(IEnumerable<Station> stationsResult)
+        {
+            this.StationsResult = stationsResult;
+        }
     }
 }

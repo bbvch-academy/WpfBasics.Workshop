@@ -60,6 +60,14 @@
     <Compile Include="StationTimeTable\StationTimeTableViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MySbbInfo.Modules.SearchStationModule\MySbbInfo.Modules.SearchStationModule.csproj">
+      <Project>{7c5613f0-f161-4caa-98c2-ddcf328f7fc5}</Project>
+      <Name>MySbbInfo.Modules.SearchStationModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySbbInfo.Modules.TimeTableModule\MySbbInfo.Modules.TimeTableModule.csproj">
+      <Project>{ed893494-2774-4e5e-8a55-2e17d1382662}</Project>
+      <Name>MySbbInfo.Modules.TimeTableModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MySbbInfo\MySbbInfo.csproj">
       <Project>{44e1e7f6-b62e-4f70-ae3c-1be366e8cb95}</Project>
       <Name>MySbbInfo</Name>

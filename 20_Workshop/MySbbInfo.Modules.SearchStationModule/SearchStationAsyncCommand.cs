@@ -16,7 +16,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.SearchStation
+namespace MySbbInfo.Modules.SearchStationModule
 {
     using System;
     using System.Collections.Generic;

@@ -18,8 +18,8 @@
 
 namespace MySbbInfo
 {
+    using MySbbInfo.Modules.SearchStationModule;
     using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.SearchStation;
     using MySbbInfo.StationTimeTable;
 
     using SbbApi;

@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         xmlns:menu="clr-namespace:MySbbInfo.Menu"
-        xmlns:searchStation="clr-namespace:MySbbInfo.SearchStation"
         xmlns:stationTimeTable="clr-namespace:MySbbInfo.StationTimeTable"
         xmlns:timeTableModule="clr-namespace:MySbbInfo.Modules.TimeTableModule;assembly=MySbbInfo.Modules.TimeTableModule"
+        xmlns:searchStationModule="clr-namespace:MySbbInfo.Modules.SearchStationModule;assembly=MySbbInfo.Modules.SearchStationModule"
         Title="My SBB Info"
         Width="570"
         Height="600"
@@ -22,7 +22,7 @@
                 <stationTimeTable:StationTimeTableView x:Name="Station" DataContext="{Binding StationTimeTable}" />
             </TabItem>
             <TabItem Header="{lex:Loc SearchStation}">
-                <searchStation:SearchStation x:Name="SearchStation" DataContext="{Binding SearchStation}" />
+                <searchStationModule:SearchStation x:Name="SearchStation" DataContext="{Binding SearchStation}" />
             </TabItem>
         </TabControl>
     </DockPanel>
