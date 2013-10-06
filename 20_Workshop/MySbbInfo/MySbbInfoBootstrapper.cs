@@ -20,17 +20,17 @@ namespace MySbbInfo
 {
     using System.Windows;
 
-    using Prism.NinjectExtension;
+    using Microsoft.Practices.Prism.UnityExtensions;
 
-    public class MySbbInfoBootstrapper : NinjectBootstrapper
+    public class MySbbInfoBootstrapper : UnityBootstrapper
     {
         protected override DependencyObject CreateShell()
         {
-            var shellView = new ShellView();
+            var mainView = new MainView();
 
-            shellView.Show();
+            mainView.Show();
 
-            return shellView;
+            return mainView;
         }
     }
 }
