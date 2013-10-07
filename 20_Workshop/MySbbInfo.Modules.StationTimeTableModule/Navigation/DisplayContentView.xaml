@@ -7,6 +7,8 @@
              d:DesignWidth="150"
              mc:Ignorable="d">
     <Grid Width="150" Height="40">
-        <Button Margin="5" Content="Station Time Table" />
+        <Button Margin="5"
+                Command="{Binding NavigateCommand}"
+                Content="Station Time Table" />
     </Grid>
 </UserControl>

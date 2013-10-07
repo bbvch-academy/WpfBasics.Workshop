@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MySbbInfoBootstrapper.cs" company="bbv Software Services AG">
-//   Copyright (c) 2012
+// <copyright file="NavigateToStationTimeTableViewCommand.cs" company="bbv Software Services AG">
+//   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
@@ -13,33 +13,36 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.StationTimeTableModule
+namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 {
-    using System.ComponentModel.Composition;
+    using System;
 
-    using Microsoft.Practices.Prism.MefExtensions.Modularity;
-    using Microsoft.Practices.Prism.Modularity;
     using Microsoft.Practices.Prism.Regions;
 
     using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule.Navigation;
 
-    [ModuleExport(typeof(StationTimeTableModule))]
-    public class StationTimeTableModule : IModule
+    public class NavigateToStationTimeTableViewCommand : INavigateToTimeTableCommand
     {
+        private static readonly Uri StationTimeTableViewUri = new Uri(typeof(StationTimeTableView).Name, UriKind.Relative);
+
         private readonly IRegionManager regionManager;
 
-        [ImportingConstructor]
-        public StationTimeTableModule(IRegionManager regionManager)
+        public NavigateToStationTimeTableViewCommand(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
 
-        public void Initialize()
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
+
+        public bool CanExecute(object parameter)
         {
-            this.regionManager.RegisterViewWithRegion(Regions.NavigationRegion, typeof(DisplayContentView));
-            this.regionManager.RegisterViewWithRegion(Regions.ContentRegion, typeof(StationTimeTableView));
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            this.regionManager.RequestNavigate(Regions.ContentRegion, StationTimeTableViewUri);
         }
     }
 }

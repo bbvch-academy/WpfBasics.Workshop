@@ -18,12 +18,31 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
+    using Microsoft.Practices.Prism.Regions;
+
     [Export]
     public partial class DisplayContentView : UserControl
     {
+        private IRegionManager regionManager;
+
         public DisplayContentView()
         {
             this.InitializeComponent();
+        }
+
+        [Import]
+        public IRegionManager RegionManager
+        {
+            get
+            {
+                return this.regionManager;
+            }
+
+            set
+            {
+                this.regionManager = value;
+                this.DataContext = new DisplayContentViewModel(new NavigateToStationTimeTableViewCommand(value));
+            }
         }
     }
 }

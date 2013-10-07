@@ -103,10 +103,18 @@
     <Compile Include="Navigation\DisplayContentView.xaml.cs">
       <DependentUpon>DisplayContentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\DisplayContentViewModel.cs" />
+    <Compile Include="Navigation\IDisplayContentViewModel.cs" />
+    <Compile Include="Navigation\INavigateToTimeTableCommand.cs" />
+    <Compile Include="Navigation\NavigateToStationTimeTableViewCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StationTimeTableModule.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MySbbInfo.Infrastructure\MySbbInfo.Infrastructure.csproj">
+      <Project>{af05f833-38af-4e37-aa9b-4be7eb3d52aa}</Project>
+      <Name>MySbbInfo.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SbbApi\SbbApi.csproj">
       <Project>{0f0072cc-ee92-48ed-bd2d-fb7509cb73cf}</Project>
       <Name>SbbApi</Name>

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="StationControl.cs" company="bbv Software Services AG">
-//   Copyright (c) 2012
+// <copyright file="IDisplayContentViewModel.cs" company="bbv Software Services AG">
+//   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
@@ -11,31 +11,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Interaction logic for StationControl
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.StationTimeTableModule.Content
+namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 {
-    using System.ComponentModel.Composition;
-    using System.Windows.Controls;
+    using System.Windows.Input;
 
-    [Export]
-    public partial class StationTimeTableView : UserControl
+    public interface IDisplayContentViewModel
     {
-        public StationTimeTableView()
-        {
-            this.InitializeComponent();
-        }
-
-        [Import]
-        public StationTimeTableViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
-        }
+        ICommand NavigateCommand { get; }
     }
 }
