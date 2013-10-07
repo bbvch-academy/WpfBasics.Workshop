@@ -9,7 +9,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              d:DesignHeight="600"
              d:DesignWidth="300"
-             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TimeTableModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
     <xctk:BusyIndicator x:Name="BusySearch"

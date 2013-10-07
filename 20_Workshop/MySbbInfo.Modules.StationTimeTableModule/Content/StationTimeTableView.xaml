@@ -7,7 +7,7 @@
              xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended"
              d:DesignHeight="300"
              d:DesignWidth="300"
-             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.StationTimeTableModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
 

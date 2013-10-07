@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MySbbInfo.Properties {
+namespace MySbbInfo.Modules.SearchStationModule.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace MySbbInfo.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Translation {
+    public class Translation_us_en {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Translation() {
+        internal Translation_us_en() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MySbbInfo.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.Properties.Translation", typeof(Translation).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.Modules.SearchStationModule.Properties.Translation.us-en", typeof(Translation_us_en).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,29 @@ namespace MySbbInfo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Language.
+        ///   Looks up a localized string similar to Search.
         /// </summary>
-        public static string LanguageItem {
+        public static string Search {
             get {
-                return ResourceManager.GetString("LanguageItem", resourceCulture);
+                return ResourceManager.GetString("Search", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Settings.
+        ///   Looks up a localized string similar to Searching station....
         /// </summary>
-        public static string SettingsItem {
+        public static string SearchingStation {
             get {
-                return ResourceManager.GetString("SettingsItem", resourceCulture);
+                return ResourceManager.GetString("SearchingStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search station.
+        /// </summary>
+        public static string SearchStation {
+            get {
+                return ResourceManager.GetString("SearchStation", resourceCulture);
             }
         }
     }

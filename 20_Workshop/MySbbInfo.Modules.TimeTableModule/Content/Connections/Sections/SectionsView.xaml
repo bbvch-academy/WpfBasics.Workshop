@@ -8,7 +8,7 @@
              d:DataContext="{x:Static sections:SectionsView.SampleData}"
              d:DesignHeight="300"
              d:DesignWidth="600"
-             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TimeTableModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
 

@@ -117,58 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Destination" xml:space="preserve">
-    <value>Destination</value>
-  </data>
-  <data name="Duration" xml:space="preserve">
-    <value>Duration</value>
-  </data>
-  <data name="From" xml:space="preserve">
-    <value>From</value>
-  </data>
   <data name="LanguageItem" xml:space="preserve">
     <value>_Language</value>
   </data>
-  <data name="LoadStationTimeTable" xml:space="preserve">
-    <value>load station time table</value>
-  </data>
-  <data name="Occupancy" xml:space="preserve">
-    <value>Occupancy 2th</value>
-  </data>
-  <data name="RetrievingTimeTable" xml:space="preserve">
-    <value>Retrieving time table...</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="SearchForConnection" xml:space="preserve">
-    <value>Search for Connection</value>
-  </data>
-  <data name="SearchingConnections" xml:space="preserve">
-    <value>Searching connections...</value>
-  </data>
-  <data name="SearchingStation" xml:space="preserve">
-    <value>Searching Station...</value>
-  </data>
-  <data name="SearchStation" xml:space="preserve">
-    <value>Search station</value>
-  </data>
   <data name="SettingsItem" xml:space="preserve">
     <value>_Settings</value>
-  </data>
-  <data name="Start" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="Station" xml:space="preserve">
-    <value>Station</value>
-  </data>
-  <data name="Time" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="TimeTable" xml:space="preserve">
-    <value>Time Table</value>
-  </data>
-  <data name="To" xml:space="preserve">
-    <value>To</value>
   </data>
 </root>

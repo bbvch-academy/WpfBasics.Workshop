@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MySbbInfo.Properties {
+namespace MySbbInfo.Modules.StationTimeTableModule.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MySbbInfo.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.Properties.Translation", typeof(Translation).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MySbbInfo.Modules.StationTimeTableModule.Properties.Translation", typeof(Translation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,29 @@ namespace MySbbInfo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Language.
+        ///   Looks up a localized string similar to load station time table.
         /// </summary>
-        public static string LanguageItem {
+        public static string LoadStationTimeTable {
             get {
-                return ResourceManager.GetString("LanguageItem", resourceCulture);
+                return ResourceManager.GetString("LoadStationTimeTable", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Settings.
+        ///   Looks up a localized string similar to Retrieving time table....
         /// </summary>
-        public static string SettingsItem {
+        public static string RetrievingTimeTable {
             get {
-                return ResourceManager.GetString("SettingsItem", resourceCulture);
+                return ResourceManager.GetString("RetrievingTimeTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Station.
+        /// </summary>
+        public static string Station {
+            get {
+                return ResourceManager.GetString("Station", resourceCulture);
             }
         }
     }

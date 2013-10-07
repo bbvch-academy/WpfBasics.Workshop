@@ -8,7 +8,7 @@
              xmlns:sections="clr-namespace:MySbbInfo.Modules.TimeTableModule.Content.Connections.Sections"
              d:DesignHeight="600"
              d:DesignWidth="300"
-             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TimeTableModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -26,12 +26,12 @@
                   ItemsSource="{Binding Connections}"
                   SelectedItem="{Binding SelectedConnection}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=DepartingStationName}" Header="{lex:Loc MySbbInfo:Translation:Start}" />
+                <DataGridTextColumn Binding="{Binding Path=DepartingStationName}" Header="{lex:Loc MySbbInfo.Modules.TimeTableModule:Translation:Start}" />
                 <DataGridTextColumn Binding="{Binding Path=DepartureDateTime, StringFormat=dd.MM.yy HH:mm}" />
-                <DataGridTextColumn Binding="{Binding Path=ArrivingStationName}" Header="{lex:Loc MySbbInfo:Translation:Destination}" />
+                <DataGridTextColumn Binding="{Binding Path=ArrivingStationName}" Header="{lex:Loc MySbbInfo.Modules.TimeTableModule:Translation:Destination}" />
                 <DataGridTextColumn Binding="{Binding Path=ArrivalDateTime, StringFormat=dd.MM.yy HH:mm}" />
-                <DataGridTextColumn Binding="{Binding Path=JourneyDuration, StringFormat=hh\\:mm}" Header="{lex:Loc MySbbInfo:Translation:Duration}" />
-                <DataGridTemplateColumn Header="{lex:Loc MySbbInfo:Translation:Occupancy}">
+                <DataGridTextColumn Binding="{Binding Path=JourneyDuration, StringFormat=hh\\:mm}" Header="{lex:Loc MySbbInfo.Modules.TimeTableModule:Translation:Duration}" />
+                <DataGridTemplateColumn Header="{lex:Loc MySbbInfo.Modules.TimeTableModule:Translation:Occupancy}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Path=Capacity2ndCompartment, Converter={StaticResource OccupancyConverter}}" />

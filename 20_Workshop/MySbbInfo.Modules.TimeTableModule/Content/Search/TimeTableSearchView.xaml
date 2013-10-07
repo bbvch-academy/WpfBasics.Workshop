@@ -7,7 +7,7 @@
              xmlns:search="clr-namespace:MySbbInfo.Modules.TimeTableModule.Content.Search"
              d:DesignHeight="150"
              d:DesignWidth="300"
-             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TimeTableModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
     <Grid>
