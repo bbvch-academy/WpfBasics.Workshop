@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TimeTableModule.cs" company="bbv Software Services AG">
+// <copyright file="NavigateToTimeTableCommand.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,33 +13,36 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TimeTableModule
+namespace MySbbInfo.Modules.TimeTableModule.Navigation
 {
-    using System.ComponentModel.Composition;
+    using System;
 
-    using Microsoft.Practices.Prism.MefExtensions.Modularity;
-    using Microsoft.Practices.Prism.Modularity;
     using Microsoft.Practices.Prism.Regions;
 
     using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.TimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule.Navigation;
 
-    [ModuleExport(typeof(TimeTableModule))]
-    public class TimeTableModule : IModule
+    public class NavigateToTimeTableCommand : INavigateToTimeTableCommand
     {
+        private static readonly Uri TimeTableViewUri = new Uri(typeof(TimeTableView).Name, UriKind.Relative);
+
         private readonly IRegionManager regionManager;
 
-        [ImportingConstructor]
-        public TimeTableModule(IRegionManager regionManager)
+        public NavigateToTimeTableCommand(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
         }
 
-        public void Initialize()
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
+
+        public bool CanExecute(object parameter)
         {
-            this.regionManager.RegisterViewWithRegion(Regions.NavigationRegion, typeof(DisplayContentView));
-            this.regionManager.RegisterViewWithRegion(Regions.ContentRegion, typeof(TimeTableView));
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            this.regionManager.RequestNavigate(Regions.ContentRegion, TimeTableViewUri);
         }
     }
 }

@@ -18,13 +18,21 @@
 
 namespace MySbbInfo.Modules.TimeTableModule.Content
 {
+    using System.ComponentModel.Composition;
+
     using MySbbInfo.Modules.TimeTableModule.Content.Connections;
     using MySbbInfo.Modules.TimeTableModule.Content.Search;
 
     using SbbApi;
 
+    [Export]
     public class TimeTableViewModel : ITimeTableViewModel
     {
+        public TimeTableViewModel()
+            : this(new TransportService())
+        {
+        }
+
         public TimeTableViewModel(ITransportService transportService)
         {
             this.TimeTableSearch = new TimeTableSearchViewModel(transportService);

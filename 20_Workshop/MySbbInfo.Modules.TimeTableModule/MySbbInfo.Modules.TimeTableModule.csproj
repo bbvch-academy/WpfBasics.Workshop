@@ -134,7 +134,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Navigation\DisplayContentViewModel.cs" />
+    <Compile Include="Navigation\IDisplayContentViewModel.cs" />
+    <Compile Include="Navigation\INavigateToTimeTableCommand.cs" />
+    <Compile Include="Navigation\NavigateToTimeTableCommand.cs" />
     <Compile Include="TimeTableModule.cs" />
+    <Compile Include="ViewExportAttribute.cs" />
     <Page Include="Content\Connections\ConnectionsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -178,7 +183,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Content\Connections\Occupancy.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Occupancy.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -201,6 +206,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MySbbInfo.Infrastructure\MySbbInfo.Infrastructure.csproj">
+      <Project>{af05f833-38af-4e37-aa9b-4be7eb3d52aa}</Project>
+      <Name>MySbbInfo.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SbbApi\SbbApi.csproj">
       <Project>{0f0072cc-ee92-48ed-bd2d-fb7509cb73cf}</Project>
       <Name>SbbApi</Name>

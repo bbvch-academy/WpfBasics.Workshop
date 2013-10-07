@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TimeTableModule.cs" company="bbv Software Services AG">
+// <copyright file="ViewExportAttribute.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -15,31 +15,28 @@
 
 namespace MySbbInfo.Modules.TimeTableModule
 {
+    using System;
     using System.ComponentModel.Composition;
 
-    using Microsoft.Practices.Prism.MefExtensions.Modularity;
-    using Microsoft.Practices.Prism.Modularity;
-    using Microsoft.Practices.Prism.Regions;
-
-    using MySbbInfo.Infrastructure;
-    using MySbbInfo.Modules.TimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule.Navigation;
-
-    [ModuleExport(typeof(TimeTableModule))]
-    public class TimeTableModule : IModule
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    [MetadataAttribute]
+    public sealed class ViewExportAttribute : ExportAttribute
     {
-        private readonly IRegionManager regionManager;
-
-        [ImportingConstructor]
-        public TimeTableModule(IRegionManager regionManager)
+        public ViewExportAttribute()
+            : base(typeof(object))
         {
-            this.regionManager = regionManager;
         }
 
-        public void Initialize()
+        public ViewExportAttribute(string viewName)
+            : base(viewName, typeof(object))
         {
-            this.regionManager.RegisterViewWithRegion(Regions.NavigationRegion, typeof(DisplayContentView));
-            this.regionManager.RegisterViewWithRegion(Regions.ContentRegion, typeof(TimeTableView));
         }
+
+        public string ViewName
+        {
+            get { return base.ContractName; }
+        }
+
+        public string RegionName { get; set; }
     }
 }

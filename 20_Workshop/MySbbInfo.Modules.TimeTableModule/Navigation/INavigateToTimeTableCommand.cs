@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DisplayContentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="INavigateToTimeTableCommand.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -15,34 +15,9 @@
 
 namespace MySbbInfo.Modules.TimeTableModule.Navigation
 {
-    using System.ComponentModel.Composition;
-    using System.Windows.Controls;
+    using System.Windows.Input;
 
-    using Microsoft.Practices.Prism.Regions;
-
-    [Export]
-    public partial class DisplayContentView : UserControl
+    public interface INavigateToTimeTableCommand : ICommand
     {
-        private IRegionManager regionManager;
-
-        public DisplayContentView()
-        {
-            this.InitializeComponent();
-        }
-
-        [Import]
-        public IRegionManager RegionManager
-        {
-            get
-            {
-                return this.regionManager;
-            }
-
-            set
-            {
-                this.regionManager = value;
-                this.DataContext = new DisplayContentViewModel(new NavigateToTimeTableCommand(this.regionManager));
-            }
-        }
     }
 }

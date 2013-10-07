@@ -27,5 +27,14 @@ namespace MySbbInfo.Modules.TimeTableModule.Content
         {
             this.InitializeComponent();
         }
+
+        [Import]
+        public TimeTableViewModel ViewModel
+        {
+            set
+            {
+                this.DataContext = value;
+            }
+        }
     }
 }
