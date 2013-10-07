@@ -39,6 +39,8 @@ namespace MySbbInfo
             Thread.CurrentThread.CurrentCulture = defaultCulture;
 
             LocalizeDictionary.Instance.Culture = defaultCulture;
+
+            this.InitializeComponent();
         }
 
         protected override void OnStartup(StartupEventArgs e)

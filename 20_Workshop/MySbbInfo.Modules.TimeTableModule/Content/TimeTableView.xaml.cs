@@ -17,8 +17,10 @@
 
 namespace MySbbInfo.Modules.TimeTableModule.Content
 {
+    using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
+    [Export]
     public partial class TimeTableView : UserControl
     {
         public TimeTableView()

@@ -18,11 +18,8 @@
 
 namespace MySbbInfo
 {
-    using MySbbInfo.Modules.SearchStationModule;
     using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule;
     using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule;
     using MySbbInfo.Modules.TimeTableModule.Content;
 
     using SbbApi;
@@ -31,17 +28,17 @@ namespace MySbbInfo
     {
         public MainViewModel()
         {
-            ITransportService transportService = new TransportService();
+            //ITransportService transportService = new TransportService();
 
-            this.StationTimeTable = new StationTimeTableViewModel(transportService);
-            this.SearchStation = new SearchStationViewModel(transportService);
-            this.TimeTable = new TimeTableViewModel(transportService);
+            //this.StationTimeTable = new StationTimeTableViewModel(transportService);
+            //this.SearchStation = new SearchStationViewModel(transportService);
+            //this.TimeTable = new TimeTableViewModel(transportService);
         }
 
-        public IStationTimeTableViewModel StationTimeTable { get; private set; }
+        //public IStationTimeTableViewModel StationTimeTable { get; private set; }
 
-        public ISearchStationViewModel SearchStation { get; private set; }
+        //public ISearchStationViewModel SearchStation { get; private set; }
 
-        public ITimeTableViewModel TimeTable { get; private set; }
+        //public ITimeTableViewModel TimeTable { get; private set; }
     }
 }

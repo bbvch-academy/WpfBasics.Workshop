@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
-//   Copyright (c) 2012
+// <copyright file="DisplayContentView.xaml.cs" company="bbv Software Services AG">
+//   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
@@ -11,23 +11,19 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the IMainViewModel type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.SearchStationModule.Navigation
 {
-    using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule.Content;
+    using System.ComponentModel.Composition;
+    using System.Windows.Controls;
 
-    public interface IMainViewModel
+    [Export]
+    public partial class DisplayContentView : UserControl
     {
-        //IStationTimeTableViewModel StationTimeTable { get; }
-
-        //ISearchStationViewModel SearchStation { get; }
-
-        //ITimeTableViewModel TimeTable { get; }
+        public DisplayContentView()
+        {
+            this.InitializeComponent();
+        }
     }
 }

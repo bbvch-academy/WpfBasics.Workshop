@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="MySbbInfoBootstrapper.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -11,23 +11,29 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the IMainViewModel type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.SearchStationModule
 {
+    using System.ComponentModel.Composition;
+
+    using Microsoft.Practices.Prism.MefExtensions.Modularity;
+    using Microsoft.Practices.Prism.Modularity;
+    using Microsoft.Practices.Prism.Regions;
+
     using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule.Content;
+    using MySbbInfo.Modules.SearchStationModule.Navigation;
 
-    public interface IMainViewModel
+    [ModuleExport(typeof(SearchStationModule))]
+    public class SearchStationModule : IModule
     {
-        //IStationTimeTableViewModel StationTimeTable { get; }
+        [Import]
+        public IRegionManager RegionManager;
 
-        //ISearchStationViewModel SearchStation { get; }
-
-        //ITimeTableViewModel TimeTable { get; }
+        public void Initialize()
+        {
+            this.RegionManager.RegisterViewWithRegion("NavigationRegion", typeof(DisplayContentView));
+            this.RegionManager.RegisterViewWithRegion("ContentRegion", typeof(SearchStationView));
+        }
     }
 }

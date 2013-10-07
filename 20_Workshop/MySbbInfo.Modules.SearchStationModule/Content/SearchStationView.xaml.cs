@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SearchStation.cs" company="bbv Software Services AG">
+// <copyright file="SearchStationView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,17 +12,19 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Interaction logic for SearchStation
+//   Interaction logic for SearchStationView
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.Modules.SearchStationModule.Content
 {
+    using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    public partial class SearchStation : UserControl
+    [Export]
+    public partial class SearchStationView : UserControl
     {
-        public SearchStation()
+        public SearchStationView()
         {
             this.InitializeComponent();
         }

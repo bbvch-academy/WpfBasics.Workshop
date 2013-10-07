@@ -3,9 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         xmlns:menu="clr-namespace:MySbbInfo.Menu"
-        xmlns:searchStationContent="clr-namespace:MySbbInfo.Modules.SearchStationModule.Content;assembly=MySbbInfo.Modules.SearchStationModule"
-        xmlns:stationTimeTableContent="clr-namespace:MySbbInfo.Modules.StationTimeTableModule.Content;assembly=MySbbInfo.Modules.StationTimeTableModule"
-        xmlns:timeTableContent="clr-namespace:MySbbInfo.Modules.TimeTableModule.Content;assembly=MySbbInfo.Modules.TimeTableModule"
+        xmlns:prism="clr-namespace:Microsoft.Practices.Prism.Regions;assembly=Microsoft.Practices.Prism"
         Title="My SBB Info"
         Width="570"
         Height="600"
@@ -14,16 +12,10 @@
         lex:ResxLocalizationProvider.DefaultDictionary="Translation">
     <DockPanel>
         <menu:MenuView DockPanel.Dock="Top" />
-        <TabControl DockPanel.Dock="Top">
-            <TabItem Header="{lex:Loc TimeTable}">
-                <timeTableContent:TimeTableView x:Name="TimeTable" DataContext="{Binding TimeTable}" />
-            </TabItem>
-            <TabItem Header="{lex:Loc Station}">
-                <stationTimeTableContent:StationTimeTableView x:Name="Station" DataContext="{Binding StationTimeTable}" />
-            </TabItem>
-            <TabItem Header="{lex:Loc SearchStation}">
-                <searchStationContent:SearchStation x:Name="SearchStation" DataContext="{Binding SearchStation}" />
-            </TabItem>
-        </TabControl>
+        <ItemsControl Height="50"
+                      Background="LightBlue"
+                      DockPanel.Dock="Top"
+                      prism:RegionManager.RegionName="NavigationRegion" />
+        <ContentControl DockPanel.Dock="Bottom" prism:RegionManager.RegionName="ContentRegion" />
     </DockPanel>
 </Window>

@@ -18,6 +18,9 @@
 
 namespace MySbbInfo
 {
+    using System.ComponentModel.Composition;
+
+    [Export]
     public partial class MainView
     {
         public MainView()

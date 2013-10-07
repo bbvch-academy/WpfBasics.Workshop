@@ -18,19 +18,38 @@
 
 namespace MySbbInfo
 {
+    using System.ComponentModel.Composition.Hosting;
     using System.Windows;
 
-    using Microsoft.Practices.Prism.UnityExtensions;
+    using Microsoft.Practices.Prism.MefExtensions;
 
-    public class MySbbInfoBootstrapper : UnityBootstrapper
+    using SearchStationModule = MySbbInfo.Modules.SearchStationModule.SearchStationModule;
+    using StationTimeTableModule = MySbbInfo.Modules.StationTimeTableModule.StationTimeTableModule;
+    using TimeTableModule = MySbbInfo.Modules.TimeTableModule.TimeTableModule;
+
+    public class MySbbInfoBootstrapper : MefBootstrapper
     {
         protected override DependencyObject CreateShell()
         {
-            var mainView = new MainView();
+            return this.Container.GetExportedValue<MainView>();
+        }
 
-            mainView.Show();
+        protected override void InitializeShell()
+        {
+            base.InitializeShell();
 
-            return mainView;
+            Application.Current.MainWindow = (Window)this.Shell;
+            Application.Current.MainWindow.Show();
+        }
+
+        protected override void ConfigureAggregateCatalog()
+        {
+            base.ConfigureAggregateCatalog();
+
+            this.AggregateCatalog.Catalogs.Add(new TypeCatalog(new[] { typeof(MainView) }));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(SearchStationModule).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(StationTimeTableModule).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(TimeTableModule).Assembly));
         }
     }
 }
