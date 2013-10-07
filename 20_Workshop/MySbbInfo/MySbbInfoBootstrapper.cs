@@ -26,6 +26,7 @@ namespace MySbbInfo
     using SearchStationModule = MySbbInfo.Modules.SearchStationModule.SearchStationModule;
     using StationTimeTableModule = MySbbInfo.Modules.StationTimeTableModule.StationTimeTableModule;
     using TimeTableModule = MySbbInfo.Modules.TimeTableModule.TimeTableModule;
+    using TravelCardModule = MySbbInfo.Modules.TravelCardModule.TravelCardModule;
 
     public class MySbbInfoBootstrapper : MefBootstrapper
     {
@@ -50,6 +51,7 @@ namespace MySbbInfo
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(TimeTableModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(StationTimeTableModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(SearchStationModule).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(TravelCardModule).Assembly));
         }
     }
 }

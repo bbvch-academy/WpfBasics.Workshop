@@ -187,6 +187,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MySbbInfo.Infrastructure\MySbbInfo.Infrastructure.csproj">
+      <Project>{af05f833-38af-4e37-aa9b-4be7eb3d52aa}</Project>
+      <Name>MySbbInfo.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MySbbInfo.Modules.SearchStationModule\MySbbInfo.Modules.SearchStationModule.csproj">
       <Project>{7c5613f0-f161-4caa-98c2-ddcf328f7fc5}</Project>
       <Name>MySbbInfo.Modules.SearchStationModule</Name>
@@ -198,6 +202,10 @@
     <ProjectReference Include="..\MySbbInfo.Modules.TimeTableModule\MySbbInfo.Modules.TimeTableModule.csproj">
       <Project>{ed893494-2774-4e5e-8a55-2e17d1382662}</Project>
       <Name>MySbbInfo.Modules.TimeTableModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySbbInfo.Modules.TravelCardModule\MySbbInfo.Modules.TravelCardModule.csproj">
+      <Project>{97a31b75-697e-4d1f-938b-2402042030a1}</Project>
+      <Name>MySbbInfo.Modules.TravelCardModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\SbbApi\SbbApi.csproj">
       <Project>{0f0072cc-ee92-48ed-bd2d-fb7509cb73cf}</Project>

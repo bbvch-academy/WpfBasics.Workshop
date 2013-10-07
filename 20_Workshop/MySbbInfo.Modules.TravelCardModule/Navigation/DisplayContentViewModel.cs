@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DisplayContentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="DisplayContentViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,26 +13,20 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
+namespace MySbbInfo.Modules.TravelCardModule.Navigation
 {
     using System.ComponentModel.Composition;
-    using System.Windows.Controls;
+    using System.Windows.Input;
 
-    [Export]
-    public partial class DisplayContentView : UserControl
+    [Export(typeof(IDisplayContentViewModel))]
+    public class DisplayContentViewModel : IDisplayContentViewModel
     {
-        public DisplayContentView()
+        [ImportingConstructor]
+        public DisplayContentViewModel(INavigateToTravelCardCommand navigateToTravelCardCommand)
         {
-            this.InitializeComponent();
+            this.NavigateCommand = navigateToTravelCardCommand;
         }
 
-        [Import]
-        public IDisplayContentViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
-        }
+        public ICommand NavigateCommand { get; private set; }
     }
 }

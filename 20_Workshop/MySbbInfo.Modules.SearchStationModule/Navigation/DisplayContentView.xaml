@@ -9,7 +9,7 @@
              lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.SearchStationModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
-    <Grid Width="150" Height="40">
+    <Grid Width="110" Height="40">
         <Button Margin="5"
                 Command="{Binding NavigateCommand}"
                 Content="{lex:Loc SearchStation}" />

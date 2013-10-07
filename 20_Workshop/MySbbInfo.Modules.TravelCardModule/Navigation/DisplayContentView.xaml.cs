@@ -13,7 +13,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
+namespace MySbbInfo.Modules.TravelCardModule.Navigation
 {
     using System.ComponentModel.Composition;
     using System.Windows.Controls;

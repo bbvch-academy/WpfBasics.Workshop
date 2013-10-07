@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DisplayContentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="BuyTravelCardView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,26 +13,17 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
+namespace MySbbInfo.Modules.TravelCardModule.Content
 {
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
     [Export]
-    public partial class DisplayContentView : UserControl
+    public partial class BuyTravelCardView : UserControl
     {
-        public DisplayContentView()
+        public BuyTravelCardView()
         {
-            this.InitializeComponent();
-        }
-
-        [Import]
-        public IDisplayContentViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
+            InitializeComponent();
         }
     }
 }
