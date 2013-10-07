@@ -103,8 +103,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IMainViewModel.cs" />
-    <Compile Include="MainViewModel.cs" />
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
     <Compile Include="MySbbInfoBootstrapper.cs" />
@@ -126,7 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Translation.resx</DependentUpon>
     </Compile>
-    <Page Include="MainView.xaml">
+    <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -134,8 +132,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
+    <Compile Include="ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu\MenuView.xaml">
@@ -182,7 +180,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="img\Occupancy.xcf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -212,27 +209,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\occupancy1.png" />
-    <Resource Include="img\occupancy2.png" />
-    <Resource Include="img\occupancy3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\empty_occupancy.png" />
-    <Resource Include="img\occupancy0.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\train.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\bus.png" />
-    <Resource Include="img\train.png" />
-    <Resource Include="img\walk.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\empty_transportation.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\tram.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

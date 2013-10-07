@@ -31,7 +31,7 @@ namespace MySbbInfo
     {
         protected override DependencyObject CreateShell()
         {
-            return this.Container.GetExportedValue<MainView>();
+            return this.Container.GetExportedValue<ShellView>();
         }
 
         protected override void InitializeShell()
@@ -46,7 +46,7 @@ namespace MySbbInfo
         {
             base.ConfigureAggregateCatalog();
 
-            this.AggregateCatalog.Catalogs.Add(new TypeCatalog(new[] { typeof(MainView) }));
+            this.AggregateCatalog.Catalogs.Add(new TypeCatalog(new[] { typeof(ShellView) }));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(TimeTableModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(StationTimeTableModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(SearchStationModule).Assembly));

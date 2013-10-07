@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="ShellView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,33 +12,20 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the MainViewModel type.
+//   Interaction logic for MainWindow.xaml
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo
 {
-    using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule.Content;
+    using System.ComponentModel.Composition;
 
-    using SbbApi;
-
-    public class MainViewModel : IMainViewModel
+    [Export]
+    public partial class ShellView
     {
-        public MainViewModel()
+        public ShellView()
         {
-            //ITransportService transportService = new TransportService();
-
-            //this.StationTimeTable = new StationTimeTableViewModel(transportService);
-            //this.SearchStation = new SearchStationViewModel(transportService);
-            //this.TimeTable = new TimeTableViewModel(transportService);
+            this.InitializeComponent();
         }
-
-        //public IStationTimeTableViewModel StationTimeTable { get; private set; }
-
-        //public ISearchStationViewModel SearchStation { get; private set; }
-
-        //public ITimeTableViewModel TimeTable { get; private set; }
     }
 }
