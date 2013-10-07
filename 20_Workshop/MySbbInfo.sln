@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySbbInfo.Modules.SearchSta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySbbInfo.Modules.StationTimeTableModule", "MySbbInfo.Modules.StationTimeTableModule\MySbbInfo.Modules.StationTimeTableModule.csproj", "{65CBBCFE-AE56-4BB7-8250-137B39BB7639}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySbbInfo.Infrastructure", "MySbbInfo.Infrastructure\MySbbInfo.Infrastructure.csproj", "{AF05F833-38AF-4E37-AA9B-4BE7EB3D52AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65CBBCFE-AE56-4BB7-8250-137B39BB7639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF05F833-38AF-4E37-AA9B-4BE7EB3D52AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF05F833-38AF-4E37-AA9B-4BE7EB3D52AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF05F833-38AF-4E37-AA9B-4BE7EB3D52AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF05F833-38AF-4E37-AA9B-4BE7EB3D52AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
