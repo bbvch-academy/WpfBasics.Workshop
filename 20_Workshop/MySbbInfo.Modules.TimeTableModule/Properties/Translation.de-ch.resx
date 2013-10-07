@@ -144,6 +144,9 @@
   <data name="Time" xml:space="preserve">
     <value>Zeit</value>
   </data>
+  <data name="TimeTable" xml:space="preserve">
+    <value>Fahrplan</value>
+  </data>
   <data name="To" xml:space="preserve">
     <value>Nach</value>
   </data>

@@ -142,6 +142,15 @@ namespace MySbbInfo.Modules.TimeTableModule.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time Table.
+        /// </summary>
+        public static string TimeTable {
+            get {
+                return ResourceManager.GetString("TimeTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To.
         /// </summary>
         public static string To {

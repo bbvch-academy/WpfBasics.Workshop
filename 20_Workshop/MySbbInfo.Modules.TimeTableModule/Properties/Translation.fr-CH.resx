@@ -144,6 +144,9 @@
   <data name="Time" xml:space="preserve">
     <value>Heure</value>
   </data>
+  <data name="TimeTable" xml:space="preserve">
+    <value>Horaire</value>
+  </data>
   <data name="To" xml:space="preserve">
     <value>À</value>
   </data>
