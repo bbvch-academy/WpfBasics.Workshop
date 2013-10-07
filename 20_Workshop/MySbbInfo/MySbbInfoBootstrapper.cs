@@ -47,9 +47,9 @@ namespace MySbbInfo
             base.ConfigureAggregateCatalog();
 
             this.AggregateCatalog.Catalogs.Add(new TypeCatalog(new[] { typeof(MainView) }));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(TimeTableModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(SearchStationModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(StationTimeTableModule).Assembly));
-            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(TimeTableModule).Assembly));
         }
     }
 }
