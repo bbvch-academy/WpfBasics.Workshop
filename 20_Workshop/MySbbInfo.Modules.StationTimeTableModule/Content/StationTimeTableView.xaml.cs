@@ -30,7 +30,7 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Content
         }
 
         [Import]
-        public StationTimeTableViewModel ViewModel
+        public IStationTimeTableViewModel ViewModel
         {
             set
             {

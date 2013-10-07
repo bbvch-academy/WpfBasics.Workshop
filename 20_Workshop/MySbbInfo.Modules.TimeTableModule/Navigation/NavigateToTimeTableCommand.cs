@@ -16,18 +16,21 @@
 namespace MySbbInfo.Modules.TimeTableModule.Navigation
 {
     using System;
+    using System.ComponentModel.Composition;
 
     using Microsoft.Practices.Prism.Regions;
 
     using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.TimeTableModule.Content;
 
+    [Export(typeof(INavigateToTimeTableCommand))]
     public class NavigateToTimeTableCommand : INavigateToTimeTableCommand
     {
         private static readonly Uri TimeTableViewUri = new Uri(typeof(TimeTableView).Name, UriKind.Relative);
 
         private readonly IRegionManager regionManager;
 
+        [ImportingConstructor]
         public NavigateToTimeTableCommand(IRegionManager regionManager)
         {
             this.regionManager = regionManager;

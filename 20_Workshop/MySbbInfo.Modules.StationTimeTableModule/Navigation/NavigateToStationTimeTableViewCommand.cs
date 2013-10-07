@@ -16,18 +16,21 @@
 namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 {
     using System;
+    using System.ComponentModel.Composition;
 
     using Microsoft.Practices.Prism.Regions;
 
     using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.StationTimeTableModule.Content;
 
-    public class NavigateToStationTimeTableViewCommand : INavigateToTimeTableCommand
+    [Export(typeof(INavigateToStationTimeTableViewCommand))]
+    public class NavigateToStationTimeTableViewCommand : INavigateToStationTimeTableViewCommand
     {
         private static readonly Uri StationTimeTableViewUri = new Uri(typeof(StationTimeTableView).Name, UriKind.Relative);
 
         private readonly IRegionManager regionManager;
 
+        [ImportingConstructor]
         public NavigateToStationTimeTableViewCommand(IRegionManager regionManager)
         {
             this.regionManager = regionManager;

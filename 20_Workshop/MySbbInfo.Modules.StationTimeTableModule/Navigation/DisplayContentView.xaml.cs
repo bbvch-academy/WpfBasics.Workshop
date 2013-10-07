@@ -31,17 +31,11 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
         }
 
         [Import]
-        public IRegionManager RegionManager
+        public IDisplayContentViewModel ViewModel
         {
-            get
-            {
-                return this.regionManager;
-            }
-
             set
             {
-                this.regionManager = value;
-                this.DataContext = new DisplayContentViewModel(new NavigateToStationTimeTableViewCommand(value));
+                this.DataContext = value;
             }
         }
     }

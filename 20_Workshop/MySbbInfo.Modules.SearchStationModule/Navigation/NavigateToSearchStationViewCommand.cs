@@ -16,18 +16,21 @@
 namespace MySbbInfo.Modules.SearchStationModule.Navigation
 {
     using System;
+    using System.ComponentModel.Composition;
 
     using Microsoft.Practices.Prism.Regions;
 
     using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.SearchStationModule.Content;
 
-    public class NavigateToSearchStationViewCommand : INavigateToTimeTableCommand
+    [Export(typeof(INavigateToSearchStationViewCommand))]
+    public class NavigateToSearchStationViewCommand : INavigateToSearchStationViewCommand
     {
         private static readonly Uri SearchStationViewUri = new Uri(typeof(SearchStationView).Name, UriKind.Relative);
 
         private readonly IRegionManager regionManager;
 
+        [ImportingConstructor]
         public NavigateToSearchStationViewCommand(IRegionManager regionManager)
         {
             this.regionManager = regionManager;

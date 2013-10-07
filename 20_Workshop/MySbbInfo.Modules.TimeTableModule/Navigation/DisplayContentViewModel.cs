@@ -15,10 +15,13 @@
 
 namespace MySbbInfo.Modules.TimeTableModule.Navigation
 {
+    using System.ComponentModel.Composition;
     using System.Windows.Input;
 
+    [Export(typeof(IDisplayContentViewModel))]
     public class DisplayContentViewModel : IDisplayContentViewModel
     {
+        [ImportingConstructor]
         public DisplayContentViewModel(INavigateToTimeTableCommand navigateToTimeTableCommand)
         {
             this.NavigateCommand = navigateToTimeTableCommand;

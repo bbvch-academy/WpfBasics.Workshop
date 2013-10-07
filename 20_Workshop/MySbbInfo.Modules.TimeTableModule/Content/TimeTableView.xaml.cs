@@ -29,7 +29,7 @@ namespace MySbbInfo.Modules.TimeTableModule.Content
         }
 
         [Import]
-        public TimeTableViewModel ViewModel
+        public ITimeTableViewModel ViewModel
         {
             set
             {

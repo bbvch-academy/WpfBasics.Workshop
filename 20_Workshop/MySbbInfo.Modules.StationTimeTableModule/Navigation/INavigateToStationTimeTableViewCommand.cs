@@ -13,11 +13,11 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.SearchStationModule.Navigation
+namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 {
     using System.Windows.Input;
 
-    public interface INavigateToTimeTableCommand : ICommand
+    public interface INavigateToStationTimeTableViewCommand : ICommand
     {
     }
 }

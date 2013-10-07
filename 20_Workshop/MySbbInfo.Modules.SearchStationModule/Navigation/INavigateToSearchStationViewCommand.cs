@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ViewExportAttribute.cs" company="bbv Software Services AG">
+// <copyright file="INavigateToTimeTableCommand.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,30 +13,11 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TimeTableModule
+namespace MySbbInfo.Modules.SearchStationModule.Navigation
 {
-    using System;
-    using System.ComponentModel.Composition;
+    using System.Windows.Input;
 
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    [MetadataAttribute]
-    public sealed class ViewExportAttribute : ExportAttribute
+    public interface INavigateToSearchStationViewCommand : ICommand
     {
-        public ViewExportAttribute()
-            : base(typeof(object))
-        {
-        }
-
-        public ViewExportAttribute(string viewName)
-            : base(viewName, typeof(object))
-        {
-        }
-
-        public string ViewName
-        {
-            get { return base.ContractName; }
-        }
-
-        public string RegionName { get; set; }
     }
 }

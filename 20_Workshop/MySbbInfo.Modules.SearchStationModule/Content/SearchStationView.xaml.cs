@@ -30,7 +30,7 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
         }
 
         [Import]
-        public SearchStationViewModel ViewModel
+        public ISearchStationViewModel ViewModel
         {
             set
             {

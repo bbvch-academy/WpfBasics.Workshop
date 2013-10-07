@@ -30,7 +30,7 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Content
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    [Export]
+    [Export(typeof(IStationTimeTableViewModel))]
     public class StationTimeTableViewModel : IStationTimeTableViewModel
     {
         private readonly ITransportService transportService;
