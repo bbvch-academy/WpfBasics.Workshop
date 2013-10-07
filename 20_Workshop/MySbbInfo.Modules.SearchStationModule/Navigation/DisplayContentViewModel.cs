@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DisplayContentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="DisplayContentViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -15,34 +15,15 @@
 
 namespace MySbbInfo.Modules.SearchStationModule.Navigation
 {
-    using System.ComponentModel.Composition;
-    using System.Windows.Controls;
+    using System.Windows.Input;
 
-    using Microsoft.Practices.Prism.Regions;
-
-    [Export]
-    public partial class DisplayContentView : UserControl
+    public class DisplayContentViewModel : IDisplayContentViewModel
     {
-        private IRegionManager regionManager;
-
-        public DisplayContentView()
+        public DisplayContentViewModel(INavigateToTimeTableCommand navigateToTimeTableCommand)
         {
-            this.InitializeComponent();
+            this.NavigateCommand = navigateToTimeTableCommand;
         }
 
-        [Import]
-        public IRegionManager RegionManager
-        {
-            get
-            {
-                return this.regionManager;
-            }
-
-            set
-            {
-                this.regionManager = value;
-                this.DataContext = new DisplayContentViewModel(new NavigateToSearchStationViewCommand(value));
-            }
-        }
+        public ICommand NavigateCommand { get; private set; }
     }
 }

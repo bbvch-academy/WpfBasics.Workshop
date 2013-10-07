@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DisplayContentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="NavigateToSearchStationViewCommand.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -15,34 +15,34 @@
 
 namespace MySbbInfo.Modules.SearchStationModule.Navigation
 {
-    using System.ComponentModel.Composition;
-    using System.Windows.Controls;
+    using System;
 
     using Microsoft.Practices.Prism.Regions;
 
-    [Export]
-    public partial class DisplayContentView : UserControl
-    {
-        private IRegionManager regionManager;
+    using MySbbInfo.Infrastructure;
+    using MySbbInfo.Modules.SearchStationModule.Content;
 
-        public DisplayContentView()
+    public class NavigateToSearchStationViewCommand : INavigateToTimeTableCommand
+    {
+        private static readonly Uri SearchStationViewUri = new Uri(typeof(SearchStationView).Name, UriKind.Relative);
+
+        private readonly IRegionManager regionManager;
+
+        public NavigateToSearchStationViewCommand(IRegionManager regionManager)
         {
-            this.InitializeComponent();
+            this.regionManager = regionManager;
         }
 
-        [Import]
-        public IRegionManager RegionManager
-        {
-            get
-            {
-                return this.regionManager;
-            }
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
 
-            set
-            {
-                this.regionManager = value;
-                this.DataContext = new DisplayContentViewModel(new NavigateToSearchStationViewCommand(value));
-            }
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            this.regionManager.RequestNavigate(Regions.ContentRegion, SearchStationViewUri);
         }
     }
 }

@@ -29,6 +29,15 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
             this.InitializeComponent();
         }
 
+        [Import]
+        public SearchStationViewModel ViewModel
+        {
+            set
+            {
+                this.DataContext = value;
+            }
+        }
+
         protected override void OnRender(System.Windows.Media.DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);

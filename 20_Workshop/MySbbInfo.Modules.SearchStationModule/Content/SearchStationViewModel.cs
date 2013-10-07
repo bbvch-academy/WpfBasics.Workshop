@@ -20,6 +20,7 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
 {
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.ComponentModel.Composition;
     using System.Windows.Input;
 
     using Microsoft.Maps.MapControl.WPF;
@@ -27,6 +28,7 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
     using SbbApi;
     using SbbApi.ApiClasses;
 
+    [Export]
     public class SearchStationViewModel : ISearchStationViewModel
     {
         private static readonly Location LocationBern = new Location(46.948429107666, 7.44046020507813);
@@ -36,6 +38,11 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
         private Location stationPosition;
 
         private Station selectedStation;
+
+        public SearchStationViewModel()
+            : this(new TransportService())
+        {
+        }
 
         public SearchStationViewModel(ITransportService transportService)
         {

@@ -21,19 +21,25 @@ namespace MySbbInfo.Modules.SearchStationModule
     using Microsoft.Practices.Prism.Modularity;
     using Microsoft.Practices.Prism.Regions;
 
+    using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.SearchStationModule.Content;
     using MySbbInfo.Modules.SearchStationModule.Navigation;
 
     [ModuleExport(typeof(SearchStationModule))]
     public class SearchStationModule : IModule
     {
-        [Import]
-        public IRegionManager RegionManager;
+        private readonly IRegionManager regionManager;
+
+        [ImportingConstructor]
+        public SearchStationModule(IRegionManager regionManager)
+        {
+            this.regionManager = regionManager;
+        }
 
         public void Initialize()
         {
-            this.RegionManager.RegisterViewWithRegion("NavigationRegion", typeof(DisplayContentView));
-            this.RegionManager.RegisterViewWithRegion("ContentRegion", typeof(SearchStationView));
+            this.regionManager.RegisterViewWithRegion(Regions.NavigationRegion, typeof(DisplayContentView));
+            this.regionManager.RegisterViewWithRegion(Regions.ContentRegion, typeof(SearchStationView));
         }
     }
 }
