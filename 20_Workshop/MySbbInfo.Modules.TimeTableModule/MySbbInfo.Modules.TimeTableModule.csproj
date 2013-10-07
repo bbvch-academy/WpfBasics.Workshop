@@ -91,70 +91,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connections\ConnectionsModel.cs" />
-    <Compile Include="Connections\ConnectionsView.xaml.cs">
+    <Compile Include="Content\Connections\ConnectionsModel.cs" />
+    <Compile Include="Content\Connections\ConnectionsView.xaml.cs">
       <DependentUpon>ConnectionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connections\ConnectionsViewModel.cs" />
-    <Compile Include="Connections\IConnectionsViewModel.cs" />
-    <Compile Include="Connections\Occupancy.Designer.cs">
+    <Compile Include="Content\Connections\ConnectionsViewModel.cs" />
+    <Compile Include="Content\Connections\IConnectionsViewModel.cs" />
+    <Compile Include="Content\Connections\Occupancy.Designer.cs">
+      <DependentUpon>Occupancy.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Occupancy.resx</DependentUpon>
     </Compile>
-    <Compile Include="Connections\OccupancyToBitmapImageConverter.cs" />
-    <Compile Include="Connections\Sections\ISectionsViewModel.cs" />
-    <Compile Include="Connections\Sections\SectionsModel.cs" />
-    <Compile Include="Connections\Sections\SectionsView.xaml.cs">
+    <Compile Include="Content\Connections\OccupancyToBitmapImageConverter.cs" />
+    <Compile Include="Content\Connections\Sections\ISectionsViewModel.cs" />
+    <Compile Include="Content\Connections\Sections\SectionsModel.cs" />
+    <Compile Include="Content\Connections\Sections\SectionsView.xaml.cs">
       <DependentUpon>SectionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connections\Sections\SectionsViewModel.cs" />
-    <Compile Include="ITimeTableViewModel.cs" />
-    <Compile Include="Search\ITimeTableSearchViewModel.cs" />
-    <Compile Include="Search\SearchConnectionAsyncCommand.cs" />
-    <Compile Include="Search\SearchConnectionCompletedEventArgs.cs" />
-    <Compile Include="Search\TimeSelectorControl.xaml.cs">
+    <Compile Include="Content\Connections\Sections\SectionsViewModel.cs" />
+    <Compile Include="Content\ITimeTableViewModel.cs" />
+    <Compile Include="Content\Search\ITimeTableSearchViewModel.cs" />
+    <Compile Include="Content\Search\SearchConnectionAsyncCommand.cs" />
+    <Compile Include="Content\Search\SearchConnectionCompletedEventArgs.cs" />
+    <Compile Include="Content\Search\TimeSelectorControl.xaml.cs">
       <DependentUpon>TimeSelectorControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Search\TimeTableSearchModel.cs" />
-    <Compile Include="Search\TimeTableSearchView.xaml.cs">
+    <Compile Include="Content\Search\TimeTableSearchModel.cs" />
+    <Compile Include="Content\Search\TimeTableSearchView.xaml.cs">
       <DependentUpon>TimeTableSearchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Search\TimeTableSearchViewModel.cs" />
-    <Compile Include="TimeTableView.xaml.cs">
+    <Compile Include="Content\Search\TimeTableSearchViewModel.cs" />
+    <Compile Include="Content\TimeTableView.xaml.cs">
       <DependentUpon>TimeTableView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimeTableViewModel.cs" />
-    <Compile Include="TransportMedium.Designer.cs">
+    <Compile Include="Content\TimeTableViewModel.cs" />
+    <Compile Include="Content\TransportMedium.Designer.cs">
       <DependentUpon>TransportMedium.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Page Include="Connections\ConnectionsView.xaml">
+    <Page Include="Content\Connections\ConnectionsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Connections\Sections\SectionsView.xaml">
+    <Page Include="Content\Connections\Sections\SectionsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Content\Search\TimeSelectorControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Search\TimeSelectorControl.xaml">
+    <Page Include="Content\Search\TimeTableSearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Search\TimeTableSearchView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TimeTableView.xaml">
+    <Page Include="Content\TimeTableView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -173,21 +165,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Connections\Occupancy.resx">
+    <EmbeddedResource Include="Content\Connections\Occupancy.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Occupancy.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\TransportMedium.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransportMedium.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransportMedium.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>TransportMedium.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <None Include="img\Occupancy.xcf" />
+    <None Include="Content\img\Occupancy.xcf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,37 +194,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\bus.png" />
+    <Folder Include="Navigation\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\empty_occupancy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\empty_transportation.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\occupancy0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\occupancy1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\occupancy2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\occupancy3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\train.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\train.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\tram.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\walk.png" />
+    <Resource Include="Content\img\bus.png" />
+    <Resource Include="Content\img\empty_occupancy.png" />
+    <Resource Include="Content\img\empty_transportation.png" />
+    <Resource Include="Content\img\occupancy0.png" />
+    <Resource Include="Content\img\occupancy1.png" />
+    <Resource Include="Content\img\occupancy2.png" />
+    <Resource Include="Content\img\occupancy3.png" />
+    <Resource Include="Content\img\train.ico" />
+    <Resource Include="Content\img\train.png" />
+    <Resource Include="Content\img\tram.png" />
+    <Resource Include="Content\img\walk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

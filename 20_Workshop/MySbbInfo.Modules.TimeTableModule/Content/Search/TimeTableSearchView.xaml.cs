@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="TimeTableSearchView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,25 +12,19 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the IMainViewModel type.
+//   Interaction logic for TimeTableSearchView
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.TimeTableModule.Content.Search
 {
-    using MySbbInfo.Modules.SearchStationModule;
-    using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.Modules.TimeTableModule.Content;
+    using System.Windows.Controls;
 
-    public interface IMainViewModel
+    public partial class TimeTableSearchView : UserControl
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
-
-        ISearchStationViewModel SearchStation { get; }
-
-        ITimeTableViewModel TimeTable { get; }
+        public TimeTableSearchView()
+        {
+            this.InitializeComponent();
+        }
     }
 }

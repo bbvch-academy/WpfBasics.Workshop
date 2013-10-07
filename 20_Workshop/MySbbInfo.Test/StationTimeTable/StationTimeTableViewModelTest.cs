@@ -23,6 +23,7 @@ namespace MySbbInfo.StationTimeTable
     using FluentAssertions;
 
     using MySbbInfo.Modules.StationTimeTableModule;
+    using MySbbInfo.Modules.StationTimeTableModule.Content;
 
     using NUnit.Framework;
 

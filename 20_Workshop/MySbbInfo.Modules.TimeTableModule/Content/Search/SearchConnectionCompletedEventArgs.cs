@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="SearchStationCompletedEventArgs.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,25 +12,24 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the IMainViewModel type.
+//   Defines the ChangeUiLanguageCommand type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.TimeTableModule.Content.Search
 {
-    using MySbbInfo.Modules.SearchStationModule;
-    using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.Modules.TimeTableModule.Content;
+    using System;
+    using System.Collections.Generic;
 
-    public interface IMainViewModel
+    using SbbApi.ApiClasses;
+
+    public class SearchConnectionCompletedEventArgs : EventArgs
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
+        public SearchConnectionCompletedEventArgs(IEnumerable<Connection> connectionsResult)
+        {
+            this.ConnectionsResult = connectionsResult;
+        }
 
-        ISearchStationViewModel SearchStation { get; }
-
-        ITimeTableViewModel TimeTable { get; }
+        public IEnumerable<Connection> ConnectionsResult { get; private set; }
     }
 }

@@ -1,0 +1,53 @@
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ConnectionsModel.cs" company="bbv Software Services AG">
+//   Copyright (c) 2012
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//   http://www.apache.org/licenses/LICENSE-2.0
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+// </copyright>
+// <summary>
+//   Defines the ConnectionsModel type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace MySbbInfo.Modules.TimeTableModule.Content.Connections
+{
+    using System;
+
+    public class ConnectionsModel
+    {
+        public ConnectionsModel(
+            string departingStationName,
+            DateTime? departureDateTime,
+            string arrivingStationName,
+            DateTime? arrivalDateTime,
+            TimeSpan? journeyDuration,
+            int? capacity2ndCompartment)
+        {
+            this.DepartingStationName = departingStationName;
+            this.DepartureDateTime = departureDateTime;
+            this.ArrivingStationName = arrivingStationName;
+            this.ArrivalDateTime = arrivalDateTime;
+            this.JourneyDuration = journeyDuration;
+            this.Capacity2ndCompartment = capacity2ndCompartment;
+        }
+
+        public string DepartingStationName { get; private set; }
+
+        public DateTime? DepartureDateTime { get; private set; }
+
+        public string ArrivingStationName { get; private set; }
+
+        public DateTime? ArrivalDateTime { get; private set; }
+
+        public TimeSpan? JourneyDuration { get; private set; }
+
+        public int? Capacity2ndCompartment { get; private set; }
+    }
+}

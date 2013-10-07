@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IMainViewModel.cs" company="bbv Software Services AG">
+// <copyright file="IStationTimeTableViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,25 +12,26 @@
 //   limitations under the License.
 // </copyright>
 // <summary>
-//   Defines the IMainViewModel type.
+//   Defines the IStationTimeTableViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo
+namespace MySbbInfo.Modules.StationTimeTableModule.Content
 {
-    using MySbbInfo.Modules.SearchStationModule;
-    using MySbbInfo.Modules.SearchStationModule.Content;
-    using MySbbInfo.Modules.StationTimeTableModule;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-    using MySbbInfo.Modules.TimeTableModule;
-    using MySbbInfo.Modules.TimeTableModule.Content;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.Windows.Input;
 
-    public interface IMainViewModel
+    public interface IStationTimeTableViewModel : INotifyPropertyChanged
     {
-        IStationTimeTableViewModel StationTimeTable { get; }
+        ICommand LoadStationBoardCommand { get; }
 
-        ISearchStationViewModel SearchStation { get; }
+        ObservableCollection<string> StationBoard { get; set; }
 
-        ITimeTableViewModel TimeTable { get; }
+        bool IsBusy { get; set; }
+
+        bool CanExecuteSearch(string stationQuery);
+
+        void ExecuteSearch(string stationQuery);
     }
 }
