@@ -29,10 +29,13 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
     using MySbbInfo.Modules.TravelCardModule.Content.SelectPayment;
     using MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard;
     using MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard;
+    using MySbbInfo.Modules.TravelCardModule.OrderService;
 
     [Export]
     public class BuyTravelCardViewModel
     {
+        public static readonly string ViewNameAfterConfirmation = typeof(SelectTravelCardView).Name;
+
         private static readonly string StartViewName = typeof(SelectTravelCardView).Name;
         private static readonly string EndViewName = typeof(ConfirmationView).Name;
 
@@ -45,18 +48,21 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
                                                                            };
 
         private readonly IRegionManager regionManager;
-
+        private readonly IOrderService orderService;
         private readonly BuyTravelCardModel sessionData;
 
         private string currentView;
 
         [ImportingConstructor]
-        public BuyTravelCardViewModel(IRegionManager regionManager)
+        public BuyTravelCardViewModel(IRegionManager regionManager, IOrderService orderService)
         {
             this.regionManager = regionManager;
-            this.NavigateToView(StartViewName);
+            this.orderService = orderService;
+            this.currentView = StartViewName;
 
             this.regionManager.Regions.CollectionChanged += this.RegionsCollectionChanged;
+
+            this.NavigateToView(StartViewName);
 
             this.sessionData = new BuyTravelCardModel();
             this.ForwardCommand = new RelayCommand(this.Forward, this.CanGoForward);
@@ -110,9 +116,16 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
         {
             var uri = new Uri(nextViewName, UriKind.Relative);
 
-            this.regionManager.RequestNavigate(TravelCardRegions.BuyTravelCardContentRegion, uri);
+            bool? wasNavigated = false;
+            this.regionManager.RequestNavigate(
+                TravelCardRegions.BuyTravelCardContentRegion,
+                uri,
+                result => wasNavigated = result.Result);
 
-            this.currentView = nextViewName;
+            if (wasNavigated.HasValue && wasNavigated.Value)
+            {
+                this.currentView = nextViewName;
+            }
         }
 
         private void RegionsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -125,7 +138,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
 
             this.NavigationCommandsRaiseCanExecuteChanged();
             this.NavigationService.Navigating += this.NavigationServiceOnNavigating;
-            this.NavigationService.Navigated += (o, args) => this.NavigationCommandsRaiseCanExecuteChanged();
+            this.NavigationService.Navigated += this.NavigationServiceOnNavigated;
         }
 
         private void NavigationServiceOnNavigating(object sender, RegionNavigationEventArgs regionNavigationEventArgs)
@@ -133,7 +146,28 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
             NavigationContext navigationContext = regionNavigationEventArgs.NavigationContext;
 
             this.UpdateSessionData(regionNavigationEventArgs.NavigationContext);
-            this.PrepareSessionDataForSummaryIfSummaryNext(navigationContext);
+
+            // Navigating to EndView
+            if (navigationContext.Uri.OriginalString == EndViewName)
+            {
+                this.PrepareSessionDataForSummary(navigationContext);
+            }
+
+            // Navigating from EndView to StartView -> Finish Order
+            if (navigationContext.NavigationService.Journal.CurrentEntry != null &&
+                navigationContext.NavigationService.Journal.CurrentEntry.Uri.OriginalString == EndViewName && 
+                navigationContext.Uri.OriginalString == StartViewName)
+            {
+                this.orderService.CreateNewOrder(this.sessionData.UserPersonalData, this.sessionData.CreditCardData);
+                navigationContext.NavigationService.Journal.Clear();
+            }
+        }
+
+        private void NavigationServiceOnNavigated(object sender, RegionNavigationEventArgs regionNavigationEventArgs)
+        {
+            NavigationContext navigationContext = regionNavigationEventArgs.NavigationContext;
+
+            this.NavigationCommandsRaiseCanExecuteChanged();
         }
 
         private void UpdateSessionData(NavigationContext navigationContext)
@@ -182,16 +216,13 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
             }
         }
 
-        private void PrepareSessionDataForSummaryIfSummaryNext(NavigationContext navigationContext)
+        private void PrepareSessionDataForSummary(NavigationContext navigationContext)
         {
-            if (navigationContext.Uri.OriginalString == typeof(ConfirmationView).Name)
-            {
-                navigationContext.Parameters.Add(NavigationParameter.SummaryCreditCardData, this.sessionData.CreditCardData);
-                navigationContext.Parameters.Add(NavigationParameter.SummaryPaymentOption, this.sessionData.PaymentOption);
-                navigationContext.Parameters.Add(NavigationParameter.SummaryTravelCardOption, this.sessionData.TravelCardOption);
-                navigationContext.Parameters.Add(NavigationParameter.SummaryTravelCardPrice, this.sessionData.TravelCardPrice);
-                navigationContext.Parameters.Add(NavigationParameter.SummaryUserPersonalData, this.sessionData.UserPersonalData);
-            }
+            navigationContext.Parameters.Add(NavigationParameter.SummaryCreditCardData, this.sessionData.CreditCardData);
+            navigationContext.Parameters.Add(NavigationParameter.SummaryPaymentOption, this.sessionData.PaymentOption);
+            navigationContext.Parameters.Add(NavigationParameter.SummaryTravelCardOption, this.sessionData.TravelCardOption);
+            navigationContext.Parameters.Add(NavigationParameter.SummaryTravelCardPrice, this.sessionData.TravelCardPrice);
+            navigationContext.Parameters.Add(NavigationParameter.SummaryUserPersonalData, this.sessionData.UserPersonalData);
         }
 
         private void NavigationCommandsRaiseCanExecuteChanged()
