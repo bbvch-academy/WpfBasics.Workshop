@@ -10,22 +10,5 @@
     <DockPanel>
         <menu:MenuView DockPanel.Dock="Top" />
 
-        <!--  Navigation  -->
-        <ItemsControl Height="50"
-                      Background="LightGray"
-                      DockPanel.Dock="Top"
-                      prism:RegionManager.RegionName="NavigationRegion">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
-
-        <!--  Content  -->
-        <ContentControl Margin="3"
-                        DockPanel.Dock="Bottom"
-                        prism:RegionManager.RegionName="ContentRegion" />
-
     </DockPanel>
 </Window>

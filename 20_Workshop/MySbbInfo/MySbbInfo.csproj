@@ -93,7 +93,6 @@
     </ApplicationDefinition>
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
-    <Compile Include="MySbbInfoBootstrapper.cs" />
     <Compile Include="Properties\Translation.de-ch.Designer.cs">
       <DependentUpon>Translation.de-ch.resx</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -25,7 +25,6 @@ namespace MySbbInfo.Modules.TimeTableModule.Content
 
     using SbbApi;
 
-    [Export(typeof(ITimeTableViewModel))]
     public class TimeTableViewModel : ITimeTableViewModel
     {
         public TimeTableViewModel()

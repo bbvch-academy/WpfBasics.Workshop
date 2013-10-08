@@ -18,24 +18,8 @@ namespace MySbbInfo.Modules.SearchStationModule.Navigation
     using System;
     using System.ComponentModel.Composition;
 
-    using Microsoft.Practices.Prism.Regions;
-
-    using MySbbInfo.Infrastructure;
-    using MySbbInfo.Modules.SearchStationModule.Content;
-
-    [Export(typeof(INavigateToSearchStationViewCommand))]
     public class NavigateToSearchStationViewCommand : INavigateToSearchStationViewCommand
     {
-        private static readonly Uri SearchStationViewUri = new Uri(typeof(SearchStationView).Name, UriKind.Relative);
-
-        private readonly IRegionManager regionManager;
-
-        [ImportingConstructor]
-        public NavigateToSearchStationViewCommand(IRegionManager regionManager)
-        {
-            this.regionManager = regionManager;
-        }
-
         public event EventHandler CanExecuteChanged = (sender, args) => { };
 
         public bool CanExecute(object parameter)
@@ -45,7 +29,6 @@ namespace MySbbInfo.Modules.SearchStationModule.Navigation
 
         public void Execute(object parameter)
         {
-            this.regionManager.RequestNavigate(Regions.ContentRegion, SearchStationViewUri);
         }
     }
 }

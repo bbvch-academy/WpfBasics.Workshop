@@ -21,21 +21,11 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class SearchStationView : UserControl
     {
         public SearchStationView()
         {
             this.InitializeComponent();
-        }
-
-        [Import]
-        public ISearchStationViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
         }
 
         protected override void OnRender(System.Windows.Media.DrawingContext drawingContext)

@@ -130,7 +130,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="SearchStationModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

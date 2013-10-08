@@ -21,7 +21,6 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Content
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.ComponentModel.Composition;
     using System.Text;
     using System.Windows.Input;
 
@@ -30,7 +29,6 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Content
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    [Export(typeof(IStationTimeTableViewModel))]
     public class StationTimeTableViewModel : IStationTimeTableViewModel
     {
         private readonly ITransportService transportService;

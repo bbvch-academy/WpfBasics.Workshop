@@ -21,21 +21,11 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Content
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class StationTimeTableView : UserControl
     {
         public StationTimeTableView()
         {
             this.InitializeComponent();
-        }
-
-        [Import]
-        public IStationTimeTableViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
         }
     }
 }

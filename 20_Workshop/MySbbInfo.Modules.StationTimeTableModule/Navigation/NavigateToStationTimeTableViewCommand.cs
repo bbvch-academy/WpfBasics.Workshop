@@ -16,26 +16,9 @@
 namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 {
     using System;
-    using System.ComponentModel.Composition;
 
-    using Microsoft.Practices.Prism.Regions;
-
-    using MySbbInfo.Infrastructure;
-    using MySbbInfo.Modules.StationTimeTableModule.Content;
-
-    [Export(typeof(INavigateToStationTimeTableViewCommand))]
     public class NavigateToStationTimeTableViewCommand : INavigateToStationTimeTableViewCommand
     {
-        private static readonly Uri StationTimeTableViewUri = new Uri(typeof(StationTimeTableView).Name, UriKind.Relative);
-
-        private readonly IRegionManager regionManager;
-
-        [ImportingConstructor]
-        public NavigateToStationTimeTableViewCommand(IRegionManager regionManager)
-        {
-            this.regionManager = regionManager;
-        }
-
         public event EventHandler CanExecuteChanged = (sender, args) => { };
 
         public bool CanExecute(object parameter)
@@ -45,7 +28,6 @@ namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 
         public void Execute(object parameter)
         {
-            this.regionManager.RequestNavigate(Regions.ContentRegion, StationTimeTableViewUri);
         }
     }
 }

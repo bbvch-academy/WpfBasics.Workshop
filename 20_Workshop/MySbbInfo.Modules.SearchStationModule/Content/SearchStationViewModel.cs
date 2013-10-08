@@ -28,7 +28,6 @@ namespace MySbbInfo.Modules.SearchStationModule.Content
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    [Export(typeof(ISearchStationViewModel))]
     public class SearchStationViewModel : ISearchStationViewModel
     {
         private static readonly Location LocationBern = new Location(46.948429107666, 7.44046020507813);

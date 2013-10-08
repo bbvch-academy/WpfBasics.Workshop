@@ -15,24 +15,13 @@
 
 namespace MySbbInfo.Modules.SearchStationModule.Navigation
 {
-    using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class DisplayContentView : UserControl
     {
         public DisplayContentView()
         {
             this.InitializeComponent();
-        }
-
-        [Import]
-        public IDisplayContentViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
         }
     }
 }

@@ -15,16 +15,12 @@
 
 namespace MySbbInfo.Modules.StationTimeTableModule.Navigation
 {
-    using System.ComponentModel.Composition;
     using System.Windows.Input;
 
-    [Export(typeof(IDisplayContentViewModel))]
     public class DisplayContentViewModel : IDisplayContentViewModel
     {
-        [ImportingConstructor]
-        public DisplayContentViewModel(INavigateToStationTimeTableViewCommand navigateToStationTimeTableViewCommand)
+        public DisplayContentViewModel()
         {
-            this.NavigateCommand = navigateToStationTimeTableViewCommand;
         }
 
         public ICommand NavigateCommand { get; private set; }

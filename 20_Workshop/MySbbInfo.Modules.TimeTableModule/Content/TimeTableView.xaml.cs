@@ -20,21 +20,11 @@ namespace MySbbInfo.Modules.TimeTableModule.Content
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class TimeTableView : UserControl
     {
         public TimeTableView()
         {
             this.InitializeComponent();
-        }
-
-        [Import]
-        public ITimeTableViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
         }
     }
 }

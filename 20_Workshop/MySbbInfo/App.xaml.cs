@@ -45,8 +45,6 @@ namespace MySbbInfo
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            var bootstrapper = new MySbbInfoBootstrapper();
-            bootstrapper.Run();
         }
     }
 }
