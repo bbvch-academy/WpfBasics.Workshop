@@ -117,7 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Back" xml:space="preserve">
+    <value>&lt;- Back</value>
+  </data>
+  <data name="Bill" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="ChooseTravelOption" xml:space="preserve">
+    <value>Choose the right travel option offer for you:</value>
+  </data>
+  <data name="GAOption" xml:space="preserve">
+    <value>GA</value>
+  </data>
+  <data name="GAOptionDescription" xml:space="preserve">
+    <value>Flexible and independent: with a GA travelcard, you simply get aboard the next train. The GA travelcard is available in both 1st and 2nd class.
+
+Throughout its period of validity, you enjoy free travel on all SBB routes, and also those of most private rail companies, throughout Switzerland. The GA travelcard is also valid for postbuses and boats, as well as for short-distance public transport services like trams and buses in most cities and urban areas. And it gives you special discounts on many Swiss mountain railways. Important: the night supplement is not included in the GA travelcard; please purchase this additionally.
+
+If you have any questions about the GA travelcard that are not answered here, you can obtain information from ticket offices – or by phone from the GA Travelcard Helpdesk (Monday to Friday 8:00 to 20:00) on 0848 44 66 88 (standard rate: CHF 0.12/min., cheap rate: CHF 0.10/min., night rate: CHF 0.0625/min., from the Swiss fixed-line network).
+
+
+Prices and product specifications subject to change.</value>
+  </data>
+  <data name="HalfPriceOption" xml:space="preserve">
+    <value>Half-Fare</value>
+  </data>
+  <data name="HalfPriceOptionDescription" xml:space="preserve">
+    <value>The Half-Fare travelcard is available for 1, 2 or 3 years and allows you to buy 1st or 2nd class tickets for just half* the price.
+
+There is also a Half-Fare travelcard combined with a free Visa credit card or a Visa prepaid card: You can travel by train at low cost in Switzerland and pay conveniently and without cash when abroad using just one card.
+
+Order your Half-Fare travelcard at your station or on the Internet at SBB Ticket Shop.
+
+The Half-Fare travelcard is even more attractive with the add-on cards. 1-day and 1-month travelpasses and 1-day travelpasses for children turn a Half-Fare travelcard into a GA travelcard for the period they cover. And if young adults aged up to 25 have both a Half-Fare travelcard and Track 7, they travel free of charge after 7 p.m. within the entire SBB network and with a large number of private transport companies throughout Switzerland. Important: The night supplement is not included in Track 7 and you must purchase this additionally.
+
+Additional benefits: With your Half-Fare travelcard you can use the MobilBonus online platform and you receive further discounts if you travel to other European countries by train or if you need a hire car.
+
+Use the services available with your Half-Fare travelcard: If you lose your Half-Fare travelcard, you can obtain a replacement at the counter. For a lost Half-Fare travelcard with Visa Card we offer you 24-hour telephone assistance. If you forget your Half-Fare travelcard you can request a temporary travelcard at the counter.
+
+The Half-Fare travelcard is valid for the entire Swiss public transport network, which covers a total of 26 800 kilometres.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next -&gt;</value>
+  </data>
+  <data name="Track7Option" xml:space="preserve">
+    <value>Track 7</value>
+  </data>
+  <data name="Track7OptionDescription" xml:space="preserve">
+    <value>Are you under 25, a Half-Fare travelcard holder and happy to travel in the evenings? Then Track 7 is ideal for you.
+
+Track 7 entitles you to take any journeys in 2nd class from 7.00 p.m. to 5.00 a.m. – on the entire SBB network as well as with numerous private transport companies. Important: The night supplement is not included in Track 7 and you must purchase this additionally.
+
+The area of validity shows you where you may use Track 7.
+
+Discover the exciting, interactive world of Track 7 at www.gleis7.ch. With the SBB timetable, tips and special offers, you can plan your leisure time online and find entertainment with the games and tools. With regular competitions and prize draws there is always something to win too – travelcards, Reka Rail, concert tickets, cinema tickets, games consoles or DVDs.</value>
+  </data>
   <data name="Travelcards" xml:space="preserve">
     <value>Travelcards</value>
+  </data>
+  <data name="YourChoice" xml:space="preserve">
+    <value>Your choice:</value>
   </data>
 </root>

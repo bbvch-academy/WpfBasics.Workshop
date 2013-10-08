@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="BuyTravelCardView.cs" company="bbv Software Services AG">
+// <copyright file="SelectTravelCardView.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,21 +13,29 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TravelCardModule.Content
+namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
 {
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
     [Export]
-    public partial class BuyTravelCardView : UserControl
+    public partial class SelectTravelCardView : UserControl
     {
-        public BuyTravelCardView()
+        public SelectTravelCardView()
         {
             InitializeComponent();
         }
 
+        public static SelectTravelCardViewModel SampleData
+        {
+            get
+            {
+                return new SelectTravelCardViewModel();
+            }
+        }
+
         [Import]
-        public BuyTravelCardViewModel ViewModel
+        public SelectTravelCardViewModel ViewModel
         {
             set
             {

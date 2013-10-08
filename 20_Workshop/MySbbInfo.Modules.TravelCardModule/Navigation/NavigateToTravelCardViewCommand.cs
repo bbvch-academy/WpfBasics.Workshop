@@ -26,7 +26,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Navigation
     [Export(typeof(INavigateToTravelCardCommand))]
     public class NavigateToTravelCardViewCommand : INavigateToTravelCardCommand
     {
-        private static readonly Uri TimeTableViewUri = new Uri(typeof(BuyTravelCardView).Name, UriKind.Relative);
+        private static readonly Uri TravelCardUri = new Uri(typeof(BuyTravelCardView).Name, UriKind.Relative);
 
         private readonly IRegionManager regionManager;
 
@@ -45,7 +45,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Navigation
 
         public void Execute(object parameter)
         {
-            this.regionManager.RequestNavigate(Regions.ContentRegion, TimeTableViewUri);
+            this.regionManager.RequestNavigate(Regions.ContentRegion, TravelCardUri);
         }
     }
 }

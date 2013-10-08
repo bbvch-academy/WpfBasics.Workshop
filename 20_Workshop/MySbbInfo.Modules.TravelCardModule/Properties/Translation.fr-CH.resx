@@ -117,7 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Back" xml:space="preserve">
+    <value>&lt;- Retour</value>
+  </data>
+  <data name="Bill" xml:space="preserve">
+    <value>Facture</value>
+  </data>
+  <data name="ChooseTravelOption" xml:space="preserve">
+    <value>Choisissez l'offre qui vous convient à partir de:</value>
+  </data>
+  <data name="GAOption" xml:space="preserve">
+    <value>AG</value>
+  </data>
+  <data name="GAOptionDescription" xml:space="preserve">
+    <value>Flexible et indépendant: avec l’abonnement général (AG), vous montez simplement dans le prochain train. L’AG est disponible pour la 1re et la 2e classe.
+
+Pendant sa durée de validité, vous bénéficiez du libre parcours sur les lignes des CFF et de la plupart des entreprises ferroviaires privées suisses. L’AG est également valable pour les cars postaux et les bateaux, ainsi que pour les transports publics de proximité tels que le tram et le bus dans la plupart des villes et agglomérations. Vous pouvez par ailleurs bénéficier de conditions avantageuses auprès de nombreux chemins de fer de montagne suisses. Important: le supplément de nuit n’est PAS inclus dans l’AG, vous devez le payer en plus.
+
+Si vous avez des questions sur l’AG auxquelles vous ne trouvez pas de réponse ici, vous pouvez vous renseigner au guichet ou par téléphone auprès du Service Center de l’AG (du lundi au vendredi de 8h00 à 20h00), au 0848 44 66 88 (tarif normal CHF 0.12/min, tarif réduit CHF 0.10/min, tarif de nuit CHF 0.0625/min, depuis le réseau fixe suisse).
+
+
+Sous réserve de modifications des prix et des produits.</value>
+  </data>
+  <data name="HalfPriceOption" xml:space="preserve">
+    <value>Demi-tarif</value>
+  </data>
+  <data name="HalfPriceOptionDescription" xml:space="preserve">
+    <value>Le demi-tarif est disponible pour 1, 2 ou 3 ans. Avec cette carte, vous ne payez que la moitié* de votre billet en 1re ou en 2e classe*.
+
+Le demi-tarif peut aussi être combiné avec une carte de crédit Visa ou une carte Visa prépayée: avec une seule carte, vous pouvez voyager en train à prix avantageux dans toute la Suisse et effectuer vos paiements sans espèces, facilement, dans le monde entier.
+
+Commandez votre demi-tarif à votre gare ou sur internet au Ticket Shop CFF.
+
+Le demi-tarif est encore plus intéressant avec des cartes supplémentaires. Les cartes journalières, mensuelles et journalières enfant transforment votre abonnement demi-tarif en abonnement général à certains jours ou mois. Et avec un abonnement demi-tarif en combinaison avec une Voie 7, les jeunes adultes de moins de 25 ans voyagent gratuitement sur l’ensemble du réseau des CFF et auprès de nombreuses entreprises de transport privées suisses après 19 heures. Important: le supplément de nuit n’est pas inclus dans la Voie 7, vous devez le payer en plus.
+
+Profitez en plus: avec votre abonnement demi-tarif, vous pouvez utiliser la plate-forme en ligne MobilBonus et obtenir des réductions supplémentaires si vous vous rendez en train dans un pays d’Europe ou si vous souhaitez louer une voiture.
+
+Utilisez des services dans le cadre de votre demi-tarif: si vous perdez votre demi-tarif, vous pouvez vous faire remettre un abonnement de remplacement au guichet. Si vous perdez votre demi-tarif avec carte Visa, nous sommes à votre disposition 24 heures sur 24 pour vous dépanner par téléphone. Et si vous avez oublié votre demi-tarif, vous pouvez obtenir un abonnement temporaire au guichet.
+
+L’abonnement demi-tarif est valable sur 26 800 kilomètres du réseau de transport public de la Suisse.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Après -&gt;</value>
+  </data>
+  <data name="Track7Option" xml:space="preserve">
+    <value>Voie 7</value>
+  </data>
+  <data name="Track7OptionDescription" xml:space="preserve">
+    <value>Vous avez moins de 25 ans, vous possédez un demi-tarif et vous aimez sortir le soir? Alors la Voie 7 est idéale pour vous.
+
+Avec la Voie 7, vous voyagez sans restriction à partir de 19 heures et jusqu’à 5 heures en 2e classe sur l’ensemble du réseau des CFF et auprès de nombreuses entreprises de transport privées. Important: le supplément de nuit n’est pas inclus dans la Voie 7, vous devez le payer en plus.
+
+La carte du rayon de validité vous indiquera toutes les destinations pour lesquelles la Voie 7 est valable.
+
+Découvrez le monde passionnant et interactif de Voie 7 sur www.voie7.ch: l’horaire des CFF, des conseils et des offres spéciales vous permettront de planifier vos loisirs en ligne, des jeux et des concours vous divertiront. Des concours et tirages au sort réguliers permettent toujours de gagner quelque chose: des abonnements, des chèques Reka Rail, des places de concert ou de cinéma, des consoles de jeu ou des DVD.</value>
+  </data>
   <data name="Travelcards" xml:space="preserve">
     <value>Abonnements</value>
+  </data>
+  <data name="YourChoice" xml:space="preserve">
+    <value>Votre choix:</value>
   </data>
 </root>

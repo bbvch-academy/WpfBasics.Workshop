@@ -117,7 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Back" xml:space="preserve">
+    <value>&lt;- Zurück</value>
+  </data>
+  <data name="Bill" xml:space="preserve">
+    <value>Gegen Rechnung</value>
+  </data>
+  <data name="ChooseTravelOption" xml:space="preserve">
+    <value>Wählen Sie das für Sie passende Angebot aus:</value>
+  </data>
+  <data name="GAOption" xml:space="preserve">
+    <value>GA</value>
+  </data>
+  <data name="GAOptionDescription" xml:space="preserve">
+    <value>Flexibel und unabhängig: Mit dem Generalabonnement (GA) steigen Sie einfach in den nächsten Zug. Das GA erhalten Sie für die 1. und für die 2. Klasse.
+
+Während der Geltungsdauer haben Sie freie Fahrt auf den Strecken der SBB und der meisten Privatbahnen in der ganzen Schweiz. Das GA gilt ausserdem für Postautos und Schiffe sowie für öffentliche Nahverkehrsmittel wie Tram und Bus in den meisten Städten und Agglomerationen. Auch bei vielen Schweizer Bergbahnen kommen Sie damit in den Genuss von Vergünstigungen. Wichtig: Der Nachtzuschlag ist im GA nicht inbegriffen, lösen Sie ihn bitte zusätzlich.
+
+Falls Sie Fragen zum GA haben, die Sie hier nicht beantwortet finden, erhalten Sie am Schalter oder telefonisch beim GA-Service-Center (Montag bis Freitag von 8 bis 20 Uhr) unter der Nummer 0848 44 66 88 Auskunft (Normaltarif CHF 0.12/Min., Niedertarif CHF 0.10/Min., Nachttarif CHF 0.0625/Min. vom Schweizer Festnetz).
+
+
+Preis- und Produktänderungen vorbehalten.</value>
+  </data>
+  <data name="HalfPriceOption" xml:space="preserve">
+    <value>Halbtax</value>
+  </data>
+  <data name="HalfPriceOptionDescription" xml:space="preserve">
+    <value>Das Halbtax erhalten Sie für 1, 2 oder 3 Jahre und bezahlen damit für Ihr Billett in der 1. oder 2. Klasse nur die Hälfte*.
+
+Das Halbtax gibts auch in Kombination mit einer kostenlosen Visa Kreditkarte oder Visa Prepaid-Karte: Mit nur einer Karte können Sie in der Schweiz günstig Zug fahren sowie weltweit bequem und bargeldlos bezahlen.
+
+Bestellen Sie Ihr Halbtax an Ihrem Bahnhof oder im Internet im SBB Ticket Shop.
+
+Mit den Zusatzangeboten wird ihr Halbtax noch attraktiver. Tageskarten, Monatskarten und Kindertages-Karten machen Ihr Halbtax-Abo tage- oder monatsweise zum General-Abo. Und mit einem Halbtax-Abo in Kombination mit dem Gleis 7 sind junge Erwachsene bis 25 Jahre nach 19 Uhr kostenlos auf dem gesamten Streckennetz der SBB sowie bei zahlreichen privaten Transportunternehmen der Schweiz unterwegs. Wichtig: Der Nachtzuschlag ist im Gleis 7 nicht inbegriffen, lösen Sie ihn bitte zusätzlich.
+
+Profitieren Sie zusätzlich: Mit Ihrem Halbtax-Abo können Sie die Online-Plattform MobilBonus nutzen und erhalten zusätzliche Rabatte, wenn Sie mit dem Zug ins europäische Ausland fahren oder einen Mietwagen brauchen.
+
+Nutzen Sie Services rund um Ihr Halbtax: Wenn Sie Ihr Halbtax verlieren, erhalten Sie ein Ersatz-Abo am Schalter. Beim Verlust eines Halbtax-Abos mit Visa Karte helfen wir Ihnen rund um die Uhr am Telefon weiter. Vergessen Sie Ihr Halbtax-Abo, bekommen Sie am Schalter ein temporär gültiges Abo.
+
+Das Halbtax-Abo ist gültig auf einer Gesamtlänge von 26 800 Kilometern des öffentlichen Verkehrsnetzes der Schweiz.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Weiter -&gt;</value>
+  </data>
+  <data name="Track7Option" xml:space="preserve">
+    <value>Gleis 7</value>
+  </data>
+  <data name="Track7OptionDescription" xml:space="preserve">
+    <value>Sie sind unter 25 Jahre, besitzen ein Halbtax-Abo und sind abends gerne unterwegs? Dann ist das Gleis 7 ideal für Sie.
+
+Das Gleis 7 berechtigt Sie von 19 bis 5 Uhr zu beliebigen Fahrten in der 2. Klasse – und das auf dem gesamten Streckennetz der SBB sowie bei zahlreichen privaten Transportunternehmen. Wichtig: Der Nachtzuschlag ist im Gleis 7 nicht inbegriffen, lösen Sie ihn bitte zusätzlich.
+
+Wo das Gleis 7 überall gültig ist, zeigt die Geltungsbereichskarte.
+
+Entdecken Sie die spannende, interaktive Welt von Gleis 7 auf www.gleis7.ch: Mit dem SBB Fahrplan, den Tipps und den speziellen Angeboten planen Sie Ihre Freizeit online, Spiele und Tools sorgen für Unterhaltung. Und bei regelmässigen Wettbewerben und Verlosungen gibts immer was zu gewinnen: Abos, Reka Rail, Konzerttickets, Kinobillette, Spielkonsolen oder DVDs.</value>
+  </data>
   <data name="Travelcards" xml:space="preserve">
     <value>Abos</value>
+  </data>
+  <data name="YourChoice" xml:space="preserve">
+    <value>Ihre Wahl:</value>
   </data>
 </root>

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="MySbbInfo.Modules.TravelCardModule.Content.SelectPayment.SelectPaymentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TravelCardModule"
+             lex:ResxLocalizationProvider.DefaultDictionary="Translation"
+             mc:Ignorable="d">
+    <StackPanel Margin="20">
+        <RadioButton>
+            <StackPanel Orientation="Horizontal">
+                <Image Height="60"
+                       Margin="20 0 20 0"
+                       Source="img\visa_512.png" />
+                <Label Content="Visa" />
+            </StackPanel>
+        </RadioButton>
+        <RadioButton Margin="0 20 0 20">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="60"
+                       Margin="20 0 20 0"
+                       Source="img\mastercard_512.png" />
+                <Label Content="MasterCard" />
+            </StackPanel>
+        </RadioButton>
+        <RadioButton>
+            <StackPanel Orientation="Horizontal">
+                <Image Height="60"
+                       Margin="20 0 35 0"
+                       Source="img\bill_64.png" />
+                <Label Content="{lex:Loc Bill}" />
+            </StackPanel>
+        </RadioButton>
+    </StackPanel>
+</UserControl>

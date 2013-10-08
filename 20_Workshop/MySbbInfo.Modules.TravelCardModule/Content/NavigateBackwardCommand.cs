@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="BuyTravelCardView.cs" company="bbv Software Services AG">
+// <copyright file="NavigateForwardCommand.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -15,24 +15,21 @@
 
 namespace MySbbInfo.Modules.TravelCardModule.Content
 {
-    using System.ComponentModel.Composition;
-    using System.Windows.Controls;
+    using System;
+    using System.Windows.Input;
 
-    [Export]
-    public partial class BuyTravelCardView : UserControl
+    public class NavigateBackwardCommand : ICommand
     {
-        public BuyTravelCardView()
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
+
+        public bool CanExecute(object parameter)
         {
-            InitializeComponent();
+            return true;
         }
 
-        [Import]
-        public BuyTravelCardViewModel ViewModel
+        public void Execute(object parameter)
         {
-            set
-            {
-                this.DataContext = value;
-            }
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard.VerifySelectedTravelCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:local="clr-namespace:MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DataContext="{x:Static local:VerifySelectedTravelCardView.SampleData}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TravelCardModule"
+             lex:ResxLocalizationProvider.DefaultDictionary="Translation"
+             mc:Ignorable="d">
+    <StackPanel>
+        <WrapPanel Margin="40 20 40 10">
+            <Label Content="{lex:Loc YourChoice}" />
+            <Label Content="{Binding SelectedOption.SelectedOption}" />
+        </WrapPanel>
+        <TextBlock Margin="40 0 40 40"
+                   Text="{Binding SelectedOption.OptionDescription}"
+                   TextWrapping="Wrap" />
+    </StackPanel>
+</UserControl>
