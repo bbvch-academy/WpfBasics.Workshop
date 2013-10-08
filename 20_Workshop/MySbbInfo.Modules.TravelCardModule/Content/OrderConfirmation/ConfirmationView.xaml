@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation.ConfirmationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DataContext="{x:Static local:ConfirmationView.SampleData}"
+             d:DesignHeight="350"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <StackPanel Margin="20">
+        <Label Content="Summary" FontSize="20" />
+        <Label Margin="30 0 0 0" Content="{Binding ConfirmationData.TravelCardOption}" />
+        <Label Margin="30 0 0 20" Content="{Binding ConfirmationData.TravelCardPrice}" />
+        <Label Margin="30 0 0 20" Content="{Binding ConfirmationData.UserPersonalData}" />
+        <Label Margin="30 0 0 20" Content="{Binding ConfirmationData.PaymentOption}" />
+        <Label Margin="30 0 0 20" Content="{Binding ConfirmationData.CreditCardData}" />
+    </StackPanel>
+</UserControl>

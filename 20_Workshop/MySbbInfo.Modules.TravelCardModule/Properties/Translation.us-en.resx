@@ -123,11 +123,26 @@
   <data name="Bill" xml:space="preserve">
     <value>Bill</value>
   </data>
+  <data name="ChoosePaymentOption" xml:space="preserve">
+    <value>Available payment options:</value>
+  </data>
   <data name="ChooseTravelOption" xml:space="preserve">
     <value>Choose the right travel option offer for you:</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="CreditCardCode" xml:space="preserve">
+    <value>Creditcard Security Code</value>
+  </data>
+  <data name="CreditCardNr" xml:space="preserve">
+    <value>Creditcard Nr.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
   <data name="GAOption" xml:space="preserve">
-    <value>GA</value>
+    <value>GA   (3550.- CHF)</value>
   </data>
   <data name="GAOptionDescription" xml:space="preserve">
     <value>Flexible and independent: with a GA travelcard, you simply get aboard the next train. The GA travelcard is available in both 1st and 2nd class.
@@ -140,7 +155,7 @@ If you have any questions about the GA travelcard that are not answered here, yo
 Prices and product specifications subject to change.</value>
   </data>
   <data name="HalfPriceOption" xml:space="preserve">
-    <value>Half-Fare</value>
+    <value>Half-Fare   (175.- CHF)</value>
   </data>
   <data name="HalfPriceOptionDescription" xml:space="preserve">
     <value>The Half-Fare travelcard is available for 1, 2 or 3 years and allows you to buy 1st or 2nd class tickets for just half* the price.
@@ -157,11 +172,17 @@ Use the services available with your Half-Fare travelcard: If you lose your Half
 
 The Half-Fare travelcard is valid for the entire Swiss public transport network, which covers a total of 26 800 kilometres.</value>
   </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Next -&gt;</value>
   </data>
+  <data name="Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
   <data name="Track7Option" xml:space="preserve">
-    <value>Track 7</value>
+    <value>Track 7   (129.- CHF)</value>
   </data>
   <data name="Track7OptionDescription" xml:space="preserve">
     <value>Are you under 25, a Half-Fare travelcard holder and happy to travel in the evenings? Then Track 7 is ideal for you.
@@ -177,5 +198,8 @@ Discover the exciting, interactive world of Track 7 at www.gleis7.ch. With the S
   </data>
   <data name="YourChoice" xml:space="preserve">
     <value>Your choice:</value>
+  </data>
+  <data name="Zip" xml:space="preserve">
+    <value>Zip</value>
   </data>
 </root>

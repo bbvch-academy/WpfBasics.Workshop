@@ -19,12 +19,13 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.ComponentModel.Composition;
-    using System.Windows.Input;
 
     using GalaSoft.MvvmLight.Command;
 
     using Microsoft.Practices.Prism.Regions;
 
+    using MySbbInfo.Modules.TravelCardModule.Content.EnterUserData;
+    using MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation;
     using MySbbInfo.Modules.TravelCardModule.Content.SelectPayment;
     using MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard;
     using MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard;
@@ -33,15 +34,19 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
     public class BuyTravelCardViewModel
     {
         private static readonly string StartViewName = typeof(SelectTravelCardView).Name;
-        private static readonly string EndViewName = typeof(SelectPaymentView).Name;
+        private static readonly string EndViewName = typeof(ConfirmationView).Name;
 
         private static readonly Dictionary<string, string> NavigationMap = new Dictionary<string, string>
                                                                            {
                                                                                { typeof(SelectTravelCardView).Name, typeof(VerifySelectedTravelCardView).Name },
-                                                                               { typeof(VerifySelectedTravelCardView).Name, typeof(SelectPaymentView).Name }
+                                                                               { typeof(VerifySelectedTravelCardView).Name, typeof(SelectPaymentView).Name },
+                                                                               { typeof(SelectPaymentView).Name, typeof(UserDataView).Name },
+                                                                               { typeof(UserDataView).Name, typeof(ConfirmationView).Name }
                                                                            };
 
         private readonly IRegionManager regionManager;
+
+        private readonly BuyTravelCardModel sessionData;
 
         private string currentView;
 
@@ -53,6 +58,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
 
             this.regionManager.Regions.CollectionChanged += this.RegionsCollectionChanged;
 
+            this.sessionData = new BuyTravelCardModel();
             this.ForwardCommand = new RelayCommand(this.Forward, this.CanGoForward);
             this.BackwardCommand = new RelayCommand(this.Backward, this.CanGoBackward);
         }
@@ -92,7 +98,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
 
         private bool CanGoForward()
         {
-            return this.currentView != EndViewName;
+            return true;
         }
 
         private bool CanGoBackward()
@@ -118,7 +124,74 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
             }
 
             this.NavigationCommandsRaiseCanExecuteChanged();
-            this.NavigationService.Navigated += (s, args) => this.NavigationCommandsRaiseCanExecuteChanged();
+            this.NavigationService.Navigating += this.NavigationServiceOnNavigating;
+            this.NavigationService.Navigated += (o, args) => this.NavigationCommandsRaiseCanExecuteChanged();
+        }
+
+        private void NavigationServiceOnNavigating(object sender, RegionNavigationEventArgs regionNavigationEventArgs)
+        {
+            NavigationContext navigationContext = regionNavigationEventArgs.NavigationContext;
+
+            this.UpdateSessionData(regionNavigationEventArgs.NavigationContext);
+            this.PrepareSessionDataForSummaryIfSummaryNext(navigationContext);
+        }
+
+        private void UpdateSessionData(NavigationContext navigationContext)
+        {
+            if (navigationContext.Parameters[NavigationParameter.SelectedTravelCardOption] != null)
+            {
+                this.sessionData.TravelCardOption =
+                    navigationContext.Parameters[NavigationParameter.SelectedTravelCardOption];
+            }
+
+            if (navigationContext.Parameters[NavigationParameter.TravelCardPrice] != null)
+            {
+                this.sessionData.TravelCardPrice =
+                    navigationContext.Parameters[NavigationParameter.TravelCardPrice];
+            }
+
+            if (navigationContext.Parameters[NavigationParameter.SelectedPaymentOption] != null)
+            {
+                this.sessionData.PaymentOption =
+                    navigationContext.Parameters[NavigationParameter.SelectedPaymentOption];
+            }
+
+            if (navigationContext.Parameters[NavigationParameter.UserDataFirstName] != null)
+            {
+                this.sessionData.UserPersonalData =
+                    string.Concat(
+                        navigationContext.Parameters[NavigationParameter.UserDataFirstName],
+                        " ",
+                        navigationContext.Parameters[NavigationParameter.UserDataLastName],
+                        "\r\n",
+                        navigationContext.Parameters[NavigationParameter.UserDataStreet],
+                        "\r\n",
+                        navigationContext.Parameters[NavigationParameter.UserDataZip],
+                        " ",
+                        navigationContext.Parameters[NavigationParameter.UserDataCity]);
+            }
+
+            string creditCardNr = navigationContext.Parameters[NavigationParameter.UserDataCrediCardNr];
+            if (creditCardNr != null)
+            {
+                string displayedCreditCardNr = creditCardNr.Length > 4 ? "XXXX XXXX XXXX XXXX" + creditCardNr.Substring(creditCardNr.Length - 4) : creditCardNr;
+                this.sessionData.CreditCardData = string.Concat(
+                    displayedCreditCardNr,
+                    "  :  ",
+                    navigationContext.Parameters[NavigationParameter.UserDataCrediCardCode]);
+            }
+        }
+
+        private void PrepareSessionDataForSummaryIfSummaryNext(NavigationContext navigationContext)
+        {
+            if (navigationContext.Uri.OriginalString == typeof(ConfirmationView).Name)
+            {
+                navigationContext.Parameters.Add(NavigationParameter.SummaryCreditCardData, this.sessionData.CreditCardData);
+                navigationContext.Parameters.Add(NavigationParameter.SummaryPaymentOption, this.sessionData.PaymentOption);
+                navigationContext.Parameters.Add(NavigationParameter.SummaryTravelCardOption, this.sessionData.TravelCardOption);
+                navigationContext.Parameters.Add(NavigationParameter.SummaryTravelCardPrice, this.sessionData.TravelCardPrice);
+                navigationContext.Parameters.Add(NavigationParameter.SummaryUserPersonalData, this.sessionData.UserPersonalData);
+            }
         }
 
         private void NavigationCommandsRaiseCanExecuteChanged()

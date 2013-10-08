@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SelectPaymentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="UserDataView.xaml.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,21 +13,42 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
+namespace MySbbInfo.Modules.TravelCardModule.Content.EnterUserData
 {
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
     [Export]
-    public partial class SelectPaymentView : UserControl
+    public partial class UserDataView : UserControl
     {
-        public SelectPaymentView()
+        public UserDataView()
         {
             this.InitializeComponent();
         }
 
+        public static IUserDataViewModel SampleData
+        {
+            get
+            {
+                return new UserDataViewModel
+                {
+                    UserData = new UserDataModel
+                    {
+                        City = "Zug",
+                        CreditCardNumber = "4532 6026 2718 6366",
+                        CreditCardVerificationCode = "531",
+                        FirstName = "Clifton",
+                        IsCreditCardInputVisible = true,
+                        LastName = "Torres",
+                        Street = "848 Felosa Drive",
+                        Zip = "79535"
+                    }
+                };
+            }
+        }
+
         [Import]
-        public SelectPaymentViewModel ViewModel
+        public IUserDataViewModel ViewModel
         {
             set
             {

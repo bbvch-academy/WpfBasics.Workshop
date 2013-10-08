@@ -16,7 +16,6 @@
 namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
 {
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.Composition;
     using System.Globalization;
 
@@ -31,6 +30,10 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
         private const string HalfFareOption = "Halbtax";
         private const string Track7Option = "Gleis 7";
 
+        private const int GeneralAboPrice = 3550;
+        private const int HalfFarePrice = 175;
+        private const int Track7Price = 129;
+
         private static readonly Dictionary<string, string> TravelCardDescriptions = new Dictionary<string, string>
                                                                                     {
                                                                                         { string.Empty, string.Empty },
@@ -39,16 +42,23 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
                                                                                         { Track7Option, Translation.Track7OptionDescription }
                                                                                     };
 
+        private static readonly Dictionary<string, int> TravelCardPrices = new Dictionary<string, int>
+                                                                                    {
+                                                                                        { string.Empty, 0 },
+                                                                                        { GeneralAboOption, GeneralAboPrice },
+                                                                                        { HalfFareOption, HalfFarePrice },
+                                                                                        { Track7Option, Track7Price }
+                                                                                    };
+
         public SelectTravelCardViewModel()
         {
-            this.SelectedOption = new SelectTravelCardModel();
+            this.SelectedOption = new SelectTravelCardModel { IsGASelected = true };
         }
 
         public SelectTravelCardModel SelectedOption { get; set; }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            Translation.Culture = CultureInfo.CurrentUICulture;
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -61,6 +71,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
             string selectedOption = this.GetSelectedOption();
 
             navigationContext.Parameters.Add(NavigationParameter.SelectedTravelCardOption, selectedOption);
+            navigationContext.Parameters.Add(NavigationParameter.TravelCardPrice, TravelCardPrices[selectedOption].ToString(CultureInfo.InvariantCulture));
             navigationContext.Parameters.Add(NavigationParameter.TravelCardDescription, TravelCardDescriptions[selectedOption]);
         }
 

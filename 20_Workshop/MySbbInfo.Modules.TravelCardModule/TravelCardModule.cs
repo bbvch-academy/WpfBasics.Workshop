@@ -23,6 +23,8 @@ namespace MySbbInfo.Modules.TravelCardModule
 
     using MySbbInfo.Infrastructure;
     using MySbbInfo.Modules.TravelCardModule.Content;
+    using MySbbInfo.Modules.TravelCardModule.Content.EnterUserData;
+    using MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation;
     using MySbbInfo.Modules.TravelCardModule.Content.SelectPayment;
     using MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard;
     using MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard;
@@ -55,6 +57,14 @@ namespace MySbbInfo.Modules.TravelCardModule
             this.regionManager.RegisterViewWithRegion(
                 TravelCardRegions.BuyTravelCardContentRegion,
                 typeof(SelectPaymentView));
+
+            this.regionManager.RegisterViewWithRegion(
+                TravelCardRegions.BuyTravelCardContentRegion,
+                typeof(UserDataView));
+
+            this.regionManager.RegisterViewWithRegion(
+                TravelCardRegions.BuyTravelCardContentRegion,
+                typeof(ConfirmationView));
         }
     }
 }

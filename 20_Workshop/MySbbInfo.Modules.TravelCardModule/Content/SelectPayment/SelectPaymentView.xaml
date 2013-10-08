@@ -9,8 +9,9 @@
              lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TravelCardModule"
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
-    <StackPanel Margin="20">
-        <RadioButton>
+    <StackPanel Margin="40 20 40 20">
+        <Label Margin="0 0 0 25" Content="{lex:Loc ChoosePaymentOption}" />
+        <RadioButton IsChecked="{Binding SelectedPayment.IsVisaSelected}">
             <StackPanel Orientation="Horizontal">
                 <Image Height="60"
                        Margin="20 0 20 0"
@@ -18,7 +19,7 @@
                 <Label Content="Visa" />
             </StackPanel>
         </RadioButton>
-        <RadioButton Margin="0 20 0 20">
+        <RadioButton Margin="0 20 0 20" IsChecked="{Binding SelectedPayment.IsMasterCardSelected}">
             <StackPanel Orientation="Horizontal">
                 <Image Height="60"
                        Margin="20 0 20 0"
@@ -26,7 +27,7 @@
                 <Label Content="MasterCard" />
             </StackPanel>
         </RadioButton>
-        <RadioButton>
+        <RadioButton IsChecked="{Binding SelectedPayment.IsBillSelected}">
             <StackPanel Orientation="Horizontal">
                 <Image Height="60"
                        Margin="20 0 35 0"

@@ -123,11 +123,26 @@
   <data name="Bill" xml:space="preserve">
     <value>Facture</value>
   </data>
+  <data name="ChoosePaymentOption" xml:space="preserve">
+    <value>Options de paiement disponibles:</value>
+  </data>
   <data name="ChooseTravelOption" xml:space="preserve">
     <value>Choisissez l'offre qui vous convient à partir de:</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>Village</value>
+  </data>
+  <data name="CreditCardCode" xml:space="preserve">
+    <value>Code de sécurité</value>
+  </data>
+  <data name="CreditCardNr" xml:space="preserve">
+    <value>Numéro de carte de crédit</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
   <data name="GAOption" xml:space="preserve">
-    <value>AG</value>
+    <value>AG   (3550.- CHF)</value>
   </data>
   <data name="GAOptionDescription" xml:space="preserve">
     <value>Flexible et indépendant: avec l’abonnement général (AG), vous montez simplement dans le prochain train. L’AG est disponible pour la 1re et la 2e classe.
@@ -140,7 +155,7 @@ Si vous avez des questions sur l’AG auxquelles vous ne trouvez pas de réponse
 Sous réserve de modifications des prix et des produits.</value>
   </data>
   <data name="HalfPriceOption" xml:space="preserve">
-    <value>Demi-tarif</value>
+    <value>Demi-tarif   (175.- CHF)</value>
   </data>
   <data name="HalfPriceOptionDescription" xml:space="preserve">
     <value>Le demi-tarif est disponible pour 1, 2 ou 3 ans. Avec cette carte, vous ne payez que la moitié* de votre billet en 1re ou en 2e classe*.
@@ -157,11 +172,17 @@ Utilisez des services dans le cadre de votre demi-tarif: si vous perdez votre de
 
 L’abonnement demi-tarif est valable sur 26 800 kilomètres du réseau de transport public de la Suisse.</value>
   </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Après -&gt;</value>
   </data>
+  <data name="Street" xml:space="preserve">
+    <value>Strasste</value>
+  </data>
   <data name="Track7Option" xml:space="preserve">
-    <value>Voie 7</value>
+    <value>Voie 7   (129.- CHF)</value>
   </data>
   <data name="Track7OptionDescription" xml:space="preserve">
     <value>Vous avez moins de 25 ans, vous possédez un demi-tarif et vous aimez sortir le soir? Alors la Voie 7 est idéale pour vous.
@@ -177,5 +198,8 @@ Découvrez le monde passionnant et interactif de Voie 7 sur www.voie7.ch: l’ho
   </data>
   <data name="YourChoice" xml:space="preserve">
     <value>Votre choix:</value>
+  </data>
+  <data name="Zip" xml:space="preserve">
+    <value>Rue</value>
   </data>
 </root>

@@ -18,6 +18,23 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
     public static class NavigationParameter
     {
         public const string SelectedTravelCardOption = "SelectedTravelCardOption";
+        public const string TravelCardPrice = "TravelCardPrice";
         public const string TravelCardDescription = "TravelCardDescription";
+        
+        public const string SelectedPaymentOption = "SelectedPaymentOption";
+
+        public const string UserDataFirstName = "UserDataFirstName";
+        public const string UserDataLastName = "UserDataLastName";
+        public const string UserDataStreet = "UserDataStreet";
+        public const string UserDataZip = "UserDataZip";
+        public const string UserDataCity = "UserDataCity";
+        public const string UserDataCrediCardNr = "UserDataCreditCardNr";
+        public const string UserDataCrediCardCode = "UserDataCreditCardCode";
+
+        public const string SummaryTravelCardOption = "SummaryTravelCardOption";
+        public const string SummaryTravelCardPrice = "SummaryTravelCardPrice";
+        public const string SummaryPaymentOption = "SummaryPaymentOption";
+        public const string SummaryUserPersonalData = "SummaryUserPersonalData";
+        public const string SummaryCreditCardData = "SummaryCreditCardData";
     }
 }

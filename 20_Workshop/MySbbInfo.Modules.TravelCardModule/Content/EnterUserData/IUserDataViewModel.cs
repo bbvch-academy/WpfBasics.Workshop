@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="NavigateForwardCommand.cs" company="bbv Software Services AG">
+// <copyright file="IUserDataViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,23 +13,10 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TravelCardModule.Content
+namespace MySbbInfo.Modules.TravelCardModule.Content.EnterUserData
 {
-    using System;
-    using System.Windows.Input;
-
-    public class NavigateBackwardCommand : ICommand
+    public interface IUserDataViewModel
     {
-        public event EventHandler CanExecuteChanged = (sender, args) => { };
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        UserDataModel UserData { get; }
     }
 }

@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="MySbbInfo.Modules.TravelCardModule.Content.EnterUserData.UserDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:local="clr-namespace:MySbbInfo.Modules.TravelCardModule.Content.EnterUserData"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DataContext="{x:Static local:UserDataView.SampleData}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             lex:ResxLocalizationProvider.DefaultAssembly="MySbbInfo.Modules.TravelCardModule"
+             lex:ResxLocalizationProvider.DefaultDictionary="Translation"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="VisibilityConverter" />
+    </UserControl.Resources>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Label Margin="5" Content="{lex:Loc FirstName}" />
+        <TextBox Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.FirstName}" />
+        <Label Grid.Row="1"
+               Margin="5"
+               Content="{lex:Loc LastName}" />
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.LastName}" />
+        <Label Grid.Row="2"
+               Margin="5"
+               Content="{lex:Loc Street}" />
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.Street}" />
+        <Label Grid.Row="3"
+               Margin="5"
+               Content="{lex:Loc Zip}" />
+        <TextBox Grid.Row="3"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.Zip}" />
+        <Label Grid.Row="4"
+               Margin="5"
+               Content="{lex:Loc City}" />
+        <TextBox Grid.Row="4"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.City}" />
+        <Label Grid.Row="5"
+               Margin="5"
+               Content="{lex:Loc CreditCardNr}"
+               Visibility="{Binding UserData.IsCreditCardInputVisible,
+                                    Converter={StaticResource VisibilityConverter}}" />
+        <TextBox Grid.Row="5"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.CreditCardNumber}"
+                 Visibility="{Binding UserData.IsCreditCardInputVisible,
+                                      Converter={StaticResource VisibilityConverter}}" />
+        <Label Grid.Row="6"
+               Margin="5"
+               Content="{lex:Loc CreditCardCode}"
+               Visibility="{Binding UserData.IsCreditCardInputVisible,
+                                    Converter={StaticResource VisibilityConverter}}" />
+        <TextBox Grid.Row="6"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding UserData.CreditCardVerificationCode}"
+                 Visibility="{Binding UserData.IsCreditCardInputVisible,
+                                      Converter={StaticResource VisibilityConverter}}" />
+    </Grid>
+</UserControl>

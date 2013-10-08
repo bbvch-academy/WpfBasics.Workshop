@@ -79,6 +79,15 @@ namespace MySbbInfo.Modules.TravelCardModule.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available payment options:.
+        /// </summary>
+        public static string ChoosePaymentOption {
+            get {
+                return ResourceManager.GetString("ChoosePaymentOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select your travel option:.
         /// </summary>
         public static string ChooseTravelOption {
@@ -88,7 +97,43 @@ namespace MySbbInfo.Modules.TravelCardModule.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GA.
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creditcard Security Code.
+        /// </summary>
+        public static string CreditCardCode {
+            get {
+                return ResourceManager.GetString("CreditCardCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creditcard Nr..
+        /// </summary>
+        public static string CreditCardNr {
+            get {
+                return ResourceManager.GetString("CreditCardNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GA   (3550.- CHF).
         /// </summary>
         public static string GAOption {
             get {
@@ -108,7 +153,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Half-Fare.
+        ///   Looks up a localized string similar to Half-Fare   (175.- CHF).
         /// </summary>
         public static string HalfPriceOption {
             get {
@@ -132,6 +177,15 @@ namespace MySbbInfo.Modules.TravelCardModule.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next -&gt;.
         /// </summary>
         public static string Next {
@@ -141,7 +195,16 @@ namespace MySbbInfo.Modules.TravelCardModule.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Track 7.
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string Street {
+            get {
+                return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track 7   (129.- CHF).
         /// </summary>
         public static string Track7Option {
             get {
@@ -179,6 +242,15 @@ namespace MySbbInfo.Modules.TravelCardModule.Properties {
         public static string YourChoice {
             get {
                 return ResourceManager.GetString("YourChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zip.
+        /// </summary>
+        public static string Zip {
+            get {
+                return ResourceManager.GetString("Zip", resourceCulture);
             }
         }
     }

@@ -16,8 +16,11 @@
             <Label Content="{lex:Loc YourChoice}" />
             <Label Content="{Binding SelectedOption.SelectedOption}" />
         </WrapPanel>
-        <TextBlock Margin="40 0 40 40"
-                   Text="{Binding SelectedOption.OptionDescription}"
-                   TextWrapping="Wrap" />
+        <ScrollViewer Margin="40 0 40 40" Height="320">
+            <TextBlock ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                       ScrollViewer.VerticalScrollBarVisibility="Auto"
+                       Text="{Binding SelectedOption.OptionDescription}"
+                       TextWrapping="Wrap" />
+        </ScrollViewer>
     </StackPanel>
 </UserControl>

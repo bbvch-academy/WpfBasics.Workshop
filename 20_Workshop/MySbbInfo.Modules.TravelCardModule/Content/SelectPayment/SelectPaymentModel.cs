@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="NavigateForwardCommand.cs" company="bbv Software Services AG">
+// <copyright file="SelectPaymentModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,23 +13,14 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TravelCardModule.Content
+namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
 {
-    using System;
-    using System.Windows.Input;
-
-    public class NavigateForwardCommand : ICommand
+    public class SelectPaymentModel
     {
-        public event EventHandler CanExecuteChanged = (sender, args) => { };
+        public bool IsVisaSelected { get; set; }
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+        public bool IsMasterCardSelected { get; set; }
 
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsBillSelected { get; set; }
     }
 }

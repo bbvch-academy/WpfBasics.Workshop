@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SelectPaymentViewModel.cs" company="bbv Software Services AG">
+// <copyright file="ConfirmationViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,29 +13,30 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
+namespace MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation
 {
+    using System;
     using System.ComponentModel.Composition;
 
     using Microsoft.Practices.Prism.Regions;
 
     [Export]
-    public class SelectPaymentViewModel : INavigationAware
+    public class ConfirmationViewModel : IConfirmNavigationRequest
     {
-        private const string VisaOption = "Visa";
-        private const string MasterCardOption = "MasterCard";
-        private const string BillOption = "Bill";
-
-        public SelectPaymentViewModel()
+        public ConfirmationViewModel()
         {
-            this.SelectedPayment = new SelectPaymentModel { IsVisaSelected = true };
+            this.ConfirmationData = new ConfirmationModel();
         }
 
-        public SelectPaymentModel SelectedPayment { get; set; }
+        public ConfirmationModel ConfirmationData { get; set; }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-
+            this.ConfirmationData.TravelCardOption = navigationContext.Parameters[NavigationParameter.SummaryTravelCardOption];
+            this.ConfirmationData.TravelCardPrice = navigationContext.Parameters[NavigationParameter.SummaryTravelCardPrice];
+            this.ConfirmationData.CreditCardData = navigationContext.Parameters[NavigationParameter.SummaryCreditCardData];
+            this.ConfirmationData.PaymentOption = navigationContext.Parameters[NavigationParameter.SummaryPaymentOption];
+            this.ConfirmationData.UserPersonalData = navigationContext.Parameters[NavigationParameter.SummaryUserPersonalData];
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -45,29 +46,11 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            string selectedOption = this.GetSelectedOption();
-
-            navigationContext.Parameters.Add(NavigationParameter.SelectedPaymentOption, selectedOption);
         }
 
-        private string GetSelectedOption()
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
-            if (this.SelectedPayment.IsVisaSelected)
-            {
-                return VisaOption;
-            }
-
-            if (this.SelectedPayment.IsMasterCardSelected)
-            {
-                return MasterCardOption;
-            }
-
-            if (this.SelectedPayment.IsBillSelected)
-            {
-                return BillOption;
-            }
-
-            return string.Empty;
+            continuationCallback(true);
         }
     }
 }

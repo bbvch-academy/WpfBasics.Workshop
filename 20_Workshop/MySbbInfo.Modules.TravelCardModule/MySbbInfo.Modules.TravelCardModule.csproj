@@ -81,18 +81,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\BuyTravelCardModel.cs" />
     <Compile Include="Content\BuyTravelCardView.xaml.cs">
       <DependentUpon>BuyTravelCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\BuyTravelCardViewModel.cs" />
-    <Compile Include="Content\NavigateBackwardCommand.cs" />
-    <Compile Include="Content\NavigateForwardCommand.cs" />
+    <Compile Include="Content\EnterUserData\IUserDataViewModel.cs" />
+    <Compile Include="Content\EnterUserData\UserDataModel.cs" />
+    <Compile Include="Content\EnterUserData\UserDataView.xaml.cs">
+      <DependentUpon>UserDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\EnterUserData\UserDataViewModel.cs" />
     <Compile Include="Content\NavigationParameter.cs" />
+    <Compile Include="Content\OrderConfirmation\ConfirmationModel.cs" />
+    <Compile Include="Content\OrderConfirmation\ConfirmationView.xaml.cs">
+      <DependentUpon>ConfirmationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\OrderConfirmation\ConfirmationViewModel.cs" />
     <Compile Include="Content\SelectPayment\PaymentOption.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PaymentOption.resx</DependentUpon>
     </Compile>
+    <Compile Include="Content\SelectPayment\SelectPaymentModel.cs" />
     <Compile Include="Content\SelectPayment\SelectPaymentView.xaml.cs">
       <DependentUpon>SelectPaymentView.xaml</DependentUpon>
     </Compile>
@@ -143,6 +154,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Content\EnterUserData\UserDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\OrderConfirmation\ConfirmationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\SelectPayment\SelectPaymentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

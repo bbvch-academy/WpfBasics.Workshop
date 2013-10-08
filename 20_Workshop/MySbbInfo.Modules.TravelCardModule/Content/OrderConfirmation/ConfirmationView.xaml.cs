@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SelectPaymentView.xaml.cs" company="bbv Software Services AG">
+// <copyright file="ConfirmationView.xaml.cs" company="bbv Software Services AG">
 //   Copyright (c) 2013
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,21 +13,39 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
+namespace MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation
 {
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
     [Export]
-    public partial class SelectPaymentView : UserControl
+    public partial class ConfirmationView : UserControl
     {
-        public SelectPaymentView()
+        public ConfirmationView()
         {
             this.InitializeComponent();
         }
 
+        public static ConfirmationViewModel SampleData
+        {
+            get
+            {
+                return new ConfirmationViewModel
+                {
+                    ConfirmationData = new ConfirmationModel
+                    {
+                        TravelCardOption = "Halbtax",
+                        TravelCardPrice = "755.- CHF",
+                        CreditCardData = "XXXX XXXX XXXX 7457 : 754",
+                        PaymentOption = "Visa",
+                        UserPersonalData = "Kristin Reyes\n\r2910 Centennial Farm Road\n\r6000 Luzern"
+                    }
+                };
+            }
+        }
+
         [Import]
-        public SelectPaymentViewModel ViewModel
+        public ConfirmationViewModel ViewModel
         {
             set
             {
