@@ -34,21 +34,47 @@ namespace MySbbInfo.TimeTable.Search
         {
             this.InitializeComponent();
 
-            this.DatePicker.SelectedDate = DateTime.Now;
+            this.TimePicker.TimeInterval = TimeSpan.FromMinutes(10);
             this.TimePicker.Value = DateTime.Now;
+            this.DatePicker.SelectedDate = DateTime.Now;
         }
 
         public DateTime SelectedDateTime
         {
             get
             {
-                return this.DatePicker.SelectedDate.Value.Date.Add(this.TimePicker.Value.Value.TimeOfDay);
+                return (DateTime)GetValue(SelectedDateTimeProperty);
             }
 
             set
             {
+                SetValue(SelectedDateTimeProperty, value);
+
                 this.DatePicker.SelectedDate = value;
                 this.TimePicker.Value = value;
+            }
+        }
+
+        private void DatePickerDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            e.Handled = true;
+
+            this.UpdateSelectedDateTimeValue();
+        }
+
+        private void TimePickerTimeChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            e.Handled = true;
+
+            this.UpdateSelectedDateTimeValue();
+        }
+
+        private void UpdateSelectedDateTimeValue()
+        {
+            if (this.DatePicker.SelectedDate.HasValue && this.TimePicker.Value.HasValue)
+            {
+                this.SelectedDateTime =
+                    this.DatePicker.SelectedDate.Value.Date.Add(this.TimePicker.Value.Value.TimeOfDay);
             }
         }
     }
