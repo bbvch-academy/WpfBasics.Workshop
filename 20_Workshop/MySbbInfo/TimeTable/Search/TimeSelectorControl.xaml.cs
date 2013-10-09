@@ -19,16 +19,22 @@
 namespace MySbbInfo.TimeTable.Search
 {
     using System;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
     using System.Windows;
     using System.Windows.Controls;
+
+    using MySbbInfo.Annotations;
 
     /// <summary>
     /// Interaction logic for TimeSelectorView.xaml
     /// </summary>
-    public partial class TimeSelectorControl : UserControl
+    public partial class TimeSelectorControl : UserControl, INotifyPropertyChanged
     {
         public static readonly DependencyProperty SelectedDateTimeProperty =
             DependencyProperty.Register("SelectedDateTime", typeof(DateTime), typeof(TimeSelectorControl));
+
+        public event PropertyChangedEventHandler PropertyChanged = (sender, args) => { };
 
         public TimeSelectorControl()
         {
@@ -52,6 +58,8 @@ namespace MySbbInfo.TimeTable.Search
 
                 this.DatePicker.SelectedDate = value;
                 this.TimePicker.Value = value;
+
+                this.OnPropertyChanged();
             }
         }
 
@@ -76,6 +84,12 @@ namespace MySbbInfo.TimeTable.Search
                 this.SelectedDateTime =
                     this.DatePicker.SelectedDate.Value.Date.Add(this.TimePicker.Value.Value.TimeOfDay);
             }
+        }
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

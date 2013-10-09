@@ -33,7 +33,8 @@
                  Text="{Binding SearchParameter.To}" />
         <search:TimeSelectorControl Grid.Row="2"
                                     Grid.Column="1"
-                                    SelectedDateTime="{Binding SearchParameter.DepartureTime}" />
+                                    SelectedDateTime="{Binding SearchParameter.DepartureTime,
+                                                               Mode=TwoWay}" />
 
         <Button Grid.Row="3"
                 Grid.Column="1"

@@ -94,6 +94,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
     <Compile Include="Menu\MenuViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="SearchStation\ISearchStationViewModel.cs" />
     <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
     <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />

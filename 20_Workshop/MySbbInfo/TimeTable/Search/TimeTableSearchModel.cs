@@ -24,15 +24,29 @@ namespace MySbbInfo.TimeTable.Search
     public class TimeTableSearchModel : INotifyPropertyChanged
     {
         private string to;
+        private DateTime departureDateTime;
+        private string from;
 
         public TimeTableSearchModel()
         {
             this.DepartureDateTime = DateTime.Now;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = (sender, args) => { };
 
-        public string From { get; set; }
+        public string From
+        {
+            get
+            {
+                return this.from;
+            }
+
+            set
+            {
+                this.from = value;
+                this.OnPropertyChanged("From");
+            }
+        }
 
         public string To
         {
@@ -51,14 +65,23 @@ namespace MySbbInfo.TimeTable.Search
             }
         }
 
-        public DateTime DepartureDateTime { get; set; }
+        public DateTime DepartureDateTime
+        {
+            get
+            {
+                return this.departureDateTime;
+            }
+
+            set
+            {
+                this.departureDateTime = value;
+                this.OnPropertyChanged("DepartureDateTime");
+            }
+        }
 
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
