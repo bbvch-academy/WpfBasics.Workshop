@@ -72,6 +72,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ChangeUILanguageCommand.cs" />
+    <Compile Include="TimeSelectorControl.xaml.cs">
+      <DependentUpon>TimeSelectorControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TransportMedium.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -142,6 +145,10 @@
     <Page Include="Themes\Skins\WhistlerBlue.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TimeTableControl.xaml">
       <SubType>Designer</SubType>

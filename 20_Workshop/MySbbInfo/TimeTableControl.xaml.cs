@@ -39,7 +39,6 @@ namespace MySbbInfo
         public TimeTableControl()
         {
             this.InitializeComponent();
-            this.InitializeTimeControls();
         }
 
         public void Initialize(ITransportService transportService)
@@ -47,17 +46,9 @@ namespace MySbbInfo
             this.transportService = transportService;
         }
 
-        private void InitializeTimeControls()
-        {
-            this.SelectedDate.SelectedDate = DateTime.Now;
-
-            this.SelectedTime.TimeInterval = TimeSpan.FromMinutes(10);
-            this.SelectedTime.Value = DateTime.Now;
-        }
-
         private void SearchConnectionsClick(object sender, RoutedEventArgs e)
         {
-            DateTime startTime = this.SelectedDate.SelectedDate.Value.Date.Add(this.SelectedTime.Value.Value.TimeOfDay);
+            DateTime startTime = this.DepartureTimeSelector.SelectedDateTime;
 
             // see: http://elegantcode.com/2011/10/07/extended-wpf-toolkitusing-the-busyindicator/
             var worker = new BackgroundWorker();
