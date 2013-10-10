@@ -165,8 +165,6 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
 
         private void NavigationServiceOnNavigated(object sender, RegionNavigationEventArgs regionNavigationEventArgs)
         {
-            NavigationContext navigationContext = regionNavigationEventArgs.NavigationContext;
-
             this.NavigationCommandsRaiseCanExecuteChanged();
         }
 
