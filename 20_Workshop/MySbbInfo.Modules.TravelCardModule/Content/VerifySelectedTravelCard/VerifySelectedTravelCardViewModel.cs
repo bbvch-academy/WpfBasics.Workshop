@@ -20,7 +20,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard
     using Microsoft.Practices.Prism.Regions;
 
     [Export]
-    public class VerifySelectedTravelCardViewModel : INavigationAware
+    public class VerifySelectedTravelCardViewModel
     {
         public VerifySelectedTravelCardViewModel()
         {
@@ -28,29 +28,5 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard
         }
 
         public VerifySelectedTravelCardModel SelectedOption { get; set; }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            string selectedOption = navigationContext.Parameters[NavigationParameter.SelectedTravelCardOption];
-            if (!string.IsNullOrEmpty(selectedOption))
-            {
-                this.SelectedOption.SelectedOption = selectedOption;
-            }
-
-            string optionDescription = navigationContext.Parameters[NavigationParameter.TravelCardDescription];
-            if (!string.IsNullOrEmpty(optionDescription))
-            {
-                this.SelectedOption.OptionDescription = optionDescription;
-            }
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-        }
     }
 }

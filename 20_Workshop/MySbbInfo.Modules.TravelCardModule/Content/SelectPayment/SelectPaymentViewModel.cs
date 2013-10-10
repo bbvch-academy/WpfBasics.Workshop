@@ -15,12 +15,7 @@
 
 namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
 {
-    using System.ComponentModel.Composition;
-
-    using Microsoft.Practices.Prism.Regions;
-
-    [Export]
-    public class SelectPaymentViewModel : INavigationAware
+    public class SelectPaymentViewModel
     {
         private const string VisaOption = "Visa";
         private const string MasterCardOption = "MasterCard";
@@ -32,24 +27,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
         }
 
         public SelectPaymentModel SelectedPayment { get; set; }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-            string selectedOption = this.GetSelectedOption();
-
-            navigationContext.Parameters.Add(NavigationParameter.SelectedPaymentOption, selectedOption);
-        }
-
+        
         private string GetSelectedOption()
         {
             if (this.SelectedPayment.IsVisaSelected)

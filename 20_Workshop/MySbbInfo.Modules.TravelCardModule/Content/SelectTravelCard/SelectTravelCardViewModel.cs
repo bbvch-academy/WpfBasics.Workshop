@@ -16,15 +16,10 @@
 namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
 {
     using System.Collections.Generic;
-    using System.ComponentModel.Composition;
-    using System.Globalization;
-
-    using Microsoft.Practices.Prism.Regions;
 
     using MySbbInfo.Modules.TravelCardModule.Properties;
 
-    [Export]
-    public class SelectTravelCardViewModel : INavigationAware
+    public class SelectTravelCardViewModel
     {
         private const string GeneralAboOption = "GA";
         private const string HalfFareOption = "Halbtax";
@@ -56,25 +51,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
         }
 
         public SelectTravelCardModel SelectedOption { get; set; }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-            string selectedOption = this.GetSelectedOption();
-
-            navigationContext.Parameters.Add(NavigationParameter.SelectedTravelCardOption, selectedOption);
-            navigationContext.Parameters.Add(NavigationParameter.TravelCardPrice, TravelCardPrices[selectedOption].ToString(CultureInfo.InvariantCulture));
-            navigationContext.Parameters.Add(NavigationParameter.TravelCardDescription, TravelCardDescriptions[selectedOption]);
-        }
-
+        
         private string GetSelectedOption()
         {
             if (this.SelectedOption.IsGASelected)

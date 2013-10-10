@@ -18,7 +18,6 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard
     using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class VerifySelectedTravelCardView : UserControl
     {
         public VerifySelectedTravelCardView()
@@ -38,15 +37,6 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.VerifySelectedTravelCard
                         OptionDescription = "Description for Universal Abo"
                     }
                 };
-            }
-        }
-
-        [Import]
-        public VerifySelectedTravelCardViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
             }
         }
     }

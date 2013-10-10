@@ -15,24 +15,13 @@
 
 namespace MySbbInfo.Modules.TravelCardModule.Content.SelectPayment
 {
-    using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class SelectPaymentView : UserControl
     {
         public SelectPaymentView()
         {
             this.InitializeComponent();
-        }
-
-        [Import]
-        public SelectPaymentViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
         }
     }
 }

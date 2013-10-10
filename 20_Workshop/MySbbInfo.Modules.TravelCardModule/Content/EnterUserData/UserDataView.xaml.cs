@@ -15,10 +15,8 @@
 
 namespace MySbbInfo.Modules.TravelCardModule.Content.EnterUserData
 {
-    using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class UserDataView : UserControl
     {
         public UserDataView()
@@ -44,15 +42,6 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.EnterUserData
                         Zip = "79535"
                     }
                 };
-            }
-        }
-
-        [Import]
-        public IUserDataViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
             }
         }
     }

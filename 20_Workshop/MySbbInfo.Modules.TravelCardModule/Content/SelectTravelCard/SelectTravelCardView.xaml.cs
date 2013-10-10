@@ -33,14 +33,5 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.SelectTravelCard
                 return new SelectTravelCardViewModel();
             }
         }
-
-        [Import]
-        public SelectTravelCardViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
-        }
     }
 }

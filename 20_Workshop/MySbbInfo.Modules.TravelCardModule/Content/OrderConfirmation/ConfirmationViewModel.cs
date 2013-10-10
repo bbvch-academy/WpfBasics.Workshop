@@ -15,55 +15,8 @@
 
 namespace MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation
 {
-    using System;
-    using System.ComponentModel.Composition;
-    using System.Windows;
-
-    using Microsoft.Practices.Prism.Regions;
-
-    [Export]
-    public class ConfirmationViewModel : IConfirmNavigationRequest
+    public class ConfirmationViewModel
     {
-        public ConfirmationViewModel()
-        {
-            this.ConfirmationData = new ConfirmationModel();
-        }
-
         public ConfirmationModel ConfirmationData { get; set; }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            this.ConfirmationData.TravelCardOption = navigationContext.Parameters[NavigationParameter.SummaryTravelCardOption];
-            this.ConfirmationData.TravelCardPrice = navigationContext.Parameters[NavigationParameter.SummaryTravelCardPrice] + ".- CHF";
-            this.ConfirmationData.CreditCardData = navigationContext.Parameters[NavigationParameter.SummaryCreditCardData];
-            this.ConfirmationData.PaymentOption = navigationContext.Parameters[NavigationParameter.SummaryPaymentOption];
-            this.ConfirmationData.UserPersonalData = navigationContext.Parameters[NavigationParameter.SummaryUserPersonalData];
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-        }
-
-        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
-        {
-            if (navigationContext.Uri.OriginalString != BuyTravelCardViewModel.ViewNameAfterConfirmation)
-            {
-                continuationCallback(true);
-                return;
-            }
-
-            MessageBoxResult result = MessageBox.Show(
-                "Your data will be send to the Credit Card Service. Continue?",
-                "Finish Order",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Information);
-
-            continuationCallback(result == MessageBoxResult.Yes);
-        }
     }
 }

@@ -23,16 +23,7 @@ namespace MySbbInfo.Modules.TravelCardModule.Content
     {
         public BuyTravelCardView()
         {
-            InitializeComponent();
-        }
-
-        [Import]
-        public BuyTravelCardViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
-            }
+            this.InitializeComponent();
         }
     }
 }

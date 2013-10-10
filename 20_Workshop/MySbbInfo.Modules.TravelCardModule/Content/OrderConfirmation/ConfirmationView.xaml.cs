@@ -15,10 +15,8 @@
 
 namespace MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation
 {
-    using System.ComponentModel.Composition;
     using System.Windows.Controls;
 
-    [Export]
     public partial class ConfirmationView : UserControl
     {
         public ConfirmationView()
@@ -38,18 +36,9 @@ namespace MySbbInfo.Modules.TravelCardModule.Content.OrderConfirmation
                         TravelCardPrice = "755.- CHF",
                         CreditCardData = "XXXX XXXX XXXX 7457 : 754",
                         PaymentOption = "Visa",
-                        UserPersonalData = "Kristin Reyes\n\r2910 Centennial Farm Road\n\r6000 Luzern"
+                        UserPersonalData = "\n\rKristin Reyes\n\r2910 Centennial Farm Road\n\r6000 Luzern"
                     }
                 };
-            }
-        }
-
-        [Import]
-        public ConfirmationViewModel ViewModel
-        {
-            set
-            {
-                this.DataContext = value;
             }
         }
     }
