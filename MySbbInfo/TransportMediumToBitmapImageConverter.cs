@@ -37,6 +37,12 @@ namespace MySbbInfo
 
             var transportMediumDescription = (string)value;
 
+            // NF = Niederflur (NFB = Niederflurbus; NFT = Niederflurtram)
+            if (transportMediumDescription.StartsWith("nf", StringComparison.OrdinalIgnoreCase))
+            {
+                transportMediumDescription = transportMediumDescription.Substring(2);
+            }
+
             if (string.IsNullOrWhiteSpace(transportMediumDescription))
             {
                 return this.ConvertToBitmapImage(TransportMedium.walk);
@@ -49,12 +55,12 @@ namespace MySbbInfo
                 return this.ConvertToBitmapImage(TransportMedium.train);
             }
 
-            if (transportMediumDescription.StartsWith("bus", StringComparison.OrdinalIgnoreCase))
+            if (transportMediumDescription.StartsWith("b", StringComparison.OrdinalIgnoreCase))
             {
                 return this.ConvertToBitmapImage(TransportMedium.bus);
             }
 
-            if (transportMediumDescription.StartsWith("tram", StringComparison.OrdinalIgnoreCase))
+            if (transportMediumDescription.StartsWith("t", StringComparison.OrdinalIgnoreCase))
             {
                 return this.ConvertToBitmapImage(TransportMedium.tram);
             }
