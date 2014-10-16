@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TransportApi.cs" company="bbv Software Services AG">
-//   Copyright (c) 2012
+// <copyright file="TransportService.cs" company="bbv Software Services AG">
+//   Copyright (c) 2012 - 2014
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
@@ -11,9 +11,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the TransportApi type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace SbbApi

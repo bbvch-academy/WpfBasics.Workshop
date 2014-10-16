@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="SearchStationCompletedEventArgs.cs" company="bbv Software Services AG">
-//   Copyright (c) 2012
+//   Copyright (c) 2012 - 2014
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
@@ -25,11 +25,11 @@ namespace MySbbInfo.SearchStation
 
     public class SearchStationCompletedEventArgs : EventArgs
     {
-        public IEnumerable<Station> StationsResult { get; private set; }
-
         public SearchStationCompletedEventArgs(IEnumerable<Station> stationsResult)
         {
             this.StationsResult = stationsResult;
         }
+
+        public IEnumerable<Station> StationsResult { get; private set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ChangeUILanguageCommand.cs" company="bbv Software Services AG">
-//   Copyright (c) 2012
+//   Copyright (c) 2012 - 2014
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
@@ -31,16 +31,16 @@ namespace MySbbInfo.Menu
         public const int UnitedStatesEnglishLcid = 1033;
         public const int SwissFrenchLcid = 4108;
 
-        public event EventHandler CanExecuteChanged = (sender, args) => { };
-
-        public event EventHandler UiLanguageChanged = (sender, args) => { };
-
         private readonly int lcid;
 
         public ChangeUiLanguageCommand(int lcid)
         {
             this.lcid = lcid;
         }
+
+        public event EventHandler CanExecuteChanged = (sender, args) => { };
+
+        public event EventHandler UiLanguageChanged = (sender, args) => { };
 
         public bool CanExecute(object parameter)
         {
