@@ -18,9 +18,11 @@
 
 namespace MySbbInfo.SearchStation
 {
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.Windows.Input;
+
+    using Caliburn.Micro;
 
     using Microsoft.Maps.MapControl.WPF;
 
@@ -28,12 +30,12 @@ namespace MySbbInfo.SearchStation
 
     public interface ISearchStationViewModel : INotifyPropertyChanged
     {
-        ICommand SearchStationCommand { get; }
-
         bool IsBusy { get; set; }
 
         ObservableCollection<Station> Stations { get; set; }
 
         Location StationPosition { get; set; }
+
+        IEnumerable<IResult> SearchStation(string stationQuery);
     }
 }

@@ -18,18 +18,21 @@
 
 namespace MySbbInfo.SearchStation
 {
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Windows.Input;
+
+    using Caliburn.Micro;
 
     using Microsoft.Maps.MapControl.WPF;
 
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    public class SearchStationViewModel : ISearchStationViewModel
+    public class SearchStationViewModel : PropertyChangedBase, ISearchStationViewModel
     {
         private static readonly Location LocationBern = new Location(46.948429107666, 7.44046020507813);
+
+        private readonly ITransportService transportService;
 
         private bool isBusy;
 
@@ -39,15 +42,12 @@ namespace MySbbInfo.SearchStation
 
         public SearchStationViewModel(ITransportService transportService)
         {
+            this.transportService = transportService;
             this.InitializeSearchStationCommand(transportService);
             this.Stations = new ObservableCollection<Station>();
 
             this.stationPosition = LocationBern;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public ICommand SearchStationCommand { get; private set; }
 
         public Station SelectedStation
         {
@@ -58,12 +58,15 @@ namespace MySbbInfo.SearchStation
 
             set
             {
-                this.selectedStation = value;
-                this.OnPropertyChanged("SelectedStation");
-
-                if (value != null && value.Coordinate.X.HasValue && value.Coordinate.Y.HasValue)
+                if ((value != null && value.Equals(this.selectedStation)) || (value == null && this.selectedStation != null))
                 {
-                    this.StationPosition = new Location(value.Coordinate.Y.Value, value.Coordinate.X.Value);
+                    this.selectedStation = value;
+                    this.NotifyOfPropertyChange();
+
+                    if (value != null && value.Coordinate.X.HasValue && value.Coordinate.Y.HasValue)
+                    {
+                        this.StationPosition = new Location(value.Coordinate.Y.Value, value.Coordinate.X.Value);
+                    }
                 }
             }
         }
@@ -77,8 +80,11 @@ namespace MySbbInfo.SearchStation
 
             set
             {
-                this.isBusy = value;
-                this.OnPropertyChanged("IsBusy");
+                if (value != this.isBusy)
+                {
+                    this.isBusy = value;
+                    this.NotifyOfPropertyChange();
+                }
             }
         }
 
@@ -93,17 +99,22 @@ namespace MySbbInfo.SearchStation
 
             set
             {
-                this.stationPosition = value;
-                this.OnPropertyChanged("StationPosition");
+                if (value != this.stationPosition)
+                {
+                    this.stationPosition = value;
+                    this.NotifyOfPropertyChange();
+                }
             }
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        public IEnumerable<IResult> SearchStation(string stationQuery)
         {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            var searchStationCoroutine = new SearchStationCoroutine(this.transportService, stationQuery);
+            searchStationCoroutine.StationSearchCompleted += this.StationSearchCompletedHandler;
+
+            yield return Loader.Show("loading stations");
+            yield return searchStationCoroutine;
+            yield return Loader.Hide();
         }
 
         private void BeginStationSearchHandler(object sender, System.EventArgs e)
@@ -126,11 +137,9 @@ namespace MySbbInfo.SearchStation
         private void InitializeSearchStationCommand(ITransportService transportService)
         {
             var searchStationCommand = new SearchStationAsyncCommand(transportService);
-            
+
             searchStationCommand.StationSearchCompleted += this.StationSearchCompletedHandler;
             searchStationCommand.BeginStationSearch += this.BeginStationSearchHandler;
-
-            this.SearchStationCommand = searchStationCommand;
         }
     }
 }
