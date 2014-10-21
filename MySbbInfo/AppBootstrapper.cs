@@ -46,12 +46,6 @@ namespace MySbbInfo
 
         protected override void Configure()
         {
-            //var defaultBindingAction = ViewModelBinder.Bind;
-            //ViewModelBinder.Bind = (rootModel, view, context) =>
-            //{
-            //    defaultBindingAction(rootModel, view, context);
-            //};
-
             this.Kernel = new StandardKernel();
 
             this.Kernel.Bind<IWindowManager>().To<WindowManager>();

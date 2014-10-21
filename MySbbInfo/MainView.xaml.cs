@@ -11,9 +11,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Interaction logic for MainWindow.xaml
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo
@@ -23,7 +20,6 @@ namespace MySbbInfo
         public MainView()
         {
             this.InitializeComponent();
-            this.DataContext = new MainViewModel();
         }
     }
 }

@@ -11,9 +11,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the MainViewModel type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo
@@ -26,13 +23,11 @@ namespace MySbbInfo
 
     public class MainViewModel : IMainViewModel
     {
-        public MainViewModel()
+        public MainViewModel(IStationTimeTableViewModel stationTimeTable, ISearchStationViewModel searchStation, ITimeTableViewModel timeTable)
         {
-            ITransportService transportService = new TransportService();
-
-            this.StationTimeTable = new StationTimeTableViewModel(transportService);
-            this.SearchStation = new SearchStationViewModel(transportService);
-            this.TimeTable = new TimeTableViewModel(transportService);
+            this.StationTimeTable = stationTimeTable;
+            this.SearchStation = searchStation;
+            this.TimeTable = timeTable;
         }
 
         public IStationTimeTableViewModel StationTimeTable { get; private set; }

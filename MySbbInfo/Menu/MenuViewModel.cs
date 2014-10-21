@@ -18,14 +18,13 @@
 
 namespace MySbbInfo.Menu
 {
-    using System.ComponentModel;
     using System.Threading;
     using System.Windows.Input;
 
-    public class MenuViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
+    using Caliburn.Micro;
 
+    public class MenuViewModel : PropertyChangedBase
+    {
         public MenuViewModel()
         {
             this.InitializeChangeToGermanCommand();
@@ -63,14 +62,6 @@ namespace MySbbInfo.Menu
             }
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
         private void InitializeChangeToGermanCommand()
         {
             var changeUiLanguageCommand = new ChangeUiLanguageCommand(ChangeUiLanguageCommand.SwissGermanLcid);
@@ -94,9 +85,9 @@ namespace MySbbInfo.Menu
 
         private void UiLanguageChanged(object sender, System.EventArgs e)
         {
-            this.OnPropertyChanged("IsGermanSelected");
-            this.OnPropertyChanged("IsFrenchSelected");
-            this.OnPropertyChanged("IsEnglishSelected");
+            this.NotifyOfPropertyChange(() => this.IsGermanSelected);
+            this.NotifyOfPropertyChange(() => this.IsFrenchSelected);
+            this.NotifyOfPropertyChange(() => this.IsEnglishSelected);
         }
     }
 }
