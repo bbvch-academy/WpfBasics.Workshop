@@ -11,9 +11,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Interaction logic for StationControl.xaml
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.StationTimeTable
@@ -22,14 +19,13 @@ namespace MySbbInfo.StationTimeTable
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Text;
-    using System.Windows.Input;
 
-    using GalaSoft.MvvmLight.Command;
+    using Caliburn.Micro;
 
     using SbbApi;
     using SbbApi.ApiClasses;
 
-    public class StationTimeTableViewModel : IStationTimeTableViewModel
+    public class StationTimeTableViewModel : PropertyChangedBase, IStationTimeTableViewModel
     {
         private readonly ITransportService transportService;
 
@@ -40,35 +36,33 @@ namespace MySbbInfo.StationTimeTable
             this.transportService = transportService;
 
             this.StationBoard = new ObservableCollection<string>();
-            this.LoadStationBoardCommand = new RelayCommand<string>(this.ExecuteSearch, this.CanExecuteSearch);
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public ICommand LoadStationBoardCommand { get; private set; }
 
         public ObservableCollection<string> StationBoard { get; set; }
 
         public bool IsBusy
         {
-            get 
+            get
             {
                 return this.isBusy;
             }
 
             set
             {
-                this.isBusy = value;
-                this.OnPropertyChanged("IsBusy");
+                if (value != this.isBusy)
+                {
+                    this.isBusy = value;
+                    this.NotifyOfPropertyChange();
+                }
             }
         }
 
-        public bool CanExecuteSearch(string stationQuery)
+        public bool CanSearch(string stationQuery)
         {
             return !string.IsNullOrWhiteSpace(stationQuery);
         }
 
-        public void ExecuteSearch(string stationQuery)
+        public void Search(string stationQuery)
         {
             this.IsBusy = true;
 
@@ -77,14 +71,6 @@ namespace MySbbInfo.StationTimeTable
             worker.DoWork += (o, ea) => this.RunSearch(ea);
 
             worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, stationQuery));
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
 
         private void RunSearch(DoWorkEventArgs ea)
@@ -100,6 +86,8 @@ namespace MySbbInfo.StationTimeTable
 
         private void SearchCompleted(IEnumerable<Stationboard> stationboard)
         {
+            this.StationBoard.Clear();
+
             foreach (var stop in stationboard)
             {
                 var stationboardOutputBuilder = new StringBuilder();

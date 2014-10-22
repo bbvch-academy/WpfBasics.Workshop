@@ -20,18 +20,15 @@ namespace MySbbInfo.StationTimeTable
 {
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.Windows.Input;
 
     public interface IStationTimeTableViewModel : INotifyPropertyChanged
     {
-        ICommand LoadStationBoardCommand { get; }
-
         ObservableCollection<string> StationBoard { get; set; }
 
         bool IsBusy { get; set; }
 
-        bool CanExecuteSearch(string stationQuery);
+        bool CanSearch(string stationQuery);
 
-        void ExecuteSearch(string stationQuery);
+        void Search(string stationQuery);
     }
 }
