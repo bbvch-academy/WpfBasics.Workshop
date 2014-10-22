@@ -87,6 +87,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Loader.cs" />
     <Compile Include="IMainViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Menu\ChangeUILanguageCommand.cs" />
@@ -94,8 +95,8 @@
     <Compile Include="MySbbInfoModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="SearchStation\ISearchStationViewModel.cs" />
-    <Compile Include="SearchStation\SearchStationAsyncCommand.cs" />
     <Compile Include="SearchStation\SearchStationCompletedEventArgs.cs" />
+    <Compile Include="SearchStation\SearchStationCoroutine.cs" />
     <Compile Include="SearchStation\SearchStationViewModel.cs" />
     <Compile Include="StationTimeTable\IStationTimeTableViewModel.cs" />
     <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />

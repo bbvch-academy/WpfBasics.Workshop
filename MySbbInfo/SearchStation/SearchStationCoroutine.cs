@@ -22,6 +22,9 @@ namespace MySbbInfo.SearchStation
 
     using SbbApi;
     using SbbApi.ApiClasses;
+    using System.ComponentModel;
+
+    public delegate void SearchStationCompletedEventHandler(object sender, SearchStationCompletedEventArgs args);
 
     public class SearchStationCoroutine : IResult
     {
@@ -41,10 +44,38 @@ namespace MySbbInfo.SearchStation
 
         public void Execute(CoroutineExecutionContext context)
         {
-            IEnumerable<Station> locations = this.transportService.GetLocations(this.stationQuery);
+            var worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += (o, ea) => {
+                this.StationSearchCompleted(this, new SearchStationCompletedEventArgs((IEnumerable<Station>)ea.Result));
+                this.Completed(this, new ResultCompletionEventArgs());
+            };
+            worker.DoWork += (o, ea) => this.RunSearch(ea);
 
-            this.StationSearchCompleted(this, new SearchStationCompletedEventArgs(locations));
-            this.Completed(this, new ResultCompletionEventArgs());
+            worker.RunWorkerAsync(new BackgroundWorkerArgs(this.transportService, this.stationQuery));
+        }
+
+        private void RunSearch(DoWorkEventArgs ea)
+        {
+            var args = (BackgroundWorkerArgs)ea.Argument;
+
+            ITransportService service = args.TransportService;
+
+            IEnumerable<Station> stationboard = service.GetLocations(args.Station);
+
+            ea.Result = stationboard;
+        }
+
+        private class BackgroundWorkerArgs
+        {
+            public BackgroundWorkerArgs(ITransportService transportService, string station)
+            {
+                this.TransportService = transportService;
+                this.Station = station;
+            }
+
+            public ITransportService TransportService { get; private set; }
+
+            public string Station { get; private set; }
         }
     }
 }

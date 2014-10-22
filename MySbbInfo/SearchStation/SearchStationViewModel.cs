@@ -20,6 +20,7 @@ namespace MySbbInfo.SearchStation
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
 
     using Caliburn.Micro;
 
@@ -27,14 +28,13 @@ namespace MySbbInfo.SearchStation
 
     using SbbApi;
     using SbbApi.ApiClasses;
+    using MySbbInfo.Properties;
 
     public class SearchStationViewModel : PropertyChangedBase, ISearchStationViewModel
     {
         private static readonly Location LocationBern = new Location(46.948429107666, 7.44046020507813);
 
         private readonly ITransportService transportService;
-
-        private bool isBusy;
 
         private Location stationPosition;
 
@@ -43,7 +43,6 @@ namespace MySbbInfo.SearchStation
         public SearchStationViewModel(ITransportService transportService)
         {
             this.transportService = transportService;
-            this.InitializeSearchStationCommand(transportService);
             this.Stations = new ObservableCollection<Station>();
 
             this.stationPosition = LocationBern;
@@ -67,23 +66,6 @@ namespace MySbbInfo.SearchStation
                     {
                         this.StationPosition = new Location(value.Coordinate.Y.Value, value.Coordinate.X.Value);
                     }
-                }
-            }
-        }
-
-        public bool IsBusy
-        {
-            get
-            {
-                return this.isBusy;
-            }
-
-            set
-            {
-                if (value != this.isBusy)
-                {
-                    this.isBusy = value;
-                    this.NotifyOfPropertyChange();
                 }
             }
         }
@@ -112,14 +94,9 @@ namespace MySbbInfo.SearchStation
             var searchStationCoroutine = new SearchStationCoroutine(this.transportService, stationQuery);
             searchStationCoroutine.StationSearchCompleted += this.StationSearchCompletedHandler;
 
-            yield return Loader.Show("loading stations");
+            yield return Loader.Show();
             yield return searchStationCoroutine;
             yield return Loader.Hide();
-        }
-
-        private void BeginStationSearchHandler(object sender, System.EventArgs e)
-        {
-            this.IsBusy = true;
         }
 
         private void StationSearchCompletedHandler(object sender, SearchStationCompletedEventArgs args)
@@ -130,16 +107,6 @@ namespace MySbbInfo.SearchStation
             {
                 this.Stations.Add(station);
             }
-
-            this.IsBusy = false;
-        }
-
-        private void InitializeSearchStationCommand(ITransportService transportService)
-        {
-            var searchStationCommand = new SearchStationAsyncCommand(transportService);
-
-            searchStationCommand.StationSearchCompleted += this.StationSearchCompletedHandler;
-            searchStationCommand.BeginStationSearch += this.BeginStationSearchHandler;
         }
     }
 }

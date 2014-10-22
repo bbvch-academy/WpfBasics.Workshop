@@ -30,8 +30,6 @@ namespace MySbbInfo.SearchStation
 
     public interface ISearchStationViewModel : INotifyPropertyChanged
     {
-        bool IsBusy { get; set; }
-
         ObservableCollection<Station> Stations { get; set; }
 
         Location StationPosition { get; set; }
