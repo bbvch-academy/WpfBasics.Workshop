@@ -119,8 +119,8 @@
     <Compile Include="TimeTable\Connections\Sections\SectionsViewModel.cs" />
     <Compile Include="TimeTable\ITimeTableViewModel.cs" />
     <Compile Include="TimeTable\Search\ITimeTableSearchViewModel.cs" />
-    <Compile Include="TimeTable\Search\SearchConnectionAsyncCommand.cs" />
     <Compile Include="TimeTable\Search\SearchConnectionCompletedEventArgs.cs" />
+    <Compile Include="TimeTable\Search\SearchConnectionCoroutine.cs" />
     <Compile Include="TimeTable\Search\TimeSelectorControl.xaml.cs">
       <DependentUpon>TimeSelectorControl.xaml</DependentUpon>
     </Compile>

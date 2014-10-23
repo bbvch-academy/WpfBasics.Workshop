@@ -22,21 +22,24 @@ namespace MySbbInfo.TimeTable.Search
     using System.Runtime.CompilerServices;
     using System.Windows.Input;
 
+    using Caliburn.Micro;
+
     using SbbApi;
+    using System.Collections.Generic;
 
     public delegate void NewSearchConnectionResultEventHandler(object sender, SearchConnectionCompletedEventArgs args);
 
-    public class TimeTableSearchViewModel : ITimeTableSearchViewModel
+    public class TimeTableSearchViewModel : PropertyChangedBase, ITimeTableSearchViewModel
     {
-        private bool isBusy;
+        private ITransportService transportService;
 
         public TimeTableSearchViewModel(ITransportService transportService)
         {
-            this.SearchParameter = new TimeTableSearchModel();
-            this.InitializeSearchConnectionCommand(transportService);
-        }
+            this.transportService = transportService;
 
-        public event PropertyChangedEventHandler PropertyChanged = (sender, args) => { };
+            this.SearchParameter = new TimeTableSearchModel();
+            this.SearchParameter.PropertyChanged += (sender, args) => this.NotifyOfPropertyChange(() => this.CanSearchStation);
+        }
 
         public event NewSearchConnectionResultEventHandler NewSearchConnectionResult = (sender, args) => { };
 
@@ -44,39 +47,27 @@ namespace MySbbInfo.TimeTable.Search
 
         public TimeTableSearchModel SearchParameter { get; set; }
 
-        public bool IsBusy
+        public bool CanSearchStation
         {
             get
             {
-                return this.isBusy;
-            }
+                if (SearchParameter == null)
+                {
+                    return false;
+                }
 
-            set
-            {
-                this.isBusy = value;
-                this.OnPropertyChanged();
-            }
-        }
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                return !string.IsNullOrWhiteSpace(SearchParameter.From) && !string.IsNullOrWhiteSpace(SearchParameter.To);
             }
         }
 
-        private void InitializeSearchConnectionCommand(ITransportService transportService)
+        public IEnumerable<IResult> SearchStation()
         {
-            var searchConnectionsCommand = new SearchConnectionAsyncCommand(transportService);
-            searchConnectionsCommand.BeginStationSearch += (sender, args) => this.IsBusy = true;
-            searchConnectionsCommand.SearchConnectionCompleted += (sender, args) =>
-            {
-                this.NewSearchConnectionResult(sender, args);
-                this.IsBusy = false;
-            };
+            var searchConnection = new SearchConnectionCoroutine(this.transportService, this.SearchParameter);
+            searchConnection.SearchConnectionCompleted += (sender, args) => this.NewSearchConnectionResult(sender, args);
 
-            this.SearchConnectionsCommand = searchConnectionsCommand;
+            yield return Loader.Show();
+            yield return searchConnection;
+            yield return Loader.Hide();
         }
     }
 }

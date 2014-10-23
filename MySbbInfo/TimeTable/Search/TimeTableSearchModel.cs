@@ -18,10 +18,11 @@
 
 namespace MySbbInfo.TimeTable.Search
 {
+    using Caliburn.Micro;
     using System;
     using System.ComponentModel;
 
-    public class TimeTableSearchModel : INotifyPropertyChanged
+    public class TimeTableSearchModel : PropertyChangedBase
     {
         private string to;
         private DateTime departureDateTime;
@@ -32,8 +33,6 @@ namespace MySbbInfo.TimeTable.Search
             this.DepartureDateTime = DateTime.Now;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged = (sender, args) => { };
-
         public string From
         {
             get
@@ -43,8 +42,11 @@ namespace MySbbInfo.TimeTable.Search
 
             set
             {
-                this.from = value;
-                this.OnPropertyChanged("From");
+                if (value != this.from)
+                {
+                    this.from = value;
+                    this.NotifyOfPropertyChange();
+                }
             }
         }
 
@@ -57,10 +59,10 @@ namespace MySbbInfo.TimeTable.Search
 
             set
             {
-                if (this.to != value)
+                if (value != this.to)
                 {
                     this.to = value;
-                    this.OnPropertyChanged("To");
+                    this.NotifyOfPropertyChange();
                 }
             }
         }
@@ -74,14 +76,12 @@ namespace MySbbInfo.TimeTable.Search
 
             set
             {
-                this.departureDateTime = value;
-                this.OnPropertyChanged("DepartureDateTime");
+                if (value != this.departureDateTime)
+                {
+                    this.departureDateTime = value;
+                    this.NotifyOfPropertyChange();
+                }
             }
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName = null)
-        {
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

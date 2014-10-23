@@ -24,11 +24,13 @@ namespace MySbbInfo.TimeTable.Connections
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
+    using Caliburn.Micro;
+
     using MySbbInfo.TimeTable.Connections.Sections;
 
     using SbbApi.ApiClasses;
 
-    public class ConnectionsViewModel : IConnectionsViewModel
+    public class ConnectionsViewModel : PropertyChangedBase, IConnectionsViewModel
     {
         private IEnumerable<Connection> latestConnections;
 
@@ -41,8 +43,6 @@ namespace MySbbInfo.TimeTable.Connections
             this.Connections = new Collection<ConnectionsModel>();
             this.Sections = new SectionsViewModel();
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ISectionsViewModel Sections { get; set; }
 
@@ -65,7 +65,7 @@ namespace MySbbInfo.TimeTable.Connections
                 }
 
                 this.Sections.DisplaySections(markedCollection);
-                this.OnPropertyChanged();
+                this.NotifyOfPropertyChange();
             }
         }
 
@@ -78,8 +78,11 @@ namespace MySbbInfo.TimeTable.Connections
 
             private set
             {
-                this.connections = value;
-                this.OnPropertyChanged();
+                if (value != this.connections)
+                {
+                    this.connections = value;
+                    this.NotifyOfPropertyChange();
+                }
             }
         }
 
@@ -101,14 +104,6 @@ namespace MySbbInfo.TimeTable.Connections
             }
 
             this.Connections = connectionModels;
-        }
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

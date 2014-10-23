@@ -11,9 +11,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the ChangeUiLanguageCommand type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.TimeTable.Search
@@ -22,6 +19,8 @@ namespace MySbbInfo.TimeTable.Search
     using System.Collections.Generic;
 
     using SbbApi.ApiClasses;
+
+    public delegate void SearchConnectionCompletedEventHandler(object sender, SearchConnectionCompletedEventArgs args);
 
     public class SearchConnectionCompletedEventArgs : EventArgs
     {

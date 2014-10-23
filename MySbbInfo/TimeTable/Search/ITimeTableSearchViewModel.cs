@@ -27,8 +27,6 @@ namespace MySbbInfo.TimeTable.Search
 
         TimeTableSearchModel SearchParameter { get; set; }
 
-        bool IsBusy { get; set; }
-
         event NewSearchConnectionResultEventHandler NewSearchConnectionResult;
     }
 }
