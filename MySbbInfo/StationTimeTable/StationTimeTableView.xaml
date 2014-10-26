@@ -49,8 +49,8 @@
                     Grid.ColumnSpan="4"
                     Height="30"
                     Margin="0, 10"
-                    cal:Message.Attach="[Event Click] = [Action Search(txtStation.Text)]"
-                    Content="{lex:Loc LoadStationTimeTable}" />
+                    Content="{lex:Loc LoadStationTimeTable}"
+                    cal:Message.Attach="[Event Click] = [Action Search(txtStation.Text)]" />
 
             <ListView Grid.Row="2"
                       Grid.ColumnSpan="5"

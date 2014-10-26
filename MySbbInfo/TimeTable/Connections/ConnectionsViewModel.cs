@@ -28,7 +28,7 @@ namespace MySbbInfo.TimeTable.Connections
 
     using SbbApi.ApiClasses;
 
-    public class ConnectionsViewModel : Conductor<ConnectionViewModel>.Collection.AllActive, IConnectionsViewModel
+    public class ConnectionsViewModel : Conductor<IConnectionViewModel>.Collection.AllActive, IConnectionsViewModel
     {
         private IEnumerable<Connection> latestConnections;
 

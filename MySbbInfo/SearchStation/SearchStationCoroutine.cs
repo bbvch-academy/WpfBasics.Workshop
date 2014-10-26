@@ -17,12 +17,12 @@ namespace MySbbInfo.SearchStation
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
 
     using Caliburn.Micro;
 
     using SbbApi;
     using SbbApi.ApiClasses;
-    using System.ComponentModel;
 
     public delegate void SearchStationCompletedEventHandler(object sender, SearchStationCompletedEventArgs args);
 
@@ -45,7 +45,8 @@ namespace MySbbInfo.SearchStation
         public void Execute(CoroutineExecutionContext context)
         {
             var worker = new BackgroundWorker();
-            worker.RunWorkerCompleted += (o, ea) => {
+            worker.RunWorkerCompleted += (o, ea) => 
+            {
                 this.StationSearchCompleted(this, new SearchStationCompletedEventArgs((IEnumerable<Station>)ea.Result));
                 this.Completed(this, new ResultCompletionEventArgs());
             };

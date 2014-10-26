@@ -14,7 +14,7 @@
              mc:Ignorable="d">
 
     <DockPanel>
-
+        <!--  Displays all connections within the conductor  -->
         <ItemsControl DockPanel.Dock="Top" ItemsSource="{Binding Connections}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -22,8 +22,10 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
+        <!--
+            Displays the sections of a connection.
+            Caliburn.Micro matches the associated view with the view model automatically
+        -->
         <ContentControl DockPanel.Dock="Top" cal:View.Model="{Binding Sections}" />
-
     </DockPanel>
 </UserControl>

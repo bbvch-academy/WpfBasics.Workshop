@@ -13,8 +13,7 @@
              lex:ResxLocalizationProvider.DefaultDictionary="Translation"
              mc:Ignorable="d">
 
-    <xctk:BusyIndicator x:Name="BusySearch"
-                        BusyContent="{lex:Loc SearchingStation}">
+    <xctk:BusyIndicator x:Name="BusySearch" BusyContent="{lex:Loc SearchingStation}">
         <Grid>
             <Grid.Resources>
                 <Style TargetType="{x:Type Label}">

@@ -11,16 +11,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the ChangeUiLanguageCommand type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.SearchStation
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
 
     using Caliburn.Micro;
 
@@ -28,7 +24,6 @@ namespace MySbbInfo.SearchStation
 
     using SbbApi;
     using SbbApi.ApiClasses;
-    using MySbbInfo.Properties;
 
     public class SearchStationViewModel : PropertyChangedBase, ISearchStationViewModel
     {
