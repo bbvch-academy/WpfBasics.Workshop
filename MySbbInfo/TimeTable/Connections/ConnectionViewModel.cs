@@ -17,15 +17,11 @@ namespace MySbbInfo.TimeTable.Connections
 {
     using Caliburn.Micro;
 
-    using SbbApi.ApiClasses;
-
     public class ConnectionViewModel : Screen, IConnectionViewModel
     {
         private bool isSelected;
 
         private ConnectionModel connection;
-
-        private Connection connectionInformation;
 
         public bool IsSelected
         {
@@ -44,19 +40,7 @@ namespace MySbbInfo.TimeTable.Connections
             }
         }
 
-        public Connection ConnectionInformation
-        {
-            get
-            {
-                return this.connectionInformation;
-            }
-
-            set
-            {
-                this.connectionInformation = value;
-                this.NotifyOfPropertyChange();
-            }
-        }
+        // TODO: create a property for the connection information of type SbbApi.ApiClasses.Connection.
 
         public ConnectionModel Connection
         {
@@ -75,10 +59,8 @@ namespace MySbbInfo.TimeTable.Connections
         public void SelectConnection()
         {
             var parent = (IConnectionsViewModel)Parent;
-            if (parent != null)
-            {
-                parent.SelectView(this);
-            }
+
+            // TODO: inform the parent that this is now the selected view.
         }
     }
 }

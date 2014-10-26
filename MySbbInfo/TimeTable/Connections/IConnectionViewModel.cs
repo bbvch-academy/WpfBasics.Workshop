@@ -15,15 +15,13 @@
 
 namespace MySbbInfo.TimeTable.Connections
 {
-    using SbbApi.ApiClasses;
-
     public interface IConnectionViewModel
     {
         bool IsSelected { get; set; }
 
         ConnectionModel Connection { get; set; }
 
-        Connection ConnectionInformation { get; set; }
+        // Connection ConnectionInformation { get; set; }
 
         void SelectConnection();
     }

@@ -28,21 +28,47 @@ namespace MySbbInfo.TimeTable.Connections
 
     using SbbApi.ApiClasses;
 
-    public class ConnectionsViewModel : Conductor<IConnectionViewModel>.Collection.AllActive, IConnectionsViewModel
+    // TODO: Base class should be a cond from Conductor<IConnectionViewModel>.Collection.AllActive
+    public class ConnectionsViewModel : PropertyChangedBase, IConnectionsViewModel
     {
+        private ConnectionModel selectedConnection;
+
         private IEnumerable<Connection> latestConnections;
 
-        private IEnumerable<ConnectionViewModel> connections;
+        private IEnumerable<ConnectionModel> connections;
 
         public ConnectionsViewModel()
         {
-            this.Connections = new Collection<ConnectionViewModel>();
+            this.Connections = new Collection<ConnectionModel>();
             this.Sections = new SectionsViewModel();
         }
 
         public ISectionsViewModel Sections { get; set; }
 
-        public IEnumerable<ConnectionViewModel> Connections
+        public ConnectionModel SelectedConnection
+        {
+            get
+            {
+                return this.selectedConnection;
+            }
+
+            set
+            {
+                this.selectedConnection = value;
+                Connection markedCollection = null;
+
+                if (value != null)
+                {
+                    markedCollection = this.latestConnections.FirstOrDefault(
+                        x => x.From.Station.Name == value.DepartingStationName && x.From.Departure == value.DepartureDateTime);
+                }
+
+                this.Sections.DisplaySections(markedCollection);
+                this.NotifyOfPropertyChange();
+            }
+        }
+
+        public IEnumerable<ConnectionModel> Connections
         {
             get
             {
@@ -55,13 +81,6 @@ namespace MySbbInfo.TimeTable.Connections
                 {
                     this.connections = value;
                     this.NotifyOfPropertyChange();
-
-                    ConnectionViewModel viewModel = this.connections.FirstOrDefault();
-                    if (viewModel != null)
-                    {
-                        viewModel.SelectConnection();
-                        this.DisplayFirstConnection();
-                    }
                 }
             }
         }
@@ -70,58 +89,30 @@ namespace MySbbInfo.TimeTable.Connections
         {
             this.latestConnections = updatedConnections;
 
-            var connectionsViewModels = new Collection<ConnectionViewModel>();
+            var connectionsModels = new Collection<ConnectionModel>();
 
             foreach (Connection connection in this.latestConnections)
             {
-                var connectionViewModel = new ConnectionViewModel
-                {
-                    Connection = new ConnectionModel(
-                        connection.From.Station.Name,
-                        connection.From.Departure,
-                        connection.To.Station.Name,
-                        connection.To.Arrival,
-                        connection.Duration,
-                        connection.Capacity2nd),
-                    ConnectionInformation = connection
-                };
+                var model = new ConnectionModel(
+                    connection.From.Station.Name,
+                    connection.From.Departure,
+                    connection.To.Station.Name,
+                    connection.To.Arrival,
+                    connection.Duration,
+                    connection.Capacity2nd);
 
-                connectionsViewModels.Add(connectionViewModel);
-                this.ActivateItem(connectionViewModel);
+                connectionsModels.Add(model);
+
+                // TODO: active the connection view model with this.ActivateItem(connectionViewModel);
+                //       in order to set the value for the parent property
             }
 
-            this.Connections = connectionsViewModels;
+            this.Connections = connectionsModels;
         }
 
         public void SelectView(ConnectionViewModel selectedViewModel)
         {
-            foreach (ConnectionViewModel connection in this.Connections)
-            {
-                connection.IsSelected = false;
-            }
-
-            this.Sections.DisplaySections(selectedViewModel.ConnectionInformation);
-            selectedViewModel.IsSelected = true;
-        }
-
-        private void DisplayFirstConnection()
-        {
-            ConnectionViewModel firstConnection = this.Connections.FirstOrDefault();
-            if (firstConnection == null)
-            {
-                return;
-            }
-
-            Connection markedCollection =
-                this.latestConnections.FirstOrDefault(
-                    x =>
-                    x.From.Station.Name == firstConnection.Connection.DepartingStationName
-                    && x.From.Departure == firstConnection.Connection.DepartureDateTime);
-
-            if (markedCollection != null)
-            {
-                this.Sections.DisplaySections(markedCollection);
-            }
+            // TODO: mark selectedViewModel as selected and all others as unselected.
         }
     }
 }

@@ -27,7 +27,7 @@ namespace MySbbInfo.TimeTable.Connections
 
     public interface IConnectionsViewModel : INotifyPropertyChanged
     {
-        IEnumerable<ConnectionViewModel> Connections { get; }
+        IEnumerable<ConnectionModel> Connections { get; }
 
         ISectionsViewModel Sections { get; set; }
 
