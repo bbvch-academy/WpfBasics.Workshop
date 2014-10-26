@@ -100,12 +100,14 @@
     <Compile Include="SearchStation\SearchStationViewModel.cs" />
     <Compile Include="StationTimeTable\IStationTimeTableViewModel.cs" />
     <Compile Include="StationTimeTable\StationTimeTableViewModel.cs" />
-    <Compile Include="TimeTable\Connections\ConnectionsModel.cs" />
+    <Compile Include="TimeTable\Connections\ConnectionModel.cs" />
     <Compile Include="TimeTable\Connections\ConnectionsView.xaml.cs">
       <DependentUpon>ConnectionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TimeTable\Connections\ConnectionsViewModel.cs" />
+    <Compile Include="TimeTable\Connections\ConnectionViewModel.cs" />
     <Compile Include="TimeTable\Connections\IConnectionsViewModel.cs" />
+    <Compile Include="TimeTable\Connections\IConnectionViewModel.cs" />
     <Compile Include="TimeTable\Connections\Occupancy.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,7 +119,11 @@
       <DependentUpon>SectionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TimeTable\Connections\Sections\SectionsViewModel.cs" />
+    <Compile Include="TimeTable\Connections\SelectionToBorderThicknessConverter.cs" />
     <Compile Include="TimeTable\ITimeTableViewModel.cs" />
+    <Compile Include="TimeTable\Connections\ConnectionView.xaml.cs">
+      <DependentUpon>ConnectionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimeTable\Search\ITimeTableSearchViewModel.cs" />
     <Compile Include="TimeTable\Search\SearchConnectionCompletedEventArgs.cs" />
     <Compile Include="TimeTable\Search\SearchConnectionCoroutine.cs" />
@@ -198,6 +204,10 @@
     <Page Include="TimeTable\Connections\Sections\SectionsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeTable\Connections\ConnectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TimeTable\Search\TimeSelectorControl.xaml">
       <SubType>Designer</SubType>

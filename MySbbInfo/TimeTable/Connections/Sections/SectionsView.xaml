@@ -37,13 +37,8 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding Path=DepartingStationName}" />
-                        <TextBlock Grid.Row="1" Text="{Binding Path=ArrivingStationName}" />
                         <TextBlock Grid.Column="1" Text="{Binding Path=DepartureDateTime, StringFormat=dd.MM.yy}" />
                         <TextBlock Grid.Column="2" Text="{Binding Path=DepartureDateTime, StringFormat=HH:mm}" />
-                        <TextBlock Grid.Row="1"
-                                   Grid.Column="2"
-                                   Text="{Binding Path=ArrivalDateTime,
-                                                  StringFormat=HH:mm}" />
                         <TextBlock Grid.Column="3" Text="{Binding Path=DepartingPlatform}" />
                         <Image Grid.RowSpan="2"
                                Grid.Column="4"
@@ -73,9 +68,6 @@
                                Source="../../../img/walk.png"
                                Visibility="{Binding Path=IsPedestrianVisible,
                                                     Converter={StaticResource ShowImageConverter}}" />
-                        <TextBlock Grid.Row="1"
-                                   Grid.Column="3"
-                                   Text="{Binding Path=ArrivingPlatform}" />
                         <TextBlock Grid.Column="5" Text="{Binding Path=TransportMedium}" />
                         <TextBlock Grid.Column="6"
                                    Style="{StaticResource DelayMessage}"
@@ -83,6 +75,14 @@
                         <TextBlock Grid.Column="6"
                                    Style="{StaticResource DelayMessage}"
                                    Text="{Binding Path=DelayAtArrival}" />
+                        <TextBlock Grid.Row="1" Text="{Binding Path=ArrivingStationName}" />
+                        <TextBlock Grid.Row="1"
+                                   Grid.Column="2"
+                                   Text="{Binding Path=ArrivalDateTime,
+                                                  StringFormat=HH:mm}" />
+                        <TextBlock Grid.Row="1"
+                                   Grid.Column="3"
+                                   Text="{Binding Path=ArrivingPlatform}" />
                     </Grid>
                 </Border>
             </ItemContainerTemplate>

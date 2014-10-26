@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MySbbInfo.TimeTable.Connections.ConnectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MySbbInfo.TimeTable.Connections"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Background="White"
+             d:DataContext="{d:DesignInstance Type=local:ConnectionViewModel}"
+             d:DesignHeight="50"
+             d:DesignWidth="500"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <local:SelectionToBorderThicknessConverter x:Key="SelectionToBorderThicknessConverter" />
+    </UserControl.Resources>
+    <Border BorderBrush="LightSkyBlue" BorderThickness="{Binding IsSelected, Converter={StaticResource SelectionToBorderThicknessConverter}}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Label Content="{Binding Connection.DepartingStationName}" />
+            <TextBlock Grid.Row="0"
+                       Grid.Column="1"
+                       Text="-&gt;" />
+            <Label Grid.Row="0"
+                   Grid.Column="2"
+                   Content="{Binding Connection.ArrivingStationName}" />
+            <Button Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="4"
+                    Width="50"
+                    Height="25"
+                    Content="Details"
+                    cal:Message.Attach="SelectConnection()" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="{Binding Connection.DepartureDateTime,
+                                      StringFormat=dd.MM.yy HH:mm}" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="2"
+                       Text="{Binding Connection.ArrivalDateTime,
+                                      StringFormat=dd.MM.yy HH:mm}" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="3"
+                       Text="{Binding Connection.JourneyDuration,
+                                      StringFormat=hh\\:mm}" />
+        </Grid>
+    </Border>
+</UserControl>

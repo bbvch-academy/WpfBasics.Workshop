@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ConnectionsModel.cs" company="bbv Software Services AG">
+// <copyright file="ConnectionModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012 - 2014
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -11,18 +11,15 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the ConnectionsModel type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.TimeTable.Connections
 {
     using System;
 
-    public class ConnectionsModel
+    public class ConnectionModel
     {
-        public ConnectionsModel(
+        public ConnectionModel(
             string departingStationName,
             DateTime? departureDateTime,
             string arrivingStationName,

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IConnectionsViewModel.cs" company="bbv Software Services AG">
+// <copyright file="SelectionToBorderThicknessConverter.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012 - 2014
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -11,28 +11,31 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the IConnectionsViewModel type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.TimeTable.Connections
 {
-    using System.Collections.Generic;
-    using System.ComponentModel;
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
 
-    using MySbbInfo.TimeTable.Connections.Sections;
-
-    using SbbApi.ApiClasses;
-
-    public interface IConnectionsViewModel : INotifyPropertyChanged
+    [ValueConversion(typeof(bool), typeof(Thickness))]
+    public class SelectionToBorderThicknessConverter : IValueConverter
     {
-        IEnumerable<ConnectionViewModel> Connections { get; }
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is bool && (bool)value)
+            {
+                return new Thickness(2);
+            }
 
-        ISectionsViewModel Sections { get; set; }
+            return new Thickness(0);
+        }
 
-        void UpdateConnections(IEnumerable<Connection> updatedConnections);
-
-        void SelectView(ConnectionViewModel selectedViewModel);
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

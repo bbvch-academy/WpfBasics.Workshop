@@ -18,14 +18,12 @@
 
 namespace MySbbInfo.TimeTable.Search
 {
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
+    using System.Collections.Generic;
     using System.Windows.Input;
 
     using Caliburn.Micro;
 
     using SbbApi;
-    using System.Collections.Generic;
 
     public delegate void NewSearchConnectionResultEventHandler(object sender, SearchConnectionCompletedEventArgs args);
 

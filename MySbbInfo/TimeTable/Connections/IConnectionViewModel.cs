@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IConnectionsViewModel.cs" company="bbv Software Services AG">
+// <copyright file="IConnectionViewModel.cs" company="bbv Software Services AG">
 //   Copyright (c) 2012 - 2014
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -11,28 +11,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the IConnectionsViewModel type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MySbbInfo.TimeTable.Connections
 {
-    using System.Collections.Generic;
-    using System.ComponentModel;
-
-    using MySbbInfo.TimeTable.Connections.Sections;
-
     using SbbApi.ApiClasses;
 
-    public interface IConnectionsViewModel : INotifyPropertyChanged
+    public interface IConnectionViewModel
     {
-        IEnumerable<ConnectionViewModel> Connections { get; }
+        bool IsSelected { get; set; }
 
-        ISectionsViewModel Sections { get; set; }
+        ConnectionModel Connection { get; set; }
 
-        void UpdateConnections(IEnumerable<Connection> updatedConnections);
+        Connection ConnectionInformation { get; set; }
 
-        void SelectView(ConnectionViewModel selectedViewModel);
+        void SelectConnection();
     }
 }
