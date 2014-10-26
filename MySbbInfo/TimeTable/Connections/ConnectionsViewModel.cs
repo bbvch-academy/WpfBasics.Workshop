@@ -68,6 +68,7 @@ namespace MySbbInfo.TimeTable.Connections
             }
         }
 
+        // TODO: change ConnectionModel to ConnectionViewModel
         public IEnumerable<ConnectionModel> Connections
         {
             get
@@ -103,7 +104,7 @@ namespace MySbbInfo.TimeTable.Connections
 
                 connectionsModels.Add(model);
 
-                // TODO: active the connection view model with this.ActivateItem(connectionViewModel);
+                // TODO: active the connection view model with this.ActivateItem(viewModel);
                 //       in order to set the value for the parent property
             }
 
